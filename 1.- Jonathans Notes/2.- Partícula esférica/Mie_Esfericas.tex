@@ -654,20 +654,20 @@ en donde $\psi_\ell(\rho) = \rho j_\ell(\rho)$ y $\xi_\ell(\rho) = \rho h_\ell^{
 Los campos EMs esparcidos [Ecs. \eqref{eq:EHsAEV}] fueron calculados al considerar una onda plana incidente $\vb{E}^i$ polarizada en la dirección $x$ sin embargo, debido a la simetría de la esfera, una onda plana polarizada en la dirección $y$ se describe mediante la transformación $\varphi\to\varphi+\pi/2$, por lo que los campos EMs esparcidos y dentro de la esfera se calculan mediante el mismo procedimiento \cite{bohren1998absorption}. Entonces, cualquier cantidad relacionada con la absorción y esparcimiento de una esfera se calcula únicamente mediante lo coeficientes de Mie [Ecs. \eqref{eq:MieCoef}]. En particular, para determinar la matriz de esparcimiento $\mathbb{S}$ se relaciona el campos eléctrico esparcido en el límite de campo lejano, en donde al emplear las funciones de Ricatti-Bessel, y sus derivadas, en el límite asintótico\footnote{En el límite $\ell^2 \ll \rho$, se cumple que $h_\ell^{(1)}(\rho)\approx (-i)^\ell e^{i\rho}/i\rho$ y $\dv*{h_\ell^{(1)}}{\rho} = (-i)^\ell e^{i\rho}/\rho$. Por lo tanto,  $\xi(\rho)\approx (-i)^\ell e^{i\rho}/i$ y $\dv*{\xi}{\rho} = (-i)^\ell e^{i\rho}(1/i\rho + 1)$.} $\ell \ll kr$, las componentes radiales de los campos EMs decaen como $(kr)^{-2}$, por lo que es despreciable. Al escribir los armónicos esféricos  [Ecs. \eqref{eq:AEV}] en términos de $\pi_\ell$, $\tau_\ell$ y las funciones de Ricatti--Bessel $\psi$ y $\xi$ en el límite asintótico despreciando los términos proporcionales a $(kr)^{-1}$, el campo eléctrico esparcido en la componente paralela al plano de esparcimiento (ver Fig. \ref{fig:PlanoEsparcimiento}) es
   y  es
 	\begin{align}
-	E_\theta^s \vu{e}_\parallel^s &= \frac{\cos\varphi}{kr}\sum_\ell^\infty E_0\frac{2\ell+1}{\ell(\ell+1)}
-						(i a_\ell\xi_\ell'\tau_\ell-b_\ell\xi_\ell\pi_\ell)\vu{e}_\theta\notag\\
+	E_\theta^s \vu{e}_\parallel^s &= \frac{\cos\varphi}{kr}\sum_\ell^\infty E_0i^\ell
+		\frac{2\ell+1}{\ell(\ell+1)}(i a_\ell\xi_\ell'\tau_\ell-b_\ell\xi_\ell\pi_\ell)\vu{e}_\theta\notag\\
 			&\approx E_0\cos\varphi\frac{e^{ikr}}{kr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}
-				(i a_\ell \tau_\ell - \frac{1}{i}b_\ell\pi_\ell )(-i)^\ell\vu{e}_\theta\notag\\
+				(i a_\ell \tau_\ell - \frac{1}{i}b_\ell\pi_\ell )[i(-i)]^\ell\vu{e}_\theta\notag\\
 			&\approx E_0\cos\varphi\frac{e^{ikr}}{-ikr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}
-				( a_\ell \tau_\ell + b_\ell\pi_\ell )(-i)^\ell\vu{e}_\theta
+				( a_\ell \tau_\ell + b_\ell\pi_\ell )\vu{e}_\theta
 								\label{eq:EthetaS}
 	\end{align}
 donde $\vu{e}_\parallel^s =\vu{e}_\theta$. Asimismo, la componente paralela la plano de esparcimiento del campo eléctrico es
 	\begin{align}
-	E_\varphi^s \vu{e}_\perp^s &= \frac{\sin\varphi}{kr}\sum_\ell^\infty E_0\frac{2\ell+1}{\ell(\ell+1)}						(-ia_\ell\xi_\ell'\pi_\ell+b_\ell\xi_\ell\tau_\ell)\vu{e}_\varphi\notag\\
-			&\approx E_0\sin\varphi\frac{e^{ikr}}{kr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}					(-ia_\ell\pi_\ell+(-i)b_\ell\tau_\ell)(-i)^\ell\vu{e}_\varphi\notag\\
-			&\approx E_0\sin\varphi\frac{e^{ikr}}{ikr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}					(a_\ell\pi_\ell+b_\ell\tau_\ell)(-i)^\ell\vu{e}_\varphi\notag\\
-			&\approx E_0\sin\varphi\frac{e^{ikr}}{-ikr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}					(a_\ell\pi_\ell+b_\ell\tau_\ell)(-i)^\ell(-\vu{e}_\varphi)
+	E_\varphi^s \vu{e}_\perp^s &= \frac{\sin\varphi}{kr}\sum_\ell^\infty E_0i^\ell\frac{2\ell+1}{\ell(\ell+1)}						(-ia_\ell\xi_\ell'\pi_\ell+b_\ell\xi_\ell\tau_\ell)\vu{e}_\varphi\notag\\
+			&\approx E_0\sin\varphi\frac{e^{ikr}}{kr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}					[-ia_\ell\pi_\ell+(-i)b_\ell\tau_\ell]i^\ell(-i)^\ell\vu{e}_\varphi\notag\\
+			&\approx E_0\sin\varphi\frac{e^{ikr}}{ikr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}					(a_\ell\pi_\ell+b_\ell\tau_\ell)[i(-i)]^\ell\vu{e}_\varphi\notag\\
+			&\approx E_0\sin\varphi\frac{e^{ikr}}{-ikr}\sum_\ell^\infty\frac{2\ell+1}{\ell(\ell+1)}					(a_\ell\pi_\ell+b_\ell\tau_\ell)(-\vu{e}_\varphi)
 								\label{eq:EphiS}
 	\end{align}
 donde $\vu{e}_\perp^s=-\vu{e}_\varphi$. Al emplear la Ec. \eqref{eq:EIncidente} para reescribir a la onda plana incidente $\vb{E}^i$ [Ec. \eqref{eqs:EiAEV}] en la base de $\{\vu{e}_\parallel^i,\vu{e}_\perp^i\}$ [Ec. \eqref{eq:vecInc}] se relaciona determina la forma explícita de la matriz de esparcimiento para una partícula esférica\vspace*{-.5em}
