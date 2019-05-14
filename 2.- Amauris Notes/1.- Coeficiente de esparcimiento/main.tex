@@ -1,0 +1,283 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage{algorithm} % Boxes/formatting around algorithms
+\usepackage[noend]{algpseudocode} % Algorithms
+\usepackage{hyperref}
+\usepackage{stmaryrd}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\def\Name{Amauri López Cabrera}  % Your name
+\def\SID{Lycée Lakanal}
+\def\Login{} % Your login (your class account, cs170-xy)
+\def\Homework{N} % Number of Homework
+\def\Session{}
+
+
+\title{Absorción y Esparcimiento de luz por partículas pequeñas}
+\author{\Name{} \texttt{\Login}}
+\markboth{\Session\   \Name}{\Session\  \Name, \texttt{\Login}}
+\pagestyle{myheadings}
+\date{}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9.5in
+\textwidth=7in
+\topmargin=-.5in
+\oddsidemargin=0.001in
+\evensidemargin=0.001in
+\begin{document}
+\section*{4.3 Los campos internos y esparcidos[1]}
+\subsection*{4.3.3 Coeficientes de Esparcimiento}
+Nos gustaría saber como las cantidades observables varían con el tamaño, las propiedades ópticas de la esfera y la naturaleza del medio que la rodea. Para esto el primer paso es obtener expresiones explícitas de los coeficientes de esparcimiento $a_{n}$ y $b_{n}$.
+Para un $"$n$"$ dado hay cuatro coeficientes desconocidos $a_{n}$, $b_{n}$, $c_{n}$ y $d_{n}$, por lo tanto necesitamos cuatro ecuaciones independientes, las cuales se obtienen de las condiciones de frontera en la interfase de la esfera 
+\begin{equation}
+(\textbf{E}_{i}+\textbf{E}_{s}-\textbf{E}_{1}) \times \hat{\textbf{e}}_{r} = (\textbf{H}_{i}+\textbf{H}_{s}-\textbf{H}_{1}) \times \hat{\textbf{e}}_{r}=0
+\end{equation}
+y sus componentes cuando el radio de la esfera es r=a són:
+\begin{equation}\bullet E_{i\theta}+E_{s\theta}=E_{1\theta}  \mid
+\bullet H_{i\theta}+H_{s\theta}=H_{1\theta}
+\end{equation}
+\begin{equation*}\bullet E_{i\phi}+E_{s\phi}=E_{1\phi}   \mid
+\bullet H_{i\phi}+H_{s\phi}=H_{1\phi}
+\end{equation*}
+Para la deducción de los coeficientes de esparcimiento hacemos uso de las condiciones de ortogonalidad de las funciones seno y coseno a demás de las expresiones para el campo Eléctrico y Magnético incidente/esparcido/interno los cuales se expresan con ayuda de las funciones generadoras: $$\Psi_{e1n}=cos\phi P_{n}^{1}(cos\theta)z_{n}(kr)\bullet \Psi_{o1n}=sen\phi P_{n}^{1}(cos\theta)z_{n}(kr)$$
+las cuales cumplen las relaciones
+$$\textbf{M}_{e1n}=\nabla \times (\textbf{r}\Psi_{e1n}); \textbf{M}_{o1n}=\nabla \times (\textbf{r}\Psi_{o1n})$$
+$$\textbf{N}_{e1n}=\frac{\nabla \times \textbf{M}_{e1n}}{k} ; \textbf{N}_{o1n}=\frac{\nabla \times \textbf{M}_{o1n}}{k}$$
+\\ Con estas expresiones  equivalentes a la ecuación (6) escribimos los campos:
+\\
+Campo Incidente
+\begin{equation}
+\textbf{H}_{i}=\frac{-k}{\omega \mu} \Sigma_{n=1}^{\infty} E_{n}(\textbf{M}_{e1n}^{1}+i\textbf{N}_{o1n}^{1})
+\end{equation}
+\begin{equation*}
+\textbf{E}_{i}=\Sigma_{n=1}^{\infty} E_{n}(\textbf{M}_{o1n}^{1}-i\textbf{N}_{e1n}^{1})
+\end{equation*}
+Campo Esparcido
+\begin{equation}
+\textbf{H}_{s}=\frac{k}{\omega \mu} \Sigma_{n=1}^{\infty} E_{n}(ib_{n}\textbf{N}_{o1n}^{3}+a_{n}\textbf{M}_{e1n}^{3})
+\end{equation}
+\begin{equation*}
+\textbf{E}_{s}=\Sigma_{n=1}^{\infty} E_{n}(ia_{n}\textbf{N}_{e1n}^{3}-b_{n}\textbf{M}_{o1n}^{3})
+\end{equation*}
+Campo Interno
+\begin{equation}
+\textbf{H}_{1}=\frac{-k_{1}}{\omega \mu_{1}} \Sigma_{n=1}^{\infty} E_{n}(d_{n}\textbf{M}_{e1n}^{1}+ic_{n}\textbf{N}_{o1n}^{1})
+\end{equation}
+\begin{equation*}
+\textbf{E}_{1}=\Sigma_{n=1}^{\infty} E_{n}(c_{n}\textbf{M}_{o1n}^{1}-id_{n}\textbf{N}_{e1n}^{1})
+\end{equation*}
+donde: $E_{n}=i^{n}E_{0}\frac{2n+1}{n(n+1)}$
+y las expresiones para los campos $\textbf{M}$ y $\textbf{N}$ son:
+\begin{equation}
+\textbf{M}_{o1n}=cos\phi \pi_{n}z_{n}(\rho)  \hat{\textbf{e}}_{\theta}-sen\phi \tau_{n}z_{n}(\rho)  \hat{\textbf{e}}_{\phi}
+\end{equation}
+\begin{equation*}
+\textbf{M}_{e1n}=-sen\phi \pi_{n}z_{n}(\rho)  \hat{\textbf{e}}_{\theta}-cos\phi \tau_{n}z_{n}(\rho)  \hat{\textbf{e}}_{\phi}
+\end{equation*}
+\begin{equation*}
+\textbf{N}_{o1n}=sen \phi n(n+1) sen\theta \pi_{n} \frac{z_n}{\rho} \hat{\textbf{e}}_{r}+sen\phi \tau_{n}\frac{[\rho z_{n}(\rho)]'}{\rho}\hat{\textbf{e}}_{\theta}+cos\phi \pi_{n}\frac{[\rho z_{n}(\rho)]'}{\rho}\hat{\textbf{e}}_{\phi}
+\end{equation*}
+\begin{equation*}
+\textbf{N}_{e1n}=cos\phi n(n+1) sen\theta \pi_{n} \frac{z_n}{\rho} \hat{\textbf{e}}_{r}+cos\phi \tau_{n}\frac{[\rho z_{n}(\rho)]'}{\rho}\hat{\textbf{e}}_{\theta}-sen\phi \pi_{n}\frac{[\rho z_{n}(\rho)]'}{\rho}\hat{\textbf{e}}_{\phi}
+\end{equation*}
+\\
+Los índices en las funciones $\textbf{M}^{i}$ y $\textbf{N}^{i}$ denotan la clase de función esférica de Bessel.
+\\
+$z_{n}$: (i=1) $j_{n}(k,r)$ ; (i=3) $h_{n}^{1}(kr)$ ; $\pi_{n}=\frac{P_{n}}{sen\theta}$ ; $\tau_{n}=\frac{dP_{n}}{d\theta}$.
+\\
+De tal forma que considerando x=ka=$\frac{2\pi Na}{\lambda}$, $m=\frac{k1}{k}$=$\frac{N_{1}}{N}$ la ecuación (2) nos queda:
+\\
+$\bullet E_{i\theta}+E_{s\theta}=E_{1\theta}$
+\begin{equation}
+\Sigma_{n=1}^{\infty}E_{n}(cos\phi \pi_{n} j_{n}(x)-icos\phi\tau_{n}\frac{[xj_{n}(x)]'}{x})+\Sigma_{n=1}^{\infty}E_{n}(ia_{n}cos\phi \tau_{n} \frac{[xh_{n}^{1}(x)]'}{x}-b_{n}cos\phi\pi_{n}h_{n}^{1}(x))=
+\end{equation}
+\begin{equation*}
+\Sigma_{n=1}^{\infty}E_{n}(c_{n}cos\phi\pi_{n}j_{n}(mx)-id_{n}cos\phi\tau_{n}\frac{[mxj_{n}(mx)]'}{mx})
+\end{equation*}
+$\bullet H_{i\theta}+H_{s\theta}=H_{1\theta}$
+\begin{equation}
+\frac{k}{\omega \mu} \Sigma_{n=1}^{\infty} E_{n}(sen\phi \pi_{n}j_{n}(x)-isen\phi\tau_{n}\frac{[xj_{n}(x)]'}{x})+\frac{k}{\omega \mu} \Sigma_{n=1}^{\infty} E_{n}(ib_{n}sen\phi\tau_{n}\frac{[xh_{n}^{1}(x)]'}{x}-a_{n}sen\phi\pi_{n}h_{n}^{1}(x))=
+\end{equation}
+\begin{equation*}
+\frac{k_{1}}{\omega \mu_{1}} \Sigma_{n=1}^{\infty} E_{n}(d_{n}sen\phi \pi_{n}j_{n}(mx)-ic_{n}sen\phi \tau_{n}\frac{[mxj_{n}(mx)]'}{mx})
+\end{equation*}
+De la ecuación (7) pasamos restando el campo interno:
+\begin{equation}
+\Sigma_{n=1}^{\infty} E_{n}[cos\phi \pi_{n} j_{n}(x)-icos\phi\tau_{n}\frac{[xj_{n}(x)]'}{x}+ia_{n}cos\phi \tau_{n} \frac{[xh_{n}^{1}(x)]'}{x}-b_{n}cos\phi\pi_{n}h_{n}^{1}(x)-c_{n}cos\phi\pi_{n}j_{n}(mx)
+\end{equation}
+\begin{equation*}
++id_{n}cos\phi\tau_{n}\frac{[mxj_{n}(mx)]'}{mx}]=0
+\end{equation*}
+Agrupando
+\begin{equation}
+\small
+\Sigma_{n=1}^{\infty} E_{n}[\pi_{n}[cos\phi  j_{n}(x)-b_{n}cos\phi h_{n}^{1}(x)-c_{n}cos\phi j_{n}(mx)]+\tau_{n}[-icos\phi\frac{[xj_{n}(x)]'}{x}+ia_{n}cos\phi \frac{[xh_{n}^{1}(x)]'}{x}+id_{n}cos\phi\frac{[mxj_{n}(mx)]'}{mx}]]=0
+\end{equation}
+\smallskip
+Cómo $E_{n}\neq0$
+\begin{equation}
+\pi_{n}[cos\phi  j_{n}(x)-b_{n}cos\phi h_{n}^{1}(x)-c_{n}cos\phi j_{n}(mx)]+\tau_{n}[-icos\phi\frac{[xj_{n}(x)]'}{x}+ia_{n}cos\phi \frac{[xh_{n}^{1}(x)]'}{x}+id_{n}cos\phi\frac{[mxj_{n}(mx)]'}{mx}]=0
+\end{equation}
+Las funciones dependientes del ángulo:
+\\
+\\$$\pi_{n}=\frac{2n-1}{n-1}\mu \pi_{n-1}-\frac{n}{n-1}\pi_{n-2} ; \tau_{n}=n\mu \pi_{n}-(n+1)\pi_{n-1}$$
+\\
+$ \pi_{0}=0$ y $\pi_{1}=1 $
+\\
+Entonces para $\pi$ y $\tau$ tenemos respectivamente:
+\begin{equation}
+[cos\phi  j_{n}(x)-b_{n}cos\phi h_{n}^{1}(x)-c_{n}cos\phi j_{n}(mx)]=0
+\end{equation}
+\begin{equation}
+[-icos\phi\frac{[xj_{n}(x)]'}{x}+ia_{n}cos\phi \frac{[xh_{n}^{1}(x)]'}{x}+id_{n}cos\phi\frac{[mxj_{n}(mx)]'}{mx}]=0
+\end{equation}
+Multiplicando por $cos\phi'$ e integrando de 0 a 2$\pi$ obtenemos las primeras dos ecuaciones lineales de los vectores armónicos que contienen a los coeficientes de expansión 
+\begin{equation}
+\odot j_{n}(mx)c_{n}+h_{n}^{1}(x)b_{n}=j_{n}(x)
+\end{equation}
+\begin{equation}
+\odot [mxj_{n}(mx)]'d_{n}+m[xh_{n}^{1}(x)]'a_{n}+
+=m[xj_{n}(x)]'
+\end{equation}
+De forma similar para la ecuación (8)
+\begin{scriptsize}
+\begin{equation}
+\pi_{n}[\frac{k}{\omega \mu}(sen\phi j_{n}(x)-a_{n}sen\phi h_{n}^{1}(x))-\frac{k_{1}}{\omega \mu_{1}}d_{n}sen\phi j_{n}(mx)]+\tau_{n}[\frac{k}{\omega \mu}(-isen\phi\frac{[xj_{n}(x)]'}{x}+ ib_{n}sen\phi\frac{[xh_{n}^{1}(x)]'}{x})+\frac{k_{1}}{\omega \mu_{1}}ic_{n}sen\phi \frac{[mxj_{n}(mx)]'}{mx}]=0
+\end{equation}
+\end{scriptsize}
+entonces tenemos:
+\begin{equation}
+[\frac{k}{\omega \mu}(sen\phi j_{n}(x)-a_{n}sen\phi h_{n}^{1}(x))-\frac{k_{1}}{\omega \mu_{1}}d_{n}sen\phi j_{n}(mx)]=0
+\end{equation}
+\begin{equation}
+[\frac{k}{\omega \mu}(-isen\phi\frac{[xj_{n}(x)]'}{x}+ ib_{n}sen\phi\frac{[xh_{n}^{1}(x)]'}{x})+\frac{k_{1}}{\omega \mu_{1}}ic_{n}sen\phi \frac{[mxj_{n}(mx)]'}{mx}]=0
+\end{equation}
+Multiplicando por sen$\phi'$ e integrando de 0 a 2$\pi$ obtenemos las segundas ecuaciones lineales de los vectores armónicos que tienen a los coeficientes de expansión
+\begin{equation}
+\odot \mu mj_{n}(mx)d_{n}+\mu_{1}h_{n}^{1}(x)a_{n}=\mu_{1}j_{n}(x)
+\end{equation}
+\begin{equation}
+\odot \mu [mxj_{n}(mx)]'c_{n}+\mu_{1}[xh_{n}^{1}(x)]'b_{n}=\mu_{1}[xj_{n}(x)]'
+\end{equation}
+Llegamos a las expresiones (14,15,19,20) que contienen a los coeficientes de expansión utilizando únicamente las condiciones de frontera (2) en la componente $\theta$ para $\textbf{E}$ y $\textbf{H}$, las mismas ecuaciones resultan si analizamos la componente $\phi$, es decir, la información de las cuatro ecuaciones son redundantes, sólo dos son linealmente independientes.
+\begin{equation*}
+j_{n}(mx)c_{n}+h_{n}^{1}(x)b_{n}=j_{n}(x)
+\end{equation*}
+\begin{equation*}
+\mu [mxj_{n}(mx)]'c_{n}+\mu_{1}[xh_{n}^{1}(x)]'b_{n}=\mu_{1}[xj_{n}(x)]'
+\end{equation*}
+\begin{equation*}
+\mu mj_{n}(mx)d_{n}+\mu_{1}h_{n}^{1}(x)a_{n}=\mu_{1}j_{n}(x)
+\end{equation*}
+\begin{equation*}
+[mxj_{n}(mx)]'d_{n}+m[xh_{n}^{1}(x)]'a_{n}+
+=m[xj_{n}(x)]'
+\end{equation*}
+Las cuatro ecuaciones lineales  se pueden resolver para los coeficientes tanto de los campos dentro de la partícula
+\begin{equation}
+c_{n}=\frac{\mu_{1}j_{n}(x)[xh_{n}^{1}(x)]'-\mu_{1}h_{n}^{1}(x)[xj_{n}(x)]'}{\mu_{1}j_{n}(mx)[xh_{n}^{1}(x)]'-\mu h_{n}^{1}(x)[mxj_{n}(mx)]'}
+\end{equation}
+\begin{equation}
+d_{n}=\frac{\mu_{1}mj_{n}(x)[xh_{n}^{1}(x)]'-\mu_{1}mh_{n}^{1}(x)[xj_{n}(x)]'}{\mu m^{2}j_{n}(mx)[xh_{n}^{1}(x)]'-\mu_{1} h_{n}^{1}(x)[mxj_{n}(mx)]'}
+\end{equation}
+y los campos esparcidos
+\begin{equation}
+a_{n}=\frac{\mu m^{2}j_{n}(mx)[xj_{n}(x)]'-\mu_{1} j_{n}(x)[mxj_{n}(mx)]'}{\mu m^{2}j_{n}(mx)[xh_{n}^{1}(x)]'-\mu_{1} h_{n}^{1}(x)[mxj_{n}(mx)]'}
+\end{equation}
+\begin{equation}
+b_{n}= \frac{\mu_{1} j_{n}(mx)[xj_{n}(x)]'-\mu j_{n}(x)[mxj_{n}(mx)]'}{\mu_{1}j_{n}(mx)[xh_{n}^{1}(x)]'-\mu h_{n}^{1}(x)[mxj_{n}(mx)]'}
+\end{equation}
+Para una $"$n$"$ la frecuencia es tal que el denominador de $a_{n}$ o $b_{n}$ es muy pequeño , el modo normal correspondiente dominara en el campo esparcido. Las condiciones para que $a_{n}$ y $b_{n}$ sean modos dominantes se cumplen respectivamente cuando:
+\begin{equation}
+\frac{[xh_{n}^{1}(x)]'}{h_{n}^{1}(x)}\simeq \frac{\mu_{1}[mxj_{n}(mx)]'}{\mu m^2 j_{n}(mx)}
+\end{equation}
+\begin{equation}
+\frac{[xh_{n}^{1}(x)]'}{h_{n}^{1}(x)}\simeq \frac{\mu [mxj_{n}(mx)]'}{\mu_{1} j_{n}(mx)}
+\end{equation}
+En general el campo esparcido es una superposición de modos normales
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Los coeficientes de esparcimiento ecuaciones (23 y 24) pueden escribirse de una forma más simple considerando las funciones de Riccati-Bessel 
+\begin{equation}
+\Psi_{n}(\rho)=\rho j_{n}(\rho) , \xi(\rho)=\rho h_{n}^{1}(\rho)
+\end{equation}
+\begin{equation}
+\Psi_{n}(mx)=mx j_{n}(mx) , \xi(mx)=mx h_{n}^{1}(mx)
+\end{equation}
+\begin{equation}
+\Psi_{n}(x)=x j_{n}(x) , \xi(x)=x h_{n}^{1}(x)
+\end{equation}
+Considerando que $\mu$=$\mu_{1}$, tenemos que el coeficiente $a_{n}$
+\begin{equation}
+a_{n}=\frac{m \frac{\Psi_{n}(mx) }{x}\Psi_{n}'(x)-\frac{\Psi_{n}(x)}{x}\Psi_{n}'(mx)}{m \frac{\Psi_{n}(mx)}{x}\xi_{n}'(x)-\frac{\xi_{n}(x)}{x}\Psi_{n}'(mx)}
+\end{equation}
+de forma análoga para $b_{n}$; lo que resulta en:
+\begin{equation}
+a_{n}=\frac{m \Psi_{n}(mx)\Psi_{n}'(x)-\Psi_{n}(x)\Psi_{n}'(mx)}{m \Psi_{n}(mx)\xi_{n}'(x)-\xi_{n}(x)\Psi_{n}'(mx)}
+\end{equation}
+\begin{equation}
+b_{n}=\frac{ \Psi_{n}(mx)\Psi_{n}'(x)-m\Psi_{n}(x)\Psi_{n}'(mx)}{ \Psi_{n}(mx)\xi_{n}'(x)-m\xi_{n}(x)\Psi_{n}'(mx)}
+\end{equation}
+Si m tiende a la unidad los coeficientes de esparcimiento desaparecen, es decir, la partícula desaparece por lo tanto también el campo esparcido
+\\
+\\
+Las frecuencias para las cuales las ecuaciones 25 y 26 se cumplen de forma exacta son llamadas frecuencias naturales de la esfera, su valor es complejo, dichos modos son llamados modos virtuales.Para esferas iónicas estos modos recaen naturalmente en tres clases: modos de baja frecuencias, modos de alta frecuencia y modos de superficie.
+
+\begin{thebibliography}{1}
+\bibitem{2}
+Absorption and Scattering of Light by Small Partcicles, Craig F. Bohren, Donald R.Huffman, edit. Wiley-vch, 1998
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
