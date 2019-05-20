@@ -24,14 +24,14 @@ De forma general hay que corregir el lenguaje y homogenizarlo; lo mismo con la n
 
 2. Partícula esférica
     - [x] Armónicos vectoriales (generales)
-    - [ ] Escribir el vector piloto no como constante, sino como el radio-vector \vec{r} (lo tengo en las notas de mi tesis, ntp)
+    - [ ] Escribir el vector piloto no como constante, sino como el radio-vector $\vec{r}$ (lo tengo en las notas de mi tesis, ntp)
     - [x] Solucion completa de la función generadora de los armónicos esféricos vectoriales
     - [x] Todas las relaciones de ortogonalidad (con desarrollo) de los armónicos esféricos vectoriales
     - [x] Cálculo del coeficiente B_{o1\ell} de la onda plana
     - [ ] Cálculo del coeficiente A_{e1\ell} de la onda plana
-    - [x] Deficinición de \tau_{\ell}  y \pi_{\ell}
+    - [x] Definición de \tau_{\ell}  y \pi_{\ell}
     - [ ] Cálculo de su relación de ortogonalidad
-    - [ ] Cálculo del sistema de ecuaciones para determinar a los coeficitnes a_{\ell}, b_{\ell}, c_{\ell} y d_{\ell}
+    - [ ] Cálculo del sistema de ecuaciones para determinar a los coeficinetes a_{\ell}, b_{\ell}, c_{\ell} y d_{\ell}
     - [ ] Solución del sistema de ecuaciones (aunque Amauri también cree que este paso es irrelevante)
     - [x] Cálculo explícito de la matriz de esparcimiento de Mie
     - [x] Diagramas o figuras propios (incluye gif de los modos normales)
@@ -40,8 +40,8 @@ De forma general hay que corregir el lenguaje y homogenizarlo; lo mismo con la n
     - [x] Caso estático del campo eléctico cuando incide una onda plana sobre una esfera (partícula pequeña)
     - [x] Caso dinámico de al considerar un fuente oscilante (y sólo la contribución dipolar, igual que en 1)
     - [x] Aproximación empleando la solución de Medie
-    - [ ] Comparar que el caso dinámico y el esttico coinciden (falta rotar un sistema pues una polarización es en el eje x mientras que la otra es en el eje z)
-    - [x] diagramas propios (que hay que mejorar)
+    - [ ] Comparar que el caso dinámico y el estático coinciden (falta rotar un sistema pues una polarización es en el eje x mientras que la otra es en el eje z)
+    - [x] Diagramas propios (que hay que mejorar)
 
 4. Proyecto EVOO
     - [x] mediciones experimentales con NPs de oro y plata que comparan la sección de extinción, esparcimiento y absorciín de partículas pequeñas empleando la solución de Mie
@@ -69,7 +69,31 @@ De forma general hay que corregir el lenguaje y homogenizarlo; lo mismo con la n
     - [ ] Diagramas propios
     - [ ] **Hay problemas de compilación**
 
-## Referencias
-[1] 1. G. Mie, "Beiträge zur Optik trüber Medien, speziell kolloidaler Metallösungen," _Ann. Phys._ 330, 377–445 (1908).
+## Tareas
 
-[2] C.F. Bohren y D. R. Huffman. _Absorption and scattering of light by small particles._ John Wiley & Sons, 1908.
+1. Procedimientos faltantes
+    1. Matriz de esparcimiento de Mie
+        - [ ] Cálculo del coeficiente A_{e1\ell} de la onda plana
+        - [ ] Cálculo de su relación de ortogonalidad de \tau_\ell\pm\pi_\ell
+        - [ ] Cálculo del sistema de ecuaciones para determinar a los coeficitnes a_{\ell}, b_{\ell}, c_{\ell} y d_{\ell}
+    2. Sección transversal de extinción, absorción y esparcimiento
+        - [ ] C_{ext} y C_{sca} en términos de los coeficientes de Mie a_\ell y b_\ell
+    3. Límite de partícula pequeña
+        - [ ] Comparar que el caso dinámico y el estático coinciden (falta rotar un sistema pues una polarización es en el eje x mientras que la otra es en el eje z)
+
+2. Ejemplos y diagramas
+    - [ ] Homogenizar comandos en LaTeX (Librería _Physics_)
+    - Homogenizar las gráficas ya producidas
+        - [ ] Suspensión coloidal de oro (experimento)
+        - [ ] Suspensión coloidal de plata (experimento)
+        - [ ] Partícula de agua (cambiar a \lambda o a \hbar\omega)
+    - [ ] Diagrama para explicar la determinación de los parámetros de Stokes
+    - [ ] Diagrama para explicar el teorema óptico
+
+3. Estilo y redacción
+    - [ ] Gramática y ortografía
+    - [ ] Introducción a cada sección
+
+## Referencias
+- [1] [G. Mie, "Beiträge zur Optik trüber Medien, speziell kolloidaler Metallösungen," _Ann. Phys._ 330, 377–445 (1908).](https://onlinelibrary.wiley.com/doi/epdf/10.1002/andp.19083300302)
+- [2] [C.F. Bohren y D. R. Huffman. _Absorption and scattering of light by small particles._ John Wiley & Sons, 1908.](https://books.google.com.mx/books/about/Absorption_and_Scattering_of_Light_by_Sm.html?id=ib3EMXXIRXUC&redir_esc=y)
