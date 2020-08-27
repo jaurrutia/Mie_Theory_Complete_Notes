@@ -1,6 +1,6 @@
 # Notas de la solución de Mie
 
-La solución de Mie, también conocida como teoría, resuelve el problema de absorción de luz por una esfera de tamaño y material arbitrario al ser iluminada por una onda plana. Gustav Mie publica su artículo [[1](1)] en 1908 y en éste resuelve la ecuación de Helmholtz y resuelve los campos electromagnéticos (EMs) esparcidos por la esfera, así como los campos Em dentro de ella.
+La solución de Mie, también conocida como teoría, resuelve el problema de absorción de luz por una esfera de tamaño y material arbitrario al ser iluminada por una onda plana. Gustav Mie publica su artículo [[1](1)] en 1908 y en éste resuelve la ecuación de Helmholtz y resuelve los campos electromagnéticos (EMs) esparcidos por la esfera, así como los campos EM dentro de ella.
 
 Como parte de un seminarios dedicado a la solución de Mie, basado en el libro de Bohren y Huffman [[2](2)], se crearon diversas notas por los participantes del seminario, en donde se comenta y da detalle del procedimiento matemático necesario. La propósito de este repositorio es el compilar las notas de cada participante y generar una referencia en español sobre el tema.
 
