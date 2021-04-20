@@ -1,0 +1,1102 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{flushend}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage[left=1.5cm,top=2.5cm,right=1.5cm,bottom=3.0cm]{geometry}
+\usepackage{lipsum}
+\usepackage{pgfplotstable}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+\usepackage{array,url,kantlipsum}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{adjustbox} %tamaño tablas
+\usepackage{tcolorbox}%para resaltar información en cajas de color
+\tcbuselibrary{theorems}
+\newcommand{\Mark}[1]{\textsuperscript{#1}}
+\usepackage[spanish]{babel}
+\addto\captionsspanish{
+\renewcommand{\partname}{Libro}
+\renewcommand{\chaptername}{Capitulo}
+}
+
+
+%\renewcommand{\abstractname}{Abstract}
+%\renewcommand\refname{Referencias}
+\renewcommand{\tablename}{\small Tabla}
+\renewcommand{\figurename}{\small Figura}
+\renewcommand{\labelitemi}{$\bullet$}
+%\pgfplotsset{compat=1.14}
+
+%\setlength{\columnsep}{1cm}
+\setlength{\parindent}{0mm}
+\usepackage{caption}
+\captionsetup[figure]{font=footnotesize, labelfont=footnotesize}
+\usepackage{booktabs}
+\begin{document}
+\begin{document}
+{
+ \centering
+ \LARGE Transferencia de momento de un electrón rápido a una nanopartícula plasmónica\\[1.0em]
+ \large Eduardo Enrique Viveros Armas\\
+ \normalsize Facultad de Ciencias, Universidad Nacional Autónoma de México.\\ 
+ \url{viveroslalo@ciencias.unam.mx}\\}
+\large Creado: 18 de Mayo de 2020 \\
+\large Ultima modificación: 23 de Mayo de 2020\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[\small{Campo del electrón en coordenadas carterianas}]{\large{Cálculo del campo EM debido a un electrón en movimiento rectilíneo uniforme: coordenadas cartesianas}}
+
+\setcounter{equation}{0}
+
+\normalsize El problema consiste en calcular el campo electromagnético debido a un electrón con velocidad relativista $\vec{v}=v\hat{e}_z$ a una distancia b del origen. Para ello se definen dos sistemas de referencia: $S$ colocado en el origen y $S'$ desde el punto de vista del electrón. Los campos de estos sistemas se relacionan mediante el tensor de Faraday 
+
+\begin{equation}
+F^{\mu\nu}=
+	\begin{pmatrix}
+		0					&	-\frac{E_x}{c}	&	-\frac{E_y}{c}	&	-\frac{E_z}{c}	\\
+		\frac{E_x}{c}	&	0						&	-B_z					&	B_y					\\
+		\frac{E_y}{c}	&	B_z					&	0						&	-B_x					\\
+		\frac{E_z}{c}	&	-B_y					&	B_x					&	0						\\
+	\end{pmatrix}
+\label{TensorFaraday}
+\end{equation}
+
+y la transformación de Lorentz
+
+\begin{equation}
+\Lambda_{\mu'}^{\mu}=
+	\begin{pmatrix}
+		\gamma			&	0	&	0	&	\gamma\beta	\\
+		0						&	1	&	0	&	0						\\
+		0						&	0	&	1	&	0						\\
+		\gamma\beta	&	0	&	0	&	\gamma			\\
+	\end{pmatrix},
+\label{TransLorentz}
+\end{equation}
+
+del sistema $S'$ moviéndose a lo largo del eje $z$ con respecto a $S$, mediante la expresión
+
+\begin{equation}
+F^{\mu\nu}=\Lambda_{\mu'}^{\mu}\Lambda_{\nu'}^{\nu}F^{\mu'\nu'}.
+\label{Eq3}
+\end{equation}
+
+Sustituyendo \eqref{TensorFaraday} y \eqref{TransLorentz} en \eqref{Eq3}:
+\begin{equation*}
+\begin{split}
+\begin{pmatrix}
+		0					&	-\frac{E_x}{c}	&	-\frac{E_y}{c}	&	-\frac{E_z}{c}	\\
+		\frac{E_x}{c}	&	0						&	-B_z					&	B_y					\\
+		\frac{E_y}{c}	&	B_z					&	0						&	-B_x					\\
+		\frac{E_z}{c}	&	-B_y					&	B_x					&	0						\\
+\end{pmatrix}
+&=
+\begin{pmatrix}
+		\gamma			&	0	&	0	&	\gamma\beta	\\
+		0						&	1	&	0	&	0						\\
+		0						&	0	&	1	&	0						\\
+		\gamma\beta	&	0	&	0	&	\gamma			\\
+\end{pmatrix}
+\begin{pmatrix}
+		0						&	-\frac{E_{x'}}{c}	&	-\frac{E_{y'}}{c}	&	-\frac{E_{z'}}{c}	\\
+		\frac{E_{x'}}{c}	&	0						&	-B_{z'}				&	B_{y'}				\\
+		\frac{E_{y'}}{c}	&	B_{z'}				&	0						&	-B_{x'}				\\
+		\frac{E_{z'}}{c}	& 	-B_{y'}				&	B_{x'}				&	0						\\
+\end{pmatrix}
+\begin{pmatrix}
+		\gamma			&	0	&	0	&	\gamma\beta	\\
+		0						&	1	&	0	&	0						\\
+		0						&	0	&	1	&	0						\\
+		\gamma\beta	&	0	&	0	&	\gamma			\\
+\end{pmatrix}	\\
+&=
+\begin{pmatrix}
+		\gamma\beta\frac{E_{z'}}{c}	&	-\gamma\frac{E_{x'}}{c}-\gamma\beta B_{y'}	&	-\gamma\frac{E_{y'}}{c}+\gamma\beta B_{x'}	&	-\gamma\frac{E_{z'}}{c}	\\
+		\frac{E_{x'}}{c}						&	0																		&	-B_{z'}																&	B_{y'}				\\
+		\frac{E_{y'}}{c}						&	B_{z'}																&	0																		&	-B_{x'}				\\
+		\gamma\frac{E_{z'}}{c}			& 	-\gamma\beta\frac{E_{x'}}{c}- \gamma B_{y'}	&	\gamma\beta\frac{E_{x'}}{c}+\gamma B_{x'}	&	\gamma\beta\frac{E_{z'}}{c}	\\
+\end{pmatrix}
+\begin{pmatrix}
+		\gamma			&	0	&	0	&	\gamma\beta	\\
+		0						&	1	&	0	&	0						\\
+		0						&	0	&	1	&	0						\\
+		\gamma\beta	&	0	&	0	&	\gamma			\\
+\end{pmatrix}\\
+&=
+\begin{pmatrix}
+		0	&	-\gamma\frac{E_{x'}}{c}-\gamma\beta B_{y'}	&	-\gamma\frac{E_{y'}}{c}+\gamma\beta B_{x'}	&	\gamma^2(\beta^2-1)\frac{E_{z'}}{c}	\\
+		\gamma\frac{E_{x'}}{c}+\gamma\beta B_{y'}			&	0	&	-B_{z'}							&	\gamma\beta\frac{E_{x'}}{c}+\gamma B_{y'}					\\
+		\gamma\frac{E_{y'}}{c}-\gamma\beta B_{x'}			&	B_{z'}	&	0							&	\gamma\beta\frac{E_{x'}}{c}-\gamma B_{x'}					\\
+		\gamma^2(1-\beta^2)\frac{E_{z'}}{c}	& 	-\gamma\beta\frac{E_{x'}}{c}- \gamma B_{y'}	&	-\gamma\beta\frac{E_{x'}}{c}+\gamma B_{x'}	&	0	\\
+\end{pmatrix}.
+\end{split}
+\end{equation*}
+
+De ésta última expresión se obtiene que, componente a componente, el campo desde $S$ y $S'$ se relaciona por las ecuaciones
+
+\begin{subequations}
+\begin{align}
+E_x	&=\gamma (E_{x'}+c\beta B_{y'})=\gamma (E_{x'}+vB_{y'}),	\\
+E_y	&=\gamma (E_{y'}-c\beta	B_{x'})=\gamma (E_{y'}-vB_{x'}),	\\
+E_z	&=E_{z'},
+\end{align}
+\label{Eq4}
+\end{subequations}
+\begin{subequations}
+\begin{align}
+B_x	&=\gamma (B_{x'}-\beta\frac{E_{y'}}{c})=\gamma (B_{x'}-v\frac{E_{y'}}{c^2}),		\\
+B_y	&=\gamma (B_{y'}+\beta\frac{E_{x'}}{c})=\gamma (B_{y'}+v\frac{E_{x'}}{c^2}),	\\
+B_z	&=B_{z'}.
+\end{align}
+\label{Eq5}
+\end{subequations}
+
+Por la simetría del problema, el campo EM se puede separar en parte longitudinal (paralelo a la dirección del movimiento del electrón) y transversal (ortogonal a ésta)
+
+\begin{equation}
+\textbf{E}				=\textbf{E}_{\bot}+\textbf{E}_{\|}	\text{	donde	}
+\textbf{E}_{\bot}	=\textbf{E}_x+\textbf{E}_y				\text{	y	}
+\textbf{E}_{\|}		=\textbf{E}_z,
+\label{Eq6}
+\end{equation}
+\begin{equation}
+\textbf{B}				=\textbf{B}_{\bot}+\textbf{B}_{\|}	\text{	donde	}
+\textbf{B}_{\bot}	=\textbf{B}_x+\textbf{B}_y				\text{	y	}
+\textbf{B}_{\|}		=\textbf{B}_z.
+\label{Eq7}
+\end{equation}
+
+Con \eqref{Eq6} y \eqref{Eq7} es posible reescribir \eqref{Eq4} y \eqref{Eq5} de la siguiente forma
+
+\begin{subequations}
+\begin{align}
+\textbf{E}_{\bot}	&=\gamma(\textbf{E}_{\bot}'-\textbf{v}\times\textbf{B}'), \\
+\textbf{E}_{\|}		&=\textbf{E}_{\|}',
+\end{align}
+\label{Eq8}
+\end{subequations}
+\begin{subequations}
+\begin{align}
+\textbf{B}_{\bot}	&=\gamma(\textbf{B}_{\bot}'+\textbf{v}\times\frac{\textbf{E}'}{c^2}),	\\
+\textbf{B}_{\|}		&=\textbf{B}_{\|}'.
+\end{align}
+\label{Eq9}
+\end{subequations}
+
+Desde el sistema $S'$ el campo EM producido por el electrón es el de una carga puntual $q=-e$ en reposo, por lo que
+
+\begin{subequations}
+\begin{align}
+\textbf{E}'		&=\frac{1}{4\pi \epsilon_0}\frac{q}{|\textbf{r} '|^2}\hat{\textbf{e}}_{r'}=\frac{q}{4\pi \epsilon_0}\frac{x'\hat{\textbf{e}}_{x'}+y'\hat{\textbf{e}}_{y'}+z'\hat{\textbf{e}}_{z'}}{[(x')^2+(y')^2+(z')^2]^{3/2}}, \\
+\textbf{B}'		&=\textbf{0}.
+\end{align}
+\label{Eq10}
+\end{subequations}
+
+Sustituyendo \eqref{Eq10} en \eqref{Eq8} y \eqref{Eq9} se sigue que
+
+\begin{subequations}
+\begin{align}
+\textbf{E}_{\bot}	&=\gamma\textbf{E}_{\bot}'=\gamma(\textbf{E}_{x'}+\textbf{E}_{y'}), \\
+\textbf{E}_{\|}		&=\textbf{E}_{z'},
+\end{align}
+\label{Eq11}
+\end{subequations}
+\begin{subequations}
+\begin{align}
+\textbf{B}_{\bot}	&=\gamma\textbf{v}\times\frac{\textbf{E}'}{c^2}=\gamma\textbf{v}\times\frac{(\textbf{E}_{x'}+\textbf{E}_{y'})}{c^2},	\\
+\textbf{B}_{\|}		&= \textbf{0}.
+\end{align}
+\label{Eq12}
+\end{subequations}
+
+Sin embargo, las expresiones \eqref{Eq11} y \eqref{Eq12} aún no son completas, falta hacer un cambio de las coordenadas en $S'$ por las de $S$ con la transformación
+
+\begin{equation}
+x^{\mu '}=\Lambda_{\mu}^{\mu '}x^{\mu} \text{		;		} x^{\mu}=(ct,x,y,z),
+\end{equation}
+
+obteniendo del la transformación
+
+\begin{equation}
+\begin{aligned}
+x'	&=	x-b,	\\
+y'	&=	y,	\\
+z'	&=	\gamma (z-vt),	\\
+ct'	&=	\gamma (ct-\beta z),
+\end{aligned}
+\end{equation}
+
+se sustituye en (10) para calcular el campo eléctrico desde $S'$ con las coordenadas de $S$
+
+\begin{equation}
+\vec{E}'(\vec{r},t)=\frac{q}{4\pi \epsilon_0}\frac{(x-b)\hat{e}_x+y\hat{e}_y+\gamma (z-vt)\hat{e}_z}{[(x-b)^2+y^2+\gamma^2(z-vt)^2]^{3/2}},
+\end{equation}
+
+y a su vez (15) en (11) y (12), se obtienen los campos eléctrico y magnético
+
+\begin{equation}
+\begin{aligned}
+\vec{E}(\vec{r};t)	&=\frac{q\gamma}{4\pi \epsilon_0}\left\{\frac{(x-b)\hat{e}_x+y\hat{e}_y+(z-vt)\hat{e}_z}{[(x-b)^2+y^2+\gamma^2(z-vt)^2]^{3/2}}\right\},	\\
+							&=\frac{q\gamma}{4\pi \epsilon_0}\left\{\frac{\vec{r}-(b,0,vt)}{[(x-b)^2+y^2+\gamma^2(z-vt)^2]^{3/2}}\right\},
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\vec{B}(\vec{r};t)	&=\frac{q\gamma}{4\pi \epsilon_0 c^2} \vec{v}\times\left\{\frac{(x-b)\hat{e}_x+y\hat{e}_y}{[(x-b)^2+y^2+\gamma^2(z-vt)^2]^{3/2}}\right\},	\\
+							&=\frac{\mu_0 q\gamma v}{4\pi}\left\{ \frac{-y\hat{e}_x+(x-b)\hat{e}_y}{[(x-b)^2+y^2+\gamma^2(z-vt)^2]^{3/2}}\right\}.
+\end{aligned}
+\end{equation}
+
+Definiendo $R=\sqrt{(x-b)^2+y^2}$, las ecuaciones (16) y (17) pueden ser reescritas como
+
+\begin{equation}
+\vec{E}(\vec{r};t)	=\frac{q\gamma}{4\pi \epsilon_0}\left\{\frac{\vec{r}-(b,0,vt)}{[R^2+\gamma^2(z-vt)^2]^{3/2}}\right\},
+\end{equation}
+
+\begin{equation}
+\vec{B}(\vec{r};t)	=\frac{\mu_0 q\gamma v}{4\pi}\left\{ \frac{(-y,x-b,0)}{[R^{2}+\gamma^2(z-vt)^2]^{3/2}}\right\}.
+\end{equation}
+
+Por el método de obtención del campo electromagnético inducido en la NP por el campo EM del electrón, resulta necesario calcular éste último en el espacio de frecuencias $\omega$ mediante una transformada de Fourier. La convención a utilizar de ésta será
+
+\begin{equation}
+\mathcal{F} (\omega)=\int_{-\infty}^{\infty} F(t)e^ {i\omega t} dt \text{		y		} F(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathcal{F}(\omega)e^ {-i\omega t} d\omega,
+\end{equation}
+
+con las que se puede calcular las expresiones de las componentes de $\vec{\mathcal{E}}(\vec{r};\omega)$ y $\vec{\mathcal{B}}(\vec{r};\omega)$.
+\\
+Calculando la transformada de Fourier de $E_x(\vec{r};t)$:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{E}_x(\vec{r};\omega)		&= \int_{-\infty}^{\infty} E_x(\vec{r};t)e^{i\omega t} dt
+					=\int_{-\infty}^{\infty} \left( \frac{q\gamma}{4\pi \epsilon_0} \right) \frac{(x-b)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	\\
+					&=\frac{q\gamma}{4\pi \epsilon_0} (x-b)\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt
+\end{aligned}
+\end{equation}
+
+Calculando la transformada de Fourier de $E_y(\vec{r};t)$:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{E}_y(\vec{r};\omega)		&= \int_{-\infty}^{\infty} E_y(\vec{r};t)e^{i\omega t} dt
+					=\int_{-\infty}^{\infty} \left( \frac{q\gamma}{4\pi \epsilon_0} \right) \frac{ye^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	\\
+					&=\frac{q\gamma}{4\pi \epsilon_0} y\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt
+\end{aligned}
+\end{equation}
+
+Calculando la transformada de Fourier de $E_z(\vec{r};t)$:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{E}_z(\vec{r};\omega)		&= \int_{-\infty}^{\infty} E_z(\vec{r};t)e^{i\omega t} dt
+					=\int_{-\infty}^{\infty} \left( \frac{q\gamma}{4\pi \epsilon_0} \right) \frac{(z-vt)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	\\
+					&=\frac{q\gamma}{4\pi \epsilon_0} \int_{-\infty}^{\infty} \frac{(z-vt)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt
+\end{aligned}
+\end{equation}
+
+Calculando la transformada de Fourier de $B_x(\vec{r};t)$:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{B}_x(\vec{r};\omega)		&= \int_{-\infty}^{\infty} B_x(\vec{r};t)e^{i\omega t} dt
+					=\int_{-\infty}^{\infty} \left( \frac{\mu_0q\gamma v}{4\pi} \right) \frac{-ye^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	\\
+					&=\frac{\mu_0q\gamma v}{4\pi}(-y)\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt
+\end{aligned}
+\end{equation}
+
+Calculando la transformada de Fourier de $B_y(\vec{r};t)$:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{B}_y(\vec{r};\omega)		&= \int_{-\infty}^{\infty} B_y(\vec{r};t)e^{i\omega t} dt
+					=\int_{-\infty}^{\infty} \left( \frac{\mu_0q\gamma v}{4\pi} \right) \frac{(x-b)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	\\
+					&=\frac{\mu_0q\gamma v}{4\pi}(x-b)\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt
+\end{aligned}
+\end{equation}
+
+Como $B_z(\vec{r};t)=0$ su tranformada de Fourier es $\mathcal{B}_z(\vec{r};\omega)=0$.\\
+En las expresiones (21-25) se frecuenta la integral 
+
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt.
+\end{equation}
+
+Para resolver (26) se realiza el cambio de variable $\eta=\gamma\frac{(z-vt)}{R}$, siendo así
+
+\begin{equation*}
+\begin{aligned}
+\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt &= -\frac{R}{\gamma v} \int_{-\infty}^{\infty} \frac{e^{i\omega t}}{R^3 \left[ 1+ \gamma^2 \frac{(z-vt)^2}{R^2} \right]^{3/2}} \left( -\frac{\gamma v}{R} \right) dt \\
+	&= \frac{1}{\gamma vR^2} \int_{-\infty}^{\infty} \frac{e^{i\frac{\omega}{c}\left( z-\frac{R\eta}{\gamma}\right)}}{(1+\eta^2)^{3/2}} d\eta
+	=\frac{e^{i\frac{\omega z}{v}} }{\gamma vR^2}\int_{-\infty}^{\infty} \frac{e^{-i\left(\frac{\omega R}{v\gamma}\right)\eta}}{(1+\eta^2)^{3/2}} d\eta.
+\end{aligned}
+\end{equation*}
+
+Definiendo a la función $F_1(\alpha)$ como
+
+\begin{equation}
+F_1(\alpha)=\int_{-\infty}^{\infty} \frac{e^{-i\alpha\eta}}{(1+\eta^2)^{3/2}} d\eta,
+\end{equation}
+
+se reescribe (26) de la forma 
+
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt = \frac{e^{i\frac{\omega z}{v}} }{\gamma vR^2} F_1\left( \frac{\omega R}{v\gamma}\right).
+\end{equation}
+
+Por otra parte, en (23) la integral se asemeja a (26) pero con un núcleo diferente, la cuál es
+
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{(z-vt)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt.
+\end{equation}
+
+Realizando el mismo cambio de variable que para (26), se sigue que
+
+\begin{equation*}
+\begin{aligned}
+\int_{-\infty}^{\infty} \frac{(z-vt)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt &= -\frac{R}{\gamma v} \int_{-\infty}^{\infty} \frac{(z-vt)e^{i\omega t}}{R^3 \left[ 1+ \gamma^2 \frac{(z-vt)^2}{R^2} \right]^{3/2}} \left( -\frac{\gamma v}{R} \right) dt \\
+	&= \frac{1}{\gamma vR^2} \int_{-\infty}^{\infty} \frac{R\eta e^{i\frac{\omega}{c}\left( z-\frac{R\eta}{\gamma}\right)}}{\gamma(1+\eta^2)^{3/2}} d\eta
+	=\frac{e^{i\frac{\omega z}{v}} }{\gamma^2 vR}\int_{-\infty}^{\infty} \frac{\eta e^{-i\left(\frac{\omega R}{v\gamma}\right)\eta}}{(1+\eta^2)^{3/2}} d\eta.
+\end{aligned}
+\end{equation*}
+
+Definiendo a la función $F_2(\alpha)$ como
+
+\begin{equation}
+F_2(\alpha)=\int_{-\infty}^{\infty} \frac{\eta e^{-i\alpha\eta}}{(1+\eta^2)^{3/2}} d\eta,
+\end{equation}
+
+se reescribe (29) de la forma
+
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{(z-vt)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt =\frac{e^{i\frac{\omega z}{v}} }{\gamma^2 vR} F_2\left( \frac{\omega R}{v\gamma}\right).
+\end{equation}
+
+El problema se centra en resolver las integrales con las que se definen a $F_1(\alpha)$ y $F_2(\alpha)$. Nótese que éstas son transformadas de Fourier de las funciones 
+
+\begin{equation}
+f_1(\eta)=\frac{1}{(1+\eta)^{3/2}}	\text{		y		} f_2(\eta)=\frac{\eta}{(1+\eta)^{3/2}}	 \text{      $\Rightarrow$      } f_2(\eta)=\eta f_1(\eta)
+\end{equation}
+
+respectivamente. A su vez, (32) son tales que
+
+\begin{equation}
+F_1(\alpha)=\int_{-\infty}^{\infty} f_1(\eta) e^{-i\alpha\eta} d\eta \text{		y		} F_2(\alpha)=\int_{-\infty}^{\infty} f_2(\eta) e^{-i\alpha\eta} d\eta
+\end{equation}
+
+\begin{equation}
+f_1(\eta)=-\frac{1}{\eta}\frac{d}{d\eta}\left[\frac{1}{(1+\eta^2)^{1/2}}\right] \text{		y		} f_2(\eta)=-\frac{d}{d\eta}\left[\frac{1}{(1+\eta^2)^{1/2}}\right].
+\end{equation}
+
+De manera que, considerando que
+
+\begin{equation}
+\frac{d}{d\alpha}e^{-i\alpha\eta}=-i\eta e^{i\alpha\eta} \text{         $\Rightarrow$         } e^{-i\alpha\eta}=-i\int\eta e^{-i\alpha\eta}d\alpha
+\end{equation}
+
+y sustituyendo (34) en la transformada de Fourier de $f_1(\eta)$
+
+\begin{equation*}
+F_1(\alpha)	=\int_{-\infty}^{\infty} f_1(\eta) e^{-i\alpha\eta} d\eta
+					=\int_{-\infty}^{\infty} f_1(\eta) \left( -i\int\eta e^{-i\alpha\eta}d\alpha\right) d\eta
+					=-i \int \left( \int_{-\infty}^{\infty} \eta f_1(\eta) e^{-i\alpha\eta} d\eta \right) d\alpha
+\end{equation*}
+
+Por lo tanto
+\begin{equation}
+F_1(\alpha)=-i \int F_2(\alpha) d\alpha.
+\end{equation}
+
+A su vez
+
+\begin{equation}
+F_2(\alpha)	=\int_{-\infty}^{\infty} f_2(\eta) e^{-i\alpha\eta} d\eta
+					=-\int_{-\infty}^{\infty} \frac{d}{d\eta}\left[\frac{1}{(1+\eta^2)^{1/2}}\right] e^{-i\alpha\eta} d\eta.
+\end{equation}
+
+Integrando por partes
+
+\begin{equation*}
+F_2(\alpha) = -\left. \frac{e^{-i\alpha\eta}}{(1+\eta^2)^{1/2}} \right|_{-\infty}^{\infty}-i\alpha \int_{-\infty}^{\infty} \frac{e^{-i\alpha\eta}}{(1+\eta^2)^{1/2}} d\eta=-i\alpha \int_{-\infty}^{\infty} \frac{e^{-i\alpha\eta}}{(1+\eta^2)^{1/2}} d\eta
+\end{equation*}
+
+De la referencia en \textsl{H. Bateman, Tables of integral transforms, (McGraw Hill Book Company, United States, 1954) Vol. 1} podemos utilizar la forma de la ecuación
+
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{e^{i\frac{\nu}{\sin \eta}}}{(1+\eta^2)^{1/2}} e^{-i\alpha\eta} d\eta \overset{|\Re \{\nu\}|<1}{=} 
+\left\{
+\begin{aligned}
+	&2e^{-\frac{1}{2}\nu \pi i}	K_{\nu}(\alpha), \alpha>0	\\
+	&2e^{ \frac{1}{2}\nu \pi i}	K_{\nu}(-\alpha), \alpha<0
+\end{aligned},
+\right.
+\end{equation}
+
+donde $K_{\nu}(\alpha)$ es la función de Bessel modificada del segundo tipo. Considerando $\nu=0$ 
+
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{e^{-i\alpha\eta}}{(1+\eta^2)^{1/2}} d\eta =
+\left\{
+\begin{aligned}
+	&2K_{0}(\alpha), \alpha>0	\\
+	&2K_{0}(-\alpha), \alpha<0
+\end{aligned}
+\right.
+=2K_{0}(|\alpha|)
+\end{equation}
+
+Y por ello
+
+\begin{equation}
+F_2(\alpha)=-i2\alpha K_0 (|\alpha|).
+\end{equation}
+
+Sustituyendo en (36) para calcular $F_1(\alpha)$
+
+\begin{equation}
+F_1(\alpha)=-i \int (-i)2\alpha K_0 (|\alpha|) d\alpha = -2 \int \alpha K_0 (|\alpha|) d\alpha
+\end{equation}
+
+que por una relación de recursión
+
+\begin{equation}
+\int \alpha K_m (|\alpha|) d\alpha = -|\alpha| K_{m+1} (|\alpha|)
+\end{equation}
+
+Finalmente
+
+\begin{equation}
+F_1(\alpha)=2|\alpha|K_1 (|\alpha|).
+\end{equation}
+
+Siendo así, el campo electromagnético debido al electrón con velocidad $\vec{v}=v\hat{e}_z$ como función de la frecuencia $\omega$ que en términos de funciones modificadas de Bessel del segundo tipo
+
+La componente de $E_x(\vec{r};t)$
+
+\begin{equation}
+\begin{aligned}
+\mathcal{E}_x(\vec{r};\omega)	&=\frac{q\gamma}{4\pi\epsilon_0} (x-b)\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	
+	=\frac{q\gamma}{4\pi\epsilon_0} (x-b) \left(\frac{e^{i\frac{\omega z}{v}} }{\gamma vR^2} \right) F_1\left( \frac{\omega R}{v\gamma}\right)	\\
+	&=\frac{q}{4\pi\epsilon_0} \left(\frac{x-b}{v R^2} \right) e^{i\frac{\omega z}{v}} 2 \left| \frac{\omega R}{v \gamma} \right| K_1 \left( \left| \frac{\omega R}{v \gamma} \right| \right)
+	=\frac{2q}{4\pi\epsilon_0} \left(\frac{x-b}{\gamma v^2 R} \right) |\omega| e^{i\frac{\omega z}{v}} K_1 \left(\frac{|\omega| R}{v \gamma} \right)
+\end{aligned}
+\end{equation}
+
+La componente de $E_y(\vec{r};t)$
+
+\begin{equation}
+\begin{aligned}
+\mathcal{E}_y(\vec{r};\omega)	&=\frac{q\gamma}{4\pi\epsilon_0} y\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	
+	=\frac{q\gamma}{4\pi\epsilon_0} y\left(\frac{e^{i\frac{\omega z}{v}} }{\gamma vR^2} \right) F_1\left( \frac{\omega R}{v\gamma}\right)	\\
+	&=\frac{q}{4\pi\epsilon_0} \left(\frac{y}{v R^2} \right) e^{i\frac{\omega z}{v}} 2 \left| \frac{\omega R}{v \gamma} \right| K_1 \left( \left| \frac{\omega R}{v \gamma} \right| \right)
+	=\frac{2q}{4\pi\epsilon_0} \left(\frac{y}{\gamma v^2 R} \right) |\omega| e^{i\frac{\omega z}{v}} K_1 \left(\frac{|\omega| R}{v \gamma} \right)
+\end{aligned}
+\end{equation}
+
+La componente de $E_z(\vec{r};t)$
+
+\begin{equation}
+\begin{aligned}
+\mathcal{E}_z(\vec{r};\omega)	&=\frac{q\gamma}{4\pi\epsilon_0} \int_{-\infty}^{\infty} \frac{(z-vt)e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	
+	=\frac{q\gamma}{4\pi\epsilon_0} \left(\frac{e^{i\frac{\omega z}{v}} }{\gamma^2 vR} \right) F_2\left( \frac{\omega R}{v\gamma}\right)	\\
+	&=\frac{q}{4\pi\epsilon_0} \left(\frac{e^{i\frac{\omega z}{v}}}{\gamma v R} \right) (-2i) \frac{\omega R}{v \gamma} K_0 \left( \left| \frac{\omega R}{v \gamma} \right| \right)
+	=i\frac{2q}{4\pi\epsilon_0} \left(\frac{\omega}{\gamma^2 v^2} \right) e^{i\frac{\omega z}{v}} K_0 \left(\frac{|\omega| R}{v \gamma} \right)
+\end{aligned}
+\end{equation}
+
+La componente de $B_x(\vec{r};t)$
+
+\begin{equation}
+\begin{aligned}
+\mathcal{B}_x(\vec{r};\omega)	&=\frac{\mu_0 q\gamma v}{4\pi} (-y)\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	
+	=\frac{\mu_0 q\gamma v}{4\pi} (-y) \left(\frac{e^{i\frac{\omega z}{v}} }{\gamma vR^2} \right) F_1\left( \frac{\omega R}{v\gamma}\right)	\\
+	&=\frac{\mu_0 q}{4\pi} \left(\frac{-y}{R^2} \right) e^{i\frac{\omega z}{v}} 2 \left| \frac{\omega R}{v \gamma} \right| K_1 \left( \left| \frac{\omega R}{v \gamma} \right| \right)
+	=\frac{2\mu_0 q}{4\pi}  \left(\frac{-y}{\gamma v R} \right) |\omega| e^{i\frac{\omega z}{v}} K_1 \left(\frac{|\omega| R}{v \gamma} \right)
+\end{aligned}
+\end{equation}
+
+La componente de $B_y(\vec{r};t)$
+
+\begin{equation}
+\begin{aligned}
+\mathcal{B}_y(\vec{r};\omega)	&=\frac{\mu_0 q\gamma v}{4\pi} (x-b)\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{[R^2+\gamma^2(z-vt)^2]^{3/2}} dt	
+	=\frac{\mu_0 q\gamma v}{4\pi} (x-b) \left(\frac{e^{i\frac{\omega z}{v}} }{\gamma vR^2} \right) F_1\left( \frac{\omega R}{v\gamma}\right)	\\
+	&=\frac{\mu_0 q}{4\pi} \left(\frac{x-b}{R^2} \right) e^{i\frac{\omega z}{v}} 2 \left| \frac{\omega R}{v \gamma} \right| K_1 \left( \left| \frac{\omega R}{v \gamma} \right| \right)
+	=\frac{2\mu_0 q}{4\pi}  \left(\frac{x-b}{\gamma v R} \right) |\omega| e^{i\frac{\omega z}{v}} K_1 \left(\frac{|\omega| R}{v \gamma} \right)
+\end{aligned}
+\end{equation}
+
+Vectorialmente, el campo electromagnético del electrón toma la forma
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+\begin{subequations}
+\begin{equation}
+\vec{\mathcal{E}}(\vec{r},\omega)= \frac{2q}{4\pi\epsilon_0} \left( \frac{\omega}{v^2 \gamma}\right) e^{i\frac{\omega z}{v}} \left\{ \left[\frac{sgn(\omega)}{R}K_1 \left(\frac{|\omega| R}{v \gamma} \right) \right] [(x-b)\hat{e}_x+y\hat{e}_y]-\frac{i}{\gamma} K_0 \left(\frac{|\omega| R}{v \gamma} \right) \hat{e}_z \right\}
+\end{equation}
+\begin{equation}
+\vec{\mathcal{B}}(\vec{r},\omega)= \frac{2\mu_0 q}{4\pi} \left( \frac{|\omega|}{v\gamma R} \right) e^{i\frac{\omega z}{v}} K_1 \left(\frac{|\omega| R}{v \gamma} \right) [-y\hat{e}_x +(x-b)\hat{e}_y]
+\end{equation}
+\end{subequations}
+\end{tcolorbox}
+
+\chapter{\large{Cálculo del campo EM debido a un electrón en movimiento rectilíneo uniforme: expansión multipolar}}
+
+Otra manera de obtener el campo electromagnético es mediante las ecuaciones de Maxwell
+
+\begin{subequations}{
+\begin{equation}
+\nabla\cdot\vec{D}(\vec{r};t)	=\rho_{ext}(\vec{r};t),
+\label{GaussE}
+\end{equation}
+\begin{equation}
+\nabla\cdot\vec{B}(\vec{r};t)	=0,
+\label{GaussB}
+\end{equation}
+\begin{equation}
+\nabla\times\vec{E}(\vec{r};t)	= -\frac{\partial}{\partial t}\vec{B}(\vec{r};t),
+\label{FarLen}
+\end{equation}
+\begin{equation}
+\nabla\times\vec{H}(\vec{r};t)	=\vec{J}_{ext}(\vec{r};t)+\frac{\partial}{\partial t}\vec{D}(\vec{r};t).
+\label{AmpMax}
+\end{equation}}
+\label{MaxwellE}
+\end{subequations}
+
+De \eqref{GaussB} y \eqref{FarLen} se pueden definir los potenciales $\phi(\vec{r};t)$ y $\vec{A}(\vec{r};t)$ tales que
+\begin{subequations}{
+\begin{equation}
+\vec{E}(\vec{r};t)= -\nabla\phi(\vec{r};t) -\frac{\partial}{\partial t}\vec{A}(\vec{r};t),
+\end{equation}
+\begin{equation}
+\vec{B}(\vec{r};t)=\nabla\times\vec{A}(\vec{r};t).
+\end{equation}}
+\label{potMax}
+\end{subequations}
+
+Calculando las transformaciones de Fourier temporales de \eqref{GaussE},\eqref{AmpMax} y \eqref{potMax}
+
+\begin{subequations}{
+\begin{equation}
+\nabla\cdot\vec{D}(\vec{r};\omega)	=\mathcal{\rho}_{ext}(\vec{r};\omega),
+\end{equation}
+\begin{equation}
+\nabla\times\vec{H}(\vec{r};\omega)	=\vec{J}_{ext}(\vec{r};\omega)-i\omega\vec{D}(\vec{r};\omega),
+\end{equation}}
+\label{MaxOme}
+\end{subequations}
+
+\begin{subequations}{
+\begin{equation}
+\vec{E}(\vec{r};\omega)= -\nabla\phi(\vec{r};\omega) +i\omega\vec{A}(\vec{r};\omega),
+\end{equation}
+\begin{equation}
+\vec{B}(\vec{r};\omega)=\nabla\times\vec{A}(\vec{r};\omega).
+\end{equation}}
+\label{PotOme}
+\end{subequations}
+
+Pensando que el electrón se mueve en un medio simple (lineal, homogéneo e isótropo), podemos hacer uso de las relaciones
+
+\begin{subequations}{
+\begin{equation}
+\vec{D}(\vec{r};\omega)=\epsilon(\omega)\vec{E}(\vec{r};\omega),
+\end{equation}
+\begin{equation}
+\vec{B}(\vec{r};\omega)=\mu(\omega)\vec{H}(\vec{r};\omega),
+\end{equation}
+y de la definción de índice refracción
+\begin{equation}
+n^2(\omega)=\mu_r (\omega) \epsilon_r (\omega)= \frac{\mu(\omega)}{\mu_0} \frac{\epsilon(\omega)}{\epsilon_0}=\mu(\omega)\epsilon(\omega)c^2
+\end{equation}
+}
+\label{lineal}
+\end{subequations}
+
+que sustituyendo \eqref{PotOme} y \eqref{lineal} en \eqref{MaxOme}
+
+\begin{equation}
+\begin{aligned}
+\nabla\cdot\vec{D} (\vec{r};\omega)	&=	\rho_{ext}(\vec{r},\omega)\\
+\nabla\cdot[\epsilon(\omega)\vec{E}(\vec{r};\omega)]	&=	\rho_{ext}(\vec{r},\omega)\\
+\nabla\cdot[-\nabla\phi(\vec{r};\omega)+i\omega\vec{A}(\vec{r};\omega)]	&=	\frac{\rho_{ext}(\vec{r};\omega)}{\epsilon(\omega)}	\\
+-\nabla^2\phi(\vec{r};\omega)+i\omega\nabla\cdot\vec{A}(\vec{r};\omega)	&=	\frac{\rho_{ext}(\vec{r};\omega)}{\epsilon(\omega)}
+\end{aligned}
+\label{1max}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\nabla\times\vec{H}(\vec{r};\omega)	&=\vec{J}_{ext}(\vec{r};\omega)-i\omega\vec{D}(\vec{r};\omega) \\
+\nabla\times\left[\frac{\vec{B}(\vec{r};\omega)}{\mu(\omega)} \right]	&= \vec{J}_{ext}(\vec{r};\omega)-i\omega\epsilon(\omega)\vec{E}(\vec{r};\omega)	\\
+\nabla\times[\nabla\times\vec{A}(\vec{r};\omega)]	&= \mu(\omega)\vec{J}_{ext}(\vec{r};\omega)-i\omega\mu(\omega)\epsilon(\omega)[-\nabla\phi(\vec{r};\omega)+i\omega\vec{A}(\vec{r};\omega)]	\\
+\nabla[\nabla\cdot\vec{A}(\vec{r};\omega)]-\nabla^2\vec{A}(\vec{r};\omega) &= \mu(\omega)\vec{J}_{ext}(\vec{r};\omega)+\nabla[i\omega\frac{n^2(\omega)}{c^2}\phi(\vec{r};\omega)]+\omega^2\frac{n^2(\omega)}{c^2}\vec{A}(\vec{r};\omega)	\\
+\nabla^2\vec{A}(\vec{r};\omega) +\omega^2\frac{n^2(\omega)}{c^2}\vec{A}(\vec{r};\omega)	&=-\mu(\omega)\vec{J}_{ext}(\vec{r};\omega)+\nabla[\nabla\cdot\vec{A}(\vec{r};\omega)-i\omega\frac{n^2(\omega)}{c^2}\phi(\vec{r};\omega)].
+\end{aligned}
+\label{2max}
+\end{equation}
+
+Siendo la norma de Lorenz en medios simples
+
+\begin{equation}
+\nabla\cdot\vec{A}(\vec{r};t)+\frac{n^2}{c^2}\frac{\partial}{\partial t}\phi(\vec{r};t)=0,
+\end{equation}
+
+su transformada de Fourier temporal es
+
+\begin{equation}
+\nabla\cdot\vec{A}(\vec{r};\omega)-i\omega\frac{n^2(\omega)}{c^2}\phi(\vec{r};\omega)=0.
+\label{NormOme}
+\end{equation}
+
+Sustituyendo \eqref{NormOme} en las últimas expresiones de \eqref{1max} y \eqref{2max}, se obtiene
+
+\begin{subequations}{
+\begin{equation}
+\left[ \nabla^2+\omega^2\frac{n^2(\omega)}{c^2}\right] \phi(\vec{r};\omega)=-\frac{\rho_{ext}(\vec{r};\omega)}{\epsilon(\omega)}
+\label{59a}
+\end{equation}
+\begin{equation}
+\left[ \nabla^2+\omega^2\frac{n^2(\omega)}{c^2}\right]\vec{A}(\vec{r};\omega)=-\mu(\omega)\vec{J}_{ext}(\vec{r};\omega).
+\end{equation}}
+\label{PotOmeg}
+\end{subequations}
+
+Calculando las transformadas de Fourier espaciales, definidas por
+
+\begin{subequations}
+\begin{equation}
+\mathcal{F} (\vec{k})=\int_{-\infty}^{\infty} F(\vec{r})e^ {-i\vec{k}\cdot\vec{r}} d^3r,
+\end{equation}
+\begin{equation}
+F(\vec{r})=\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathcal{F}(\vec{k})e^ {i\vec{k}\cdot\vec{r}} d^3k,
+\end{equation}
+\end{subequations}
+
+de \eqref{PotOmeg} se tienen
+
+\begin{subequations}{
+\begin{equation}
+\left[ -k^2+\omega^2\frac{n^2(\omega)}{c^2}\right] \phi(\vec{k};\omega)=-\frac{\rho_{ext}(\vec{k};\omega)}{\epsilon(\omega)},
+\end{equation}
+\begin{equation}
+\left[ -k^2+\omega^2\frac{n^2(\omega)}{c^2}\right]\vec{A}(\vec{k};\omega)=-\mu(\omega)\vec{J}_{ext}(\vec{k};\omega).
+\end{equation}}
+\label{PotOmeK}
+\end{subequations}
+
+Notando que la única fuente de carga externa es la del electrón en movimiento, las densidades de carga y corriente son
+
+\begin{subequations}{
+\begin{equation}
+\rho_{ext}(\vec{r};t)=q\delta(\vec{r}-\vec{r}_t)
+\label{cargareal}
+\end{equation}
+\begin{equation}
+\vec{J}_{ext}(\vec{r};t)=\rho_{ext}(\vec{r};t) \vec{v}
+\label{corrientereal}
+\end{equation}}
+\label{densidadesreales}
+\end{subequations}
+
+donde \eqref{corrientereal} se cumple también en el espacio $(\vec{k};\omega)$, de modo que \eqref{PotOmeK} se reecribe como
+
+\begin{subequations}{
+\begin{equation}
+\phi(\vec{k};\omega)=-\frac{\rho_{ext}(\vec{k};\omega)}{\epsilon(\omega)\left[ -k^2+\omega^2\frac{n^2(\omega)}{c^2}\right] },
+\label{Pot3}
+\end{equation}
+\begin{equation}
+\vec{A}(\vec{k};\omega)=-\frac{\mu(\omega)\rho_{ext}(\vec{r};t) \vec{v}}{\left[ -k^2+\omega^2\frac{n^2(\omega)}{c^2}\right]},
+\end{equation}}
+\label{Pot2}
+\end{subequations}
+
+de donde se sigue que
+
+\begin{equation}
+\vec{A}(\vec{k};\omega)=\mu(\omega)\epsilon(\omega)\vec{v}\phi(\vec{k};\omega)=\frac{n^2(\omega)}{c^2}\vec{v}\phi(\vec{k};\omega)
+\label{Pot5}
+\end{equation}
+
+o bien, haciendo la transformada inversa de Fourier espacial de \eqref{Pot5}
+
+\begin{equation}
+\vec{A}(\vec{r};\omega)=\frac{n^2(\omega)}{c^2}\vec{v}\phi(\vec{r};\omega)
+\end{equation}
+
+sustituyendo en \eqref{PotOme} se concluye que
+
+\begin{subequations}
+\begin{equation}
+\vec{E}^{ext}(\vec{r};\omega)=\left[-\nabla+i\omega\frac{n^2(\omega)}{c^2}\vec{v} \right] \phi^{ext}(\vec{r};\omega)
+\end{equation}
+\begin{equation}
+\vec{B}^{ext}(\vec{r};\omega)=\frac{n^2(\omega)}{c^2}\nabla\times[\vec{v}\phi^{ext}(\vec{r};\omega)]
+\end{equation}
+\end{subequations}
+
+donde el super índice $ext$ refiere al carácter externo del campo EM producido por el electrón, una carga externa. \\ 
+Para calcular $\phi^{ext}(\vec{r};\omega)$ se realiza una transformada inversa de Fourier espacial de \eqref{Pot3}. A su vez, para resolver ésta se tendrá que calcular $\rho_{ext}(\vec{k};\omega)$ con una transformada de Fourier temporal y espacial de \eqref{cargareal}. Así
+
+\begin{equation}
+\begin{aligned}
+\rho_{ext} (\vec{k};\omega)	&=\int_{V} \int_{-\infty}^{\infty} \rho_{ext} (\vec{r};t) e^{-i(\vec{k}\cdot\vec{r}-\omega t)} dt d^3r
+	=q\int_{-\infty}^{\infty} \int_{V}\delta(\vec{r}-\vec{r}_t)  e^{-i(\vec{k}\cdot\vec{r}-\omega t)} d^3r dt	\\
+&=q\int_{-\infty}^{\infty}  e^{-i(\vec{k}\cdot\vec{r}_t-\omega t)} dt	
+	=	q e^{-i\vec{k}\cdot\vec{r}_0}\int_{-\infty}^{\infty}e^{-i(\vec{k}\cdot\vec{v}-\omega )t} dt\\
+&=2\pi q e^{-i\vec{k}\cdot\vec{r}_0}\delta(\vec{k}\cdot\vec{v}-\omega).
+\end{aligned}
+\label{68}
+\end{equation}
+
+Sustituyendo \eqref{68} en \eqref{Pot3}
+
+\begin{equation}
+\phi^{ext}(\vec{k};\omega)=\frac{2\pi qe^{-i\vec{k}\cdot\vec{r}_0}\delta(\vec{k}\cdot\vec{v}-\omega)}{\epsilon(\omega)\left[ k^2-\frac{\omega^2}{c^2}n^2(\omega) \right]}
+\label{philome}
+\end{equation}
+
+y calculando la transformada de Fourier inversa espacial de \eqref{philome}
+
+\begin{subequations}
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)	&=	\frac{1}{(2\pi)^3} \int_{V_{k}} \phi^{ext}(\vec{k};\omega) e^{i\vec{k}\cdot\vec{r}} d^3k
+	=\frac{1}{(2\pi)^3} \int_{V_{k}} \frac{2\pi qe^{-i\vec{k}\cdot\vec{r}_0}\delta(\vec{k}\cdot\vec{v}-\omega)}{\epsilon(\omega)\left[ k^2-\frac{\omega^2}{c^2}n^2(\omega) \right]} e^{i\vec{k}\cdot\vec{r}} d^3k	\\
+	&= \frac{q}{(2\pi)^2\epsilon(\omega)} \int_{V_k} \frac{\delta(\vec{k}\cdot\vec{v}-\omega)e^{-i(\vec{k}\cdot\vec{r}_0-\vec{k}\cdot\vec{r})}}{k^2-\frac{\omega^2}{c^2}n^2(\omega)} d^3 k,
+\end{aligned}
+\end{equation}
+donde $\vec{k}=(k_x,k_y,k_z)$,$\vec{v}=v\hat{e}_z$ y $\vec{r}_0=b\hat{e}_x$. Entonces
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)	
+	&=\frac{q}{(2\pi)^2\epsilon(\omega)}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \frac{\delta(k_zv-\omega)e^{i[k_x(x-b)+k_yy+k_zz]}}{k_x^2+k_y^2+k_z^2-\frac{\omega^2}{c^2}n^2(\omega)} dk_z dk_y dk_x \\
+	&=\frac{q}{(2\pi)^2v\epsilon(\omega)}\int_{-\infty}^{\infty}e^{ik_x(x-b)}\int_{-\infty}^{\infty}e^{ik_yy}\int_{-\infty}^{\infty}\frac{\delta(k_z-\frac{\omega}{v})e^{ik_zz}}{k_x^2+k_y^2+k_z^2-\frac{\omega^2}{c^"}n^2(\omega)}dk_z dk_y dk_x	\\
+	&=\frac{q}{(2\pi)^2v\epsilon(\omega)}\int_{-\infty}^{\infty}e^{ik_yy}\int_{-\infty}^{\infty}e^{ik_x(x-b)}\frac{e^{i\frac{\omega z}{v}}}{k_x^2+k_y^2+\frac{\omega^2}{v^2}-\frac{\omega^2}{c^2}n^2(\omega)} dk_x dk_y	\\
+	&=\frac{qe^{i\frac{\omega z}{v}}}{(2\pi)^2v\epsilon(\omega)}\int_{-\infty}^{\infty}e^{ik_yy}\int_{-\infty}^{\infty} \frac{e^{ik_x(x-b)}}{k_x^2+k_y^2+\frac{\omega^2}{v^2}\left[1-\frac{v^2}{c^2}n^2(\omega) \right]} dk_x dk_y
+\end{aligned}
+\end{equation}
+definiendo 
+\begin{equation}
+\gamma_n(\omega)=\frac{1}{\sqrt{1-	\frac{v^2}{c^2}n^2(\omega)}}
+\end{equation}
+y sustituyendo
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)
+	&=\frac{qe^{i\frac{\omega z}{v}}}{(2\pi)^2v\epsilon(\omega)}\int_{-\infty}^{\infty}e^{ik_yy}\int_{-\infty}^{\infty} \frac{e^{ik_x(x-b)}}{k_x^2+k_y^2+\frac{\omega^2}{v^2\gamma_n^2(\omega)}} dk_x dk_y
+\end{aligned}
+\end{equation}
+Haciendo uso de la simetría cilíndrica del problema, como se debe cumplir para todo $(x,y)$ tales que $(x-b)^2+y^2=R^2$ lo hace en particular para $x=b$ y $y=R$. Siendo así
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)
+	&=\frac{qe^{i\frac{\omega z}{v}}}{(2\pi)^2v\epsilon(\omega)}\int_{-\infty}^{\infty}e^{ik_yR}\int_{-\infty}^{\infty} \frac{dk_x}{k_x^2+\left[ k_y^2+\frac{\omega^2}{v^2\gamma_n^2(\omega)}\right]} dk_y.
+\end{aligned}
+\label{70e}
+\end{equation}
+
+Recordando que
+
+\begin{equation}
+\int_{-\infty}^{\infty}\frac{dk}{k^2+a^2}=\frac{1}{|a|}\arctan(\theta)\arrowvert_{-\frac{\pi}{2}}^{\frac{\pi}{2}}=\frac{\pi}{a},
+\end{equation}
+
+se sustituye en \eqref{70e}, donde $\xi=\frac{\omega}{v\gamma_n}$
+
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)
+	&=\frac{qe^{i\frac{\omega z}{v}}}{4\pi^2 v\epsilon(\omega)}\int_{-\infty}^{\infty}\frac{\pi e^{iR}}{\sqrt{k_y^2+\frac{\omega^2}{v^2\gamma_n^2(\omega)}}} dk_y
+	=\frac{qe^{i\frac{\omega z}{v}}}{4\pi v\epsilon(\omega)}\int_{-\infty}^{\infty} \frac{e^{ik_yR}}{\sqrt{k_y^2+\xi^2}} dk_y	\\
+	&=\frac{qe^{i\frac{\omega z}{v}}}{4\pi v\epsilon(\omega)}\int_{-\infty}^{\infty} \frac{e^{ik_yR}}{\sqrt{1+(\frac{k_y}{\xi})^2}}\left(\frac{1}{\xi}\right) dk_y
+\end{aligned}
+\end{equation}
+
+Haciendo el cambio de variable $\eta=\frac{k_y}{\xi}$
+
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)
+	&=\frac{qe^{i\frac{\omega z}{v}}}{4\pi v\epsilon(\omega)}\int_{-\infty}^{\infty}\frac{e^{i(\xi\eta)R}}{\sqrt{1+\eta^2}} d\eta
+	=\frac{qe^{i\frac{\omega z}{v}}}{4\pi v\epsilon(\omega)}\int_{-\infty}^{\infty}\frac{e^{i(\xi R)\eta}}{\sqrt{1+\eta^2}} d\eta
+	=\frac{qe^{i\frac{\omega z}{v}}}{4\pi v\epsilon(\omega)}F_1(\xi R)	\\
+	&=\frac{qe^{i\frac{\omega z}{v}}}{4\pi v\epsilon(\omega)} 2K_0(|\xi R|)
+\end{aligned}
+\end{equation}
+\end{subequations}
+
+Por lo tanto
+\begin{equation}
+\tcboxmath[colback=red!5!white,colframe=red!75!black]{
+\phi^{ext}(\vec{r};\omega)=\frac{1}{4\pi\epsilon(\omega)}\frac{2q}{v}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right).}
+\label{PotencialExt1}
+\end{equation}
+
+Por otra parte, resolviendo por el método de la función de Green la ecuación \eqref{59a} partiendo de
+
+\begin{subequations}
+\begin{equation}
+(\nabla'^2+k^2)\phi(\vec{r}';\omega)=-	\frac{\rho_{ext}(\vec{r}';\omega)}{\epsilon(\omega)}
+\label{71a}
+\end{equation}
+\begin{equation}
+(\nabla'^2+k^2)G(\vec{r},\vec{r}')=-\delta(\vec{r}-\vec{r}')
+\label{71b}
+\end{equation}
+\end{subequations}
+
+Multiplicando \eqref{71a} por $G(\vec{r},\vec{r}')$ y \eqref{71b} por $\phi(\vec{r}';\omega)$
+
+\begin{subequations}
+\begin{equation}
+G(\vec{r},\vec{r}')\nabla'^2\phi(\vec{r}';\omega)+G(\vec{r},\vec{r}')k^2\phi(\vec{r}';\omega)=-G(\vec{r},\vec{r}')\frac{\rho_{ext}(\vec{r}';\omega)}{\epsilon(\omega)}
+\label{72a}
+\end{equation}
+\begin{equation}
+\phi(\vec{r}';\omega)\nabla'^2G(\vec{r},\vec{r}')+\phi(\vec{r}';\omega)k^2G(\vec{r},\vec{r}')=-\phi(\vec{r}';\omega)\delta(\vec{r}-\vec{r}')
+\label{72b}
+\end{equation}
+\end{subequations}
+
+Restando \eqref{72b} a \eqref{72a} e integrando en todo el espacio $V'$
+
+\begin{equation*}
+\begin{aligned}
+G(\vec{r},\vec{r}')\nabla'^2\phi(\vec{r}';\omega)-\phi(\vec{r}';\omega)\nabla'^2G(\vec{r},\vec{r}')	&=	\phi(\vec{r}';\omega)\delta(\vec{r}-\vec{r}')-G(\vec{r},\vec{r}')\frac{\rho_{ext}(\vec{r}';\omega)}{\epsilon(\omega)}	\\
+\int_{V'} G(\vec{r},\vec{r}')\nabla'^2\phi(\vec{r}';\omega)-\phi(\vec{r}';\omega)\nabla'^2G(\vec{r},\vec{r}') d^3r'	&=	\int_{V'}\phi(\vec{r}';\omega)\delta(\vec{r}-\vec{r}')-G(\vec{r},\vec{r}')\frac{\rho_{ext}(\vec{r}';\omega)}{\epsilon(\omega)} d^3r'	\\
+\oint_{S'} [G(\vec{r},\vec{r}')\nabla'\phi(\vec{r}';\omega)-\phi(\vec{r}';\omega)\nabla'G(\vec{r},\vec{r}')]\cdot d\vec{a}		&=	\int_{V'}\phi(\vec{r}';\omega)\delta(\vec{r}-\vec{r}') d^3r'-\int_{V'}G(\vec{r},\vec{r}')\frac{\rho_{ext}(\vec{r}';\omega)}{\epsilon(\omega)} d^3r'	\\
+0	&=	\phi(\vec{r};\omega)-\frac{1}{\epsilon(\omega)}\int_{V'} \rho_{ext}(\vec{r}';\omega) G(\vec{r};\vec{r}') d^3r'	\\
+\phi(\vec{r};\omega)	&=	\frac{1}{\epsilon(\omega)}\int_{V'} \rho_{ext}(\vec{r}';\omega) G(\vec{r};\vec{r}') d^3r'
+\end{aligned}
+\end{equation*}
+
+donde
+
+\begin{equation}
+\rho_{ext}(\vec{r}';\omega)=\int_{-\infty}^{\infty}\rho_{ext}(\vec{r}';t) e^{i\omega t} dt = q\int_{-\infty}^{\infty} \delta(\vec{r}'-\vec{r}_t)e^{i\omega t} dt
+\end{equation}
+
+siguiendo que
+\begin{subequations}
+\begin{equation}
+\begin{aligned}
+\phi(\vec{r};\omega)	&=	\frac{1}{\epsilon(\omega)}\int_{V'} \left( q\int_{-\infty}^{\infty} \delta(\vec{r}'-\vec{r}_t)e^{i\omega t} dt \right) G(\vec{r};\vec{r}') d^3r'	\\	&=	\frac{q}{\epsilon(\omega)}\int_{-\infty}^{\infty}e^{i\omega t} \int_{V'} \delta(\vec{r}'-\vec{r}_t)G(\vec{r};\vec{r}')d^3r' dt
+\end{aligned}
+\end{equation}
+por tanto
+\begin{equation}
+\phi^{ext}(\vec{r};\omega) =	\frac{q}{\epsilon(\omega)}\int_{-\infty}^{\infty} G(\vec{r};\vec{r}_t) e^{i\omega t}dt
+\label{PotencialExt2}
+\end{equation}
+\end{subequations}
+
+donde $G(\vec{r};\vec{r}_t)$ es la ecuación de Green de la ecuación de Helmholtz dada por
+
+\begin{equation}
+G(\vec{r};\vec{r}_t)=\frac{e^{ik|\vec{r}-\vec{r}_t|}}{4\pi|\vec{r}-\vec{r}_t|}.
+\end{equation}
+
+Como se busca una expasión multipolar del campo EM del electrón, resulta conveniente utilizar la expasión de la función de Green dada por el Teorema de Adición, siendo así (Jackson pag. 428)
+
+\begin{equation}
+G(\vec{r};\vec{r}_t)=k\sum_{l=1}^{\infty}\sum_{m=-l}^{l} j_l(kr_{<})h_l^{(+)}(kr_{>})Y_l^{m*}(\theta_t,\varphi_t)Y_l^m(\theta,\varphi)
+\label{ExpansionGreen}
+\end{equation}
+
+donde 
+
+\begin{equation}
+r_{<}=
+\left\{
+\begin{aligned}
+	r_t, r_t<r	\\
+	r, r<r_t
+\end{aligned}
+\right.
+\textbf{	y	}
+r_{>}=
+\left\{
+\begin{aligned}
+	r_t, r_t>r	\\
+	r, r>r_t
+\end{aligned}
+\right.,
+\end{equation}
+
+$j_l(\rho)$ es una función esférica de Bessel, $h_l^{(+)}(\rho)$ una función esférica de Hankel del primer tipo multiplicada por $i$, $Y_l^m(\theta,\varphi)$ un armónico esférico definido por
+
+\begin{equation}
+Y_l^m(\theta,\varphi)=a_{l,m}P_l^m(\cos\theta)e^{im\varphi}=\sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}P_l^m(\cos\theta)e^{im\varphi}
+\end{equation}
+
+donde a su vez $P_l^m(\nu)$ es una función asociada de Legendre. Sustituyendo \eqref{ExpansionGreen} en \eqref{PotencialExt2} y considerando que $r_t>r$
+
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)	&=\frac{1}{\epsilon(\omega)}\int_{-\infty}^{\infty} e^{i\omega t} G(\vec{r};\vec{r}_t)dt=\frac{q}{\epsilon(\omega)}\int_{-\infty}^{\infty} e^{i\omega t} k\sum_{l=1}^{\infty}\sum_{m=-l}^{l} j_l(kr)h_l^{(+)}(kr_t)Y_l^{m*}(\theta_t,\varphi_t)Y_l^m(\theta,\varphi) dt	\\
+	&=\frac{qk}{\epsilon(\omega)}\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)Y_l^m(\theta,\varphi)\int_{-\infty}^{\infty}e^{i\omega t} h_l^{(+)}(kr_t)Y_l^{m*}(\theta_t,\varphi_t) dt	\\
+	&=\frac{qk}{\epsilon(\omega)}\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)Y_l^m(\theta,\varphi) M_{l,m}^{(+)},
+\end{aligned}
+\label{PotencialExt3}
+\end{equation}
+
+definiendo 
+
+\begin{equation}
+M_{l,m}^{(+)}=\int_{-\infty}^{\infty}e^{i\omega t} h_l^{(+)}(kr_t)Y_l^{m*}(\theta_t,\varphi_t) dt.
+\label{Mlm}
+\end{equation}
+
+Para resolver \eqref{Mlm} igualamos la última expresión de \eqref{PotencialExt3} con \eqref{PotencialExt1}
+
+\begin{equation}
+\begin{aligned}
+\frac{1}{4\pi\epsilon(\omega)}\frac{2q}{v}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right)	&=	\frac{qk}{\epsilon(\omega)}\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)Y_l^m(\theta,\varphi) M_{l,m}^{(+)}	\\
+\frac{e^{i\frac{\omega z}{v}}}{2\pi kv}K_0\left( \frac{|\omega|R}{v\gamma_n} \right)	&=	\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)Y_l^m(\Omega) M_{l,m}^{(+)}	\\
+\int_{0}^{4\pi}\frac{e^{i\frac{\omega z}{v}}}{2\pi kv}K_0\left( \frac{|\omega|R}{v\gamma_n} \right) Y_{l'}^{m'*}(\Omega) d\Omega		&=	\int_{0}^{4\pi} \sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)Y_l^m(\Omega)  Y_{l'}^{m'*}(\Omega)  M_{l,m}^{(+)} d\Omega	\\
+\frac{1}{2\pi kv}\int_{0}^{4\pi}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right) Y_{l'}^{m'*}(\Omega) d\Omega	&=	\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)M_{l,m}^{(+)} \int_{0}^{4\pi} Y_l^m(\Omega)  Y_{l'}^{m'*}(\Omega) d\Omega	\\
+\frac{1}{2\pi kv}\int_{0}^{4\pi}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right) Y_{l'}^{m'*}(\Omega) d\Omega	&=	\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)M_{l,m}^{(+)} \delta_{l,l'}\delta_{m,m'}	\\
+\frac{1}{2\pi kv}\int_{0}^{4\pi}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right) Y_l^{m*}(\Omega) d\Omega	&=  j_l(kr)M_{l,m}^{(+)}
+\end{aligned}
+\end{equation}
+
+Por lo que
+
+\begin{equation}
+\begin{aligned}
+M_{l,m}^{(+)}	&=	\frac{1}{2\pi kv j_l(kr)}\int_{0}^{4\pi}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right) Y_l^{m*}(\Omega) d\Omega	\\
+	&=\frac{1}{2\pi kv j_l(kr)}\int_{0}^{2\pi}\int_{0}^{\pi}e^{i\frac{\omega z}{v}}K_0\left( \frac{|\omega|R}{v\gamma_n} \right)  a_{l,m}P_l^m(\cos\theta)e^{-im\varphi} \sin\theta d\theta d\varphi 	\\
+	&= \frac{a_{l,m}}{2\pi kv j_l(kr)}\int_{0}^{\pi}e^{i\frac{\omega z}{v}}P_l^m(\cos\theta)\sin\theta\left[\int_{0}^{2\pi}e^{-im\varphi}K_0\left( \frac{|\omega|R}{v\gamma_n} \right)d\varphi \right]d\theta	\\
+	&\overset{G. A.}{=} \frac{a_{l,m}}{2\pi kv j_l(kr)}\int_{0}^{\pi}e^{i\frac{\omega z}{v}}P_l^m(\cos\theta)\sin\theta \left[ 2\pi I_m\left( \frac{|\omega|R_0}{v\gamma_n} \right)K_m\left( \frac{|\omega|b}{v\gamma_n} \right) \right] d\theta	\\
+	&=\frac{a_{l,m}}{kv j_l(kr)}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) \int_{0}^{\pi}e^{i\frac{\omega z}{v}}P_l^m(\cos\theta)I_m\left( \frac{|\omega|R_0}{v\gamma_n} \right)\sin\theta d\theta\\
+	&=\frac{a_{l,m}}{kv j_l(kr)}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) \int_{-1}^{1}e^{i\frac{\omega r \nu}{v}} P_l^m(\nu) I_m\left( \frac{|\omega|r}{v\gamma_n} \sqrt{1-\nu^2}\right) d\nu	\\
+	&=\frac{a_{l,m}}{kv j_l(kr)}K_m\left( \frac{|\omega|b}{v\gamma_n} \right)  T_{l,m}
+\end{aligned}
+\label{MlmSuma}
+\end{equation}
+
+Para calcular la integral $T_{l,m}$ se hará uso de las expasiones de Taylor de $\exp(x)$ y $I_m(x)$ (Arfken)
+
+\begin{subequations}{
+\begin{equation}
+e^{i\frac{\omega r\nu}{v}}=\sum_{s=0}^{\infty} \frac{1}{s!}\left(i\frac{\omega r\nu}{v} \right)^s=\sum_{s=0}^{\infty} \frac{i^s}{s!}\left(\frac{\omega r}{v} \right)^s\nu^s
+\end{equation}
+\begin{equation}
+\begin{aligned}
+I_m\left(\frac{\omega r}{v\gamma_n} \sqrt{1-\nu^2}\right)
+	&=	\sum_{j=0}^{\infty}\frac{1}{j!(j+m)!}\left(\frac{\omega r}{v\gamma_n} \sqrt{1-\nu^2}\right)^{m+2j}	\\
+	&=	\sum_{j=0}^{\infty}\frac{1}{j!(j+m)!(2\gamma_n)^{m+2j}}\left(\frac{\omega r}{v} \right)^{m+2j}(1-\nu)^{\frac{m+2j}{2}}
+\end{aligned}
+\end{equation}}
+\label{Taylor}
+\end{subequations}
+
+Sustituyendo \eqref{Taylor} en la integral $T_{l,m}$
+
+\begin{equation}
+\begin{aligned}
+T_{l,m}
+	&=\int_{-1}^{1}e^{i\frac{\omega r \nu}{v}} P_l^m(\nu) I_m\left( \frac{|\omega|r}{v\gamma_n} \sqrt{1-\nu^2}\right) d\nu	\\
+	&=\int_{-1}^{1}\left[\sum_{s=0}^{\infty} \frac{i^s}{s!}\left(\frac{\omega r}{v} \right)^s\nu^s\right]\left[\sum_{j=0}^{\infty}\frac{1}{j!(j+m)!(2\gamma_n)^{m+2j}}\left(\frac{\omega r}{v} \right)^{m+2j}(1-\nu)^{\frac{m+2j}{2}}\right]P_l^m(\nu)d\nu	\\
+	&=\left[\sum_{s=0}^{\infty} \frac{i^s}{s!}\left(\frac{\omega r}{v} \right)^s\right]\left[\sum_{j=0}^{\infty}\frac{1}{j!(j+m)!(2\gamma_n)^{m+2j}}\left(\frac{\omega r}{v} \right)^{m+2j}\right]\underbrace{\int_{-1}^{1}\nu^s(1-\nu)^{\frac{m+2j}{2}}P_l^m(\nu)d\nu}_{\mathcal{I}_{m+2j,s}^{l,m}}\\
+	&=\sum_{j=0}^{\infty}\sum_{s=0}^{\infty} \frac{i^s}{s!j!(j+m)!(2\gamma_n)^{m+2j}}\left(\frac{\omega r}{v} \right)^{s+m+2j}\mathcal{I}_{m+2j,s}^{l,m}, \text{  sea $s'=s+m+2j$}	\\
+	&=\sum_{j=0}^{\infty}\sum_{s'=m+2j}^{\infty} \frac{i^{s'-(m+2j)}}{[s'-(m+2j)]!j!(j+m)!(2\gamma_n)^{m+2j}}\left(\frac{\omega r}{v}\right)^{s'}\mathcal{I}_{m+2j,s'-(m+2j)}^{l,m}, \text{  sea $j'=m+2j$}	\\
+	&=\sum_{j'=m}^{\infty}\sum_{s'=j'}^{\infty} \frac{i^{s'-j'}}{(s'-j')!\left(\frac{j'-m}{2}\right)!\left(\frac{j'-m}{2}+m\right)!(2\gamma_n)^{j'}}\left(\frac{\omega r}{v}\right)^{s'}\mathcal{I}_{j',s'-j'}^{l,m}, \text{  cambiando índices mudos}	\\
+	&=\sum_{j=m}^{\infty}\sum_{s=j}^{\infty} \frac{i^{s-j}}{(s-j)!\left(\frac{j-m}{2}\right)!\left(\frac{j+m}{2}\right)!(2\gamma_n)^{j}}\left(\frac{\omega r}{v}\right)^{s}\mathcal{I}_{j,s-j}^{l,m}.
+\end{aligned}
+\label{Tlm}
+\end{equation}
+
+Notando que
+
+\begin{equation}
+\mathcal{I}_{j,s-j}^{l,m}=\int_{-1}^{1}(1-\nu^2)^{\frac{j}{2}}\nu^s P_l^m(\nu)d\nu
+\end{equation}
+
+se anula si $s<l$ o $j\geq m$ (¿? Calcular para confirmar). Esto significa que sólo no se anula (en general) para $s\geq l$. Nótese que $s$ toma los valores de $j$, éstos son $m$, $m+1$,$\ldots$, donde $m$ toma los valores $-l$,$\ldots$, $0$,$\ldots$, $l$ implicando que $s$ sólo toma un valor: $s=l$, eliminando la suma sobre $s$. Siguiendo lo antes mencionado, se sustituye la última expresión de \eqref{Tlm} en la última de \eqref{MlmSuma}, se sigue que
+
+\begin{equation}
+\begin{aligned}
+M_{l,m}^{(+)}
+	&=\frac{a_{l,m}}{kv j_l(kr)}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) \sum_{j=m}^{\infty}\frac{i^{l-j}}{(l-j)!\left(\frac{j-m}{2}\right)!\left(\frac{j+m}{2}\right)!(2\gamma_n)^{j}}\left(\frac{\omega r}{v}\right)^{l}\mathcal{I}_{j,l-j}^{l,m}	\\
+	&=\frac{a_{l,m}}{kv j_l(kr)}\left(\frac{\omega r}{v}\right)^{l}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) \sum_{j=m}^{\infty}\frac{i^{l-j}}{(l-j)!\left(\frac{j-m}{2}\right)!\left(\frac{j+m}{2}\right)!(2\gamma_n)^{j}}\mathcal{I}_{j,l-j}^{l,m}.
+\end{aligned}
+\label{Mlm2}
+\end{equation}
+
+Como ésta relación se debe cumplir para todo punto del espacio donde $r<b$, por ser independiente de ésta variable, lo hace en particular en el límite cuando $r\rightarrow0$ donde 
+
+\begin{equation}
+j_l(\rho)\approx\frac{\rho^l}{(2l+1)!!}.
+\end{equation}
+
+Sustituyendo en \eqref{Mlm2}
+
+\begin{equation}
+\begin{aligned}
+M_{l,m}^{(+)}
+	&=\frac{a_{l,m}(2l+1)!!}{kv (kr)^l}\left(\frac{\omega r}{v}\right)^{l}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) \sum_{j=m}^{\infty}\frac{i^{l-j}}{(l-j)!\left(\frac{j-m}{2}\right)!\left(\frac{j+m}{2}\right)!(2\gamma_n)^{j}}\mathcal{I}_{j,l-j}^{l,m}
+\end{aligned}
+\label{Mlm3}
+\end{equation}
+
+donde
+
+\begin{equation}
+\frac{1}{kv}\left(\frac{\omega}{kv} \right)^l=\frac{c}{\omega nv} \left(\frac{\omega c}{\omega nv} \right)^l=\frac{1}{\omega} \left(\frac{c}{vn}\right)^{l+1}=\frac{1}{\omega(\beta n)^{l+1}}.
+\end{equation}
+
+Definiendo
+
+\begin{equation}
+A_{l,m}^{(+)}=\frac{a_{l,m}(2l+1)!!}{(\beta n)^{l+1}}\sum_{j=m}^{\infty}\frac{i^{l-j}}{(l-j)!\left(\frac{j-m}{2}\right)!\left(\frac{j+m}{2}\right)!(2\gamma_n)^{j}}\mathcal{I}_{j,l-j}^{l,m},
+\end{equation}
+
+se puede decir que
+
+\begin{equation}
+M_{l,m}^{(+)}=\frac{A_{l,m}^{(+)}}{\omega}K_m\left( \frac{|\omega|b}{v\gamma_n} \right)
+\end{equation}
+
+y con ello se obtiene la expresión del potencial $\phi^{ext}(\vec{r};\omega)$
+
+\begin{equation}
+\begin{aligned}
+\phi^{ext}(\vec{r};\omega)
+	&=\frac{qk}{\epsilon(\omega)}\sum_{l=1}^{\infty}\sum_{m=-l}^l j_l(kr)Y_l^m(\theta,\varphi)\frac{A_{l,m}^{(+)}}{\omega}K_m\left( \frac{|\omega|b}{v\gamma_n} \right)	\\
+	&=\frac{qn(\omega)}{c\epsilon(\omega)}\sum_{l=1}^{\infty}\sum_{m=-l}^l A_{l,m}^{(+)}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) j_l(kr)Y_l^m(\theta,\varphi)
+\end{aligned}
+\end{equation}
+
+que en términos de $\mu(\omega)$ y $\epsilon(\omega)$ es
+
+\begin{equation}
+\tcboxmath[colback=red!5!white,colframe=red!75!black]{
+\phi^{ext}(\vec{r};\omega)=q\sqrt{\frac{\mu}{\epsilon}}\sum_{l=1}^{\infty}\sum_{m=-l}^l A_{l,m}^{(+)}K_m\left( \frac{|\omega|b}{v\gamma_n} \right) j_l(kr)Y_l^m(\theta,\varphi)}
+\label{PotencialExtPolar}
+\end{equation}
+
+\chapter{\large{Cálculo del campo EM debido a un electrón en movimiento rectilíneo uniforme: potenciales $\psi^E$ y $\psi^M$}}
+
+Considerando que un campo es posible expandirlo de la siguiente manera (Lou)
+
+\begin{equation}
+\vec{F}=\nabla\psi_1+\hat{\textbf{L}}\psi_2+\frac{\nabla\times\hat{\textbf{L}}}{ik}\psi_3
+\end{equation}
+
+donde $\hat{\textbf{L}}=-i\textbf{r}\times\nabla$
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=150pt]{stefan2.png}
+%\caption{Curva de emisión de la densidad de energía espectral de un cuerpo negro \cite{beiser}.}
+%\label{stefan2}
+%\end{figure}
+\end{document}
