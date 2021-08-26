@@ -5,29 +5,8 @@ La solución de Mie, también conocida como teoría, resuelve el problema de abs
 Como parte de un seminarios dedicado a la solución de Mie, basado en el libro de Bohren y Huffman [[2](2)], se crearon diversas notas por los participantes del seminario, en donde se comenta y da detalle del procedimiento matemático necesario. La propósito de este repositorio es el compilar las notas de cada participante y generar una referencia en español sobre el tema.
 
 ---
-## Presunto temario
 
-1. Conceptos de electromagnetismo (Isabel)
-2. Teoría general de esparcimiento (Jonathan)
-  - Reredactar teorema óptico (Jonathan)
-3. Armónicos esféricos vectoriales (Jonathan y Eduardo)
-  - Agregar sección sobre los tres armónicos esféricos vectoriales (Eduardo)
-4. Esparcimiento y absorción de una esfera
-  - Redactar a partir de las notas de Jonathan (Eduardo)
-  - Límite cuasiestático (Jonatha - Por escribir)
-5. Casos particulares
-
-# Secciones avanzadas
-1. Teoría de Mie extendida (Jonathan)
-  - Meter texto de Lalo con el formato anterior
-
-# Apéndices
-1. **A**: Teorema óptico de van de Hust
-
-
----
-
-## Contendio creado por los participantes de los seminarios
+## Temas desarrollados en las notas de los participantes
 
 De forma general hay que corregir el lenguaje y homogeneizarlo; lo mismo con la notación, además de que se deben crear más diagramas y gráficas propias.
 
@@ -94,27 +73,7 @@ De forma general hay que corregir el lenguaje y homogeneizarlo; lo mismo con la 
 1. Mie1
     - [x] C_{ext} y C_{sca} en términos de los coeficientes de Mie a_\ell y b_\ell
 
-### Eduardo (Transferencia de momento - Teoría de Mie Extendida)
-1.  Campo EM de un electron en MRU
-    - [x] Calculo componente longitudinal y transversal
-    - [x] Sistema de referencia del electrón y uno incercial
-    - [x] Transformadas de Fourier de los campos
-2.  Potencial eléctrico (multipolos)
-    - [x] Expresión cerrada
-    - [x] Expresión de eigenfunciones de función de Green
-3. Potenciales EM de un electrón en MRU
-4. Campos EM de un electrón en MRU
-5. Armónicos esféricos vectoriales
-6. Campos esparcidos e internos
-7. Resultados numéricos
-   - [ ] Falta texto
-8. Vector de Poynting
-  - [ ] Falta texto
-- [ ] Poner referencias en .bib y citar correctamente
-
-
-
-## Tareas pendientes
+## Tareas
 
 1. Procedimientos faltantes
     1. Matriz de esparcimiento de Mie
@@ -138,7 +97,6 @@ De forma general hay que corregir el lenguaje y homogeneizarlo; lo mismo con la 
 3. Estilo y redacción
     - [ ] Gramática y ortografía
     - [ ] Introducción a cada sección
-    - [ ] Citas para teoría de Mie extendida (transferencia de momento)
 
 ## Referencias
 - [1] [G. Mie, "Beiträge zur Optik trüber Medien, speziell kolloidaler Metallösungen," _Ann. Phys._ 330, 377–445 (1908).](https://onlinelibrary.wiley.com/doi/epdf/10.1002/andp.19083300302)
