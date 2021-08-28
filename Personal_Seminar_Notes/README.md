@@ -65,10 +65,10 @@ sustrato
   - [ ] Cálculo del sistema de ecuaciones para determinar  los coeficientes de Mie
 
 ##### 2. Ripple Structure
-    - [x] Explicación de la C_{ext} de una gota de agua
-    - [x] Análisis de a_{\ell} y b_{\ell}
-    - [x] Discusión del esparcimiento de Rayleigh
-    - [ ] Diagramas propios
+  - [x] Explicación de la C_{ext} de una gota de agua
+  - [x] Análisis de a_{\ell} y b_{\ell}
+  - [x] Discusión del esparcimiento de Rayleigh
+  - [ ] Diagramas propios
 
 ##### 3. Authors template (Springer)
 **Hay problemas de compilación**
