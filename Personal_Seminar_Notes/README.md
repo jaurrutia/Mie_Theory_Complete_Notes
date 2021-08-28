@@ -7,7 +7,7 @@ Como resultado del seminario de Tería de Mie, varias alumnas y alumnos crearon 
   - Jonathan Alexis Urrutia Anguiano
   - Amauri López Cabrera
   - Yamil
-  - Eduardo Enrique Vivereos diagramas
+  - Eduardo Enrique Vivereos Armas
 
 ---
 ### Contenido de las notas
