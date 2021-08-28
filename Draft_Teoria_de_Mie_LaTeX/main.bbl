@@ -1,0 +1,406 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{jackson1999electrodynamics}{book}{}
+    \name{author}{1}{}{%
+      {{hash=JJD}{%
+         family={Jackson},
+         familyi={J\bibinitperiod},
+         given={John\bibnamedelima David},
+         giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{JJD1}
+    \strng{fullhash}{JJD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{3$^\circ$}
+    \field{title}{Classical electrodynamics}
+    \field{year}{1999}
+  \endentry
+
+  \entry{reitz1993foundations}{book}{}
+    \name{author}{3}{}{%
+      {{hash=RJR}{%
+         family={Reitz},
+         familyi={R\bibinitperiod},
+         given={John\bibnamedelima R.},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=MFJ}{%
+         family={Milford},
+         familyi={M\bibinitperiod},
+         given={Frederick\bibnamedelima J.},
+         giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=CRW}{%
+         family={Christy},
+         familyi={C\bibinitperiod},
+         given={Robert\bibnamedelima W},
+         giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley Pub. Co.}%
+    }
+    \strng{namehash}{RJRMFJCRW1}
+    \strng{fullhash}{RJRMFJCRW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{4}
+    \field{title}{Foundations of Electromagnetic Teory}
+    \field{year}{1993}
+  \endentry
+
+  \entry{purcell2011electricity}{book}{}
+    \name{author}{1}{}{%
+      {{hash=PEM}{%
+         family={Purcell},
+         familyi={P\bibinitperiod},
+         given={Edward\bibnamedelima M.},
+         giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{PEM1}
+    \strng{fullhash}{PEM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Electricity and Magnetism}
+    \field{year}{2011}
+  \endentry
+
+  \entry{griffiths2013electrodynamics}{book}{}
+    \name{author}{1}{}{%
+      {{hash=GDJ}{%
+         family={Griffiths},
+         familyi={G\bibinitperiod},
+         given={David\bibnamedelima Jeffrey},
+         giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Pearson}%
+    }
+    \strng{namehash}{GDJ1}
+    \strng{fullhash}{GDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{4$^\circ$}
+    \field{title}{Introduction to electrodynamics}
+    \field{year}{2013}
+  \endentry
+
+  \entry{born2005principles}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BM}{%
+         family={Born},
+         familyi={B\bibinitperiod},
+         given={Max},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=EW}{%
+         family={Emil},
+         familyi={E\bibinitperiod},
+         given={Wolf},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{BMEW1}
+    \strng{fullhash}{BMEW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{7}
+    \field{title}{Principle of Optics: Electromagnetic Theory of Propagation,
+  Intergerence and Diffraction of Light}
+    \field{year}{2005}
+  \endentry
+
+  \entry{bohren1998absorption}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BCF}{%
+         family={Bohren},
+         familyi={B\bibinitperiod},
+         given={Craig\bibnamedelima F},
+         giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=HDR}{%
+         family={Huffman},
+         familyi={H\bibinitperiod},
+         given={Donald\bibnamedelima R},
+         giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{BCFHDR1}
+    \strng{fullhash}{BCFHDR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Absorption and scattering of light by small particles}
+    \field{year}{1998}
+  \endentry
+
+  \entry{yu2010fundamentals}{book}{}
+    \name{author}{2}{}{%
+      {{hash=YPY}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Peter\bibnamedelima Y.},
+         giveni={P\bibinitperiod\bibinitdelim Y\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Cardona},
+         familyi={C\bibinitperiod},
+         given={Manuel},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{YPYCM1}
+    \strng{fullhash}{YPYCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{4}
+    \field{title}{Fundamentals of semiconductors. Physics and materials
+  properties}
+    \field{year}{2010}
+  \endentry
+
+  \entry{kittel1996introduction}{book}{}
+    \name{author}{1}{}{%
+      {{hash=KC}{%
+         family={Kittel},
+         familyi={K\bibinitperiod},
+         given={Charles},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley $\&$ Sons}%
+    }
+    \strng{namehash}{KC1}
+    \strng{fullhash}{KC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{7}
+    \field{title}{Introduction to Solid State Physics}
+    \field{year}{1996}
+  \endentry
+
+  \entry{tsang2000scattering}{book}{}
+    \name{author}{3}{}{%
+      {{hash=TL}{%
+         family={Tsang},
+         familyi={T\bibinitperiod},
+         given={Leung},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KJA}{%
+         family={Kong},
+         familyi={K\bibinitperiod},
+         given={Jin\bibnamedelima Au},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=DKH}{%
+         family={Ding},
+         familyi={D\bibinitperiod},
+         given={Kung-Hau},
+         giveni={K\bibinithyphendelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{TLKJADKH1}
+    \strng{fullhash}{TLKJADKH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Scattering of electromagnetic waves: theories and
+  applications}
+    \field{year}{2000}
+  \endentry
+
+  \entry{krasavin2018generalization}{article}{}
+    \name{author}{7}{}{%
+      {{hash=KAV}{%
+         family={Krasavin},
+         familyi={K\bibinitperiod},
+         given={Alexey\bibnamedelima V.},
+         giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Segovia},
+         familyi={S\bibinitperiod},
+         given={Paulina},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=DR}{%
+         family={Dubrovka},
+         familyi={D\bibinitperiod},
+         given={Rostyslav},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=ON}{%
+         family={Olivier},
+         familyi={O\bibinitperiod},
+         given={Nicolas},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=WGA}{%
+         family={Wurtz},
+         familyi={W\bibinitperiod},
+         given={Gregory\bibnamedelima A.},
+         giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={Ginzburg},
+         familyi={G\bibinitperiod},
+         given={Pavel},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ZAV}{%
+         family={Zayats},
+         familyi={Z\bibinitperiod},
+         given={Anatoly\bibnamedelima V.},
+         giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KAV+1}
+    \strng{fullhash}{KAVSPDRONWGAGPZAV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1038/s41377-018-0025-x
+    \endverb
+    \field{issn}{2047-7538}
+    \field{number}{1}
+    \field{pages}{36}
+    \field{title}{Generalization of the optical theorem: experimental proof for
+  radially polarized beams}
+    \verb{url}
+    \verb http://www.nature.com/articles/s41377-018-0025-x
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{Light: Science \& Applications}
+    \field{month}{12}
+    \field{year}{2018}
+  \endentry
+
+  \entry{newton1976optical}{article}{}
+    \name{author}{1}{}{%
+      {{hash=NRG}{%
+         family={Newton},
+         familyi={N\bibinitperiod},
+         given={Roger\bibnamedelima G.},
+         giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NRG1}
+    \strng{fullhash}{NRG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1119/1.10324
+    \endverb
+    \field{issn}{0002-9505, 1943-2909}
+    \field{number}{7}
+    \field{pages}{639\bibrangedash 642}
+    \field{title}{Optical theorem and beyond}
+    \verb{url}
+    \verb http://aapt.scitation.org/doi/10.1119/1.10324
+    \endverb
+    \field{volume}{44}
+    \field{journaltitle}{American Journal of Physics}
+    \field{year}{1976}
+    \field{urlday}{04}
+    \field{urlmonth}{12}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{strutt1871On}{article}{}
+    \field{labeltitlesource}{title}
+    \field{title}{{XV}. {O}n the light from the sky, its polarization and
+  colour}
+  \endentry
+
+  \entry{hermans2011waterappendices}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=HAJ}{%
+         family={Hermans},
+         familyi={H\bibinitperiod},
+         given={A.\bibnamedelima J.},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Netherlands}%
+    }
+    \strng{namehash}{HAJ1}
+    \strng{fullhash}{HAJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Water Waves and Ship Hydrodynamics}
+    \field{isbn}{978-94-007-0095-6 978-94-007-0096-3}
+    \field{pages}{155\bibrangedash 164}
+    \field{title}{Appendices: Mathematical Methods}
+    \list{location}{1}{%
+      {Dordrecht}%
+    }
+    \field{year}{2011}
+  \endentry
+
+  \entry{arfken2001methods}{book}{}
+    \name{author}{2}{}{%
+      {{hash=AGB}{%
+         family={Arfken},
+         familyi={A\bibinitperiod},
+         given={George\bibnamedelima Brown},
+         giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=WHJ}{%
+         family={Weber},
+         familyi={W\bibinitperiod},
+         given={Hans\bibnamedelima J},
+         giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Harcourt Academic Press}%
+    }
+    \strng{namehash}{AGBWHJ1}
+    \strng{fullhash}{AGBWHJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Mathematical methods for physicists}
+    \field{year}{2001}
+  \endentry
+\enddatalist
+\endinput

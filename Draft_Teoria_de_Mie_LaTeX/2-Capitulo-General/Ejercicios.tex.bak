@@ -1,0 +1,228 @@
+%!TeX root = ../main.tex
+
+\section{Ejercicios sugeridos}
+
+\begin{enumerate}[label=\textbf{Ejercicio \thechapter.\arabic*},resume]
+\item A partir de las Ecs. \eqref{eq:H=curlA} y \eqref{eq:Aoscilante}, muestre que el campo $\vb{H}$, para una fuente oscilante en el tiempo, está dado por la Ec. \eqref{eq:Hoscilante}.
+\label{ex:Hoscilante}
+\item[\color{blue} Solución:]
+	Notemos que
+	\begin{align*}
+	\nabla\times\qty(\frac{e^{ikr}}{r}\vb{p}) = \nabla\qty(\frac{e^{ikr}}{r})\times\vb{p} + \frac{e^{ikr}}{r}\nabla\times\vb{p},
+\end{align*}		
+y como $\vb{p}$ no depende de $\vb{r}$, entonces $\nabla\times\vb{p} = \vb{0}$. Por lo tanto
+\begin{align*}
+\nabla\times\qty(\frac{e^{ikr}}{r}\vb{p}) 
+	 &= \qty[e^{ikr}\nabla\qty(\frac{1}{r})+\frac{1}{r}\nabla\qty(e^{ikr})]\times\vb{p}\\
+	 &= \qty[e^{ikr}\qty(-\frac{\vu{e}_r}{r^2})+\frac{ik}{r}e^{ikr}\vu{e}_r] \times\vb{p}\\
+	 &= \frac{e^{ikr}}{r}\qty(-\frac{1}{r}+ik)\vu{e}_r\times\vb{p}.
+\end{align*}
+Multiplicando el resultado anterior por $-i\omega k/4\pi k$ y recordando que la relación de dispersión para ondas electromagnéticas en el vacío es $\omega =  ck$,  obtenemos que
+	\begin{align*}
+	\vb{H} = \frac{ck^2}{4\pi}\frac{e^{ikr}}{r}\qty(1-\frac{1}{ikr})\vu{e}_r\times\vb{p}.
+	\end{align*}
+	
+\item Muestre que el campo eléctrico para una fuente oscilante en el tiempo está dada por la Ec. \eqref{eq:Eoscilante}. Hágalo calculando el rotacional de la Ec.  \eqref{eq:Hoscilante}.
+\label{ex:Eoscilante}
+\item[\color{blue} Solución:]
+	Calculando el rotacional de la Ec. \eqref{eq:Hoscilante} como el producto de una función escalar que depende de $r$ y el término vectorial $\vu{e}_r\times\vb{p}$, se obtiene que el campo eléctrico es
+	%
+	\begin{align*}
+	\vb{E} &= \frac{i}{k}\sqrt{\frac{\mu_0}{\varepsilon_0}} \frac{ck^2}{4\pi}\left\{
+		\qty[\frac{e^{ikr}}{r}\qty(1-\frac{1}{ikr})]\nabla\times(\vu{e}_r\times\vb{p}) +
+	\nabla\qty[\frac{e^{ikr}}{r}\qty(1-\frac{1}{ikr})]\times(\vu{e}_r\times\vb{p}) 
+	\right\}\\
+		&= \frac{ik}{4\pi\varepsilon_0}\left\{
+		\qty[\frac{e^{ikr}}{r}\qty(1-\frac{1}{ikr})]\nabla\times(\vu{e}_r\times\vb{p}) +
+	\dv{r}\qty[\frac{e^{ikr}}{r}\qty(1-\frac{1}{ikr})]\vu{e}_r\times(\vu{e}_r\times\vb{p}) 
+	\right\}.
+	\end{align*}
+%
+Al descomponer el momento dipolar $\vb{p}$ en una componente longitudinal y una transversal como $\vb{p} = (\vb{p}\cdot\vu{e}_r)\vu{e}_r + (\vb{p}\times\vu{e}_r)\times\vu{e}_r $, se obtiene que
+%
+\begin{align*}
+	\vu{e}_r \times (\vu{e}_r \times \vb{p}) = - \vb{p} +  (\vb{p}\cdot\vu{e}_r)\vu{e}_r,
+\end{align*}
+%
+y al calcular el rotacional de $\vu{e}_r\times\vb{p}$, ésta expresión se reduce a\footnote{Si $\vb{a}$ es un vector constante y $\vb{f}(\vb{r})=f(r)\vu{e}_r$, entonces \cite{jackson1999electrodynamics} $$(\vb{a}\cdot\nabla)\vb{f} = [f(r)/r][\vb{a}-\vu{e}_r(\vb{a}\cdot\vu{e}_r)]+\vu{e}_r(\vb{a}\cdot\vu{e}_r)\pdv*{f}{r}.$$}
+%
+\begin{align*}
+\nabla\times (\vu{e}_r\times\vb{p}) &= \vu{e}_r(\nabla\cdot\vb{p}) - \vb{p}(\nabla\cdot\vu{e}_r) + (\vb{p}\cdot\nabla)\vu{e}_r-(\vu{e}_r\cdot\nabla)\vb{p}\\
+	&=  - \vb{p}(\nabla\cdot\vu{e}_r) + (\vb{p}\cdot\nabla)\vu{e}_r\\
+	&= -\vb{p}\frac{2}{r} + \frac{1}{r}\qty[\vb{p}-\vu{e}_r(\vb{p}\cdot\vu{e}_r)]\\
+	&= -\frac{1}{r}[\vb{p}+\vu{e}_r(\vb{p}\cdot\vu{e}_r)].
+\end{align*}
+%
+Sustituyendo estas expresiones y desarrollando la derivada respecto a $r$, el campo eléctrico se reescribe como
+%
+\begin{align*}
+\vb{E} &= \frac{ik e^{ikr}}{4\pi\varepsilon_0}\qty[
+	\qty(\frac{1}{r^2}-\frac{1}{ikr^3})[-\vb{p}-\vu{e}_r(\vb{p}\cdot\vu{e}_r)] + 
+	\qty(-\frac{2}{r^2}+\frac{ik}{r}+\frac{2}{ikr^3})[-\vb{p}+\vu{e}_r(\vb{p}\cdot\vu{e}_r)]
+]\\
+	&=  \frac{e^{ikr}}{4\pi\varepsilon_0}\qty[
+	\qty(\frac{ik}{r^2}-\frac{1}{r^3})[-\vb{p}-\vu{e}_r(\vb{p}\cdot\vu{e}_r)] + 
+	\qty(-\frac{2ik}{r^2}-\frac{k^2}{r}+\frac{2}{r^3})[-\vb{p}+\vu{e}_r(\vb{p}\cdot\vu{e}_r)],
+]
+\end{align*}
+%
+y, finalmente, agrupando términos se obtiene la expresión
+%
+\begin{align*}
+\vb{E} = \frac{e^{ikr}}{4\pi\varepsilon_0}\qty[
+	\frac{k^2}{r}(\vu{e}_r\times\vb{p})\times\vu{e}_r + 
+	[3\vu{e}_r(\vu{e}_r\cdot\vb{p})-\vb{p}]\qty(\frac{1}{r^3}-\frac{ik}{r^2})
+].
+\end{align*}.
+%
+
+\item Calcule el vector de Poynting asociado a la extinción [Ec. \eqref{eq:Sext}] para una partícula esparcidora arbitraria iluminada por una onda plana monocromática polarizada en la dirección $x$ y que se propaga en la dirección $z$. Con este resultado, calcule la energía por unidad de tiempo $W_{ext}$ que fluye por una superficie esférica $A$.
+\textit{Hint:} Emplee las Ecs. \eqref{eq:EscaX} y \eqref{eq:HscaX}.
+\label{ex:Wext}
+\item[\color{blue} Solución:]
+Empleando la Ec. \eqref{eq:HscaX} y que $\vb{E}^i = E_0\vu{e}_x$, entonces
+%
+\begin{align*}
+\vb{E}^i\times\vb{H}^{sca*} &= E_0\vu{e}_x\times\qty(\frac{k}{\omega\mu}\vu{e}_r\times\vb{E}^{sca})^*\\
+	&= E_0 \vu{e}_x\times\qty[\qty(\frac{k}{\omega\mu}\vu{e}_r)\times\qty(\frac{e^{ik(r-z)}}{-ikr}E_0\vb{X})]^*\\
+	&= \frac{k}{\mu\omega}\frac{E_0^2}{ikr}e^{-ik(r-z)}\big[\vu{e}_x\times(\vu{e}_r\times\vb{X}^*)\big]\\
+&= \frac{k}{\mu\omega}\frac{E_0^2}{ikr}e^{-ik(r-z)}
+	\big[
+	\vu{e}_r(\vu{e}_x\cdot\vb{X}^*)-\vb{X}^*(\vu{e}_x\cdot\vu{e}_r)\big],
+\end{align*}
+%
+y análogamente con la Ec. \eqref{eq:EscaX}
+%
+\begin{align*}
+\vb{E}^{sca}\times\vb{H}^{i*} = \frac{k}{\mu\omega} \frac{E_0^2}{-ikr}\big[
+	\vu{e}_z(\vb{X}\cdot\vu{e}_x)-\vu{e}_x(\vb{X}\cdot\vu{e}_z)\big],
+\end{align*}
+%
+por lo que
+%
+\begin{align*}
+\ev{\vb{S}^{ext}}_t = \frac{kE_0^2}{2\mu\omega}\Re\bigg\{&
+\frac{e^{-ikr}}{ikr}e^{ikz}
+	\big[
+	\vu{e}_r(\vu{e}_x\cdot\vb{X}^*)-\vb{X}^*(\vu{e}_x\cdot\vu{e}_r)		
+	\big]\\
++&
+\frac{e^{ikr}}{-ikr}e^{-ikz}
+	\big[
+	\vu{e}_z(\vb{X}\cdot\vu{e}_x)-\vu{e}_x(\vb{X}\cdot\vu{e}_z)
+	\big]
+\bigg\}.
+\end{align*}
+%
+
+Dado que $\vb{X}\cdot\vu{e}_r = 0$, $\vu{e}_r\cdot\vu{e}_z = \cos\theta$ y $\vb{e}_r\cdot\vb{e}_x = \cos\varphi\sin\theta$, la energía que cruza una superfice  esférica $A$ de radio $r$ $W_{ext}$ es
+%
+\begin{align*}
+W_{ext} = -\int_{A} \ev{\vb{S}^{ext}}_t\cdot\vu{e}_r\dd{a}
+ = \frac{kE_0^2}{2\mu\omega}\Re\bigg\{&
+\frac{e^{-ikr}}{-ikr}
+	\int_A e^{ikz} (\vu{e}_x\cdot\vb{X}^*)\dd{a}\\
++&\frac{e^{ikr}}{ikr}
+	\int_A e^{-ikz}(\vb{X}\cdot\vu{e}_x)\cos\theta\dd{a}\\
+-&\frac{e^{ikr}}{ikr}
+	\int_A e^{-ikz}(\vb{X}\cdot\vu{e}_z)\sin\theta\cos\varphi\dd{a}
+	\bigg\}.
+\end{align*}
+%
+
+
+\item Calcule la energía por unidad de tiempo $W_{ext}(D)$ que lee un detector $D$ suponiendo que la onda plana incidente está polarizada en la dirección $x$, se propaga en la dirección $z$ e incide perpendicularmente al área del detector. Suponga, además, que la distancia entre la partícula esparcidora y el detector es $z$ y que $kz\gg 1$ (es decir se mide el campo lejano).\\
+\textit{Hint:} Resuelva la integral de la Ec. \ref{eq:WextD}  empleando el método de la fase estacionaria\footnote{Sean $f$ y $g$ funciones que permitan su expansión en series de Taylor en el intervalo $a\leq x\leq b$, con $f(x)\in\mathbb{R}$, y $\alpha\gg 1$ un parámetro fijo. Si $c\in(a,b)$ es tal que $f'(c)=0$, $g(c)\neq 0$ y  $f''(c)\neq 0$, entonces $$\int_a^bg(x)e^{i\alpha f(x)}\dd{x} \approx g(c)e^{i\alpha f(c)}\sqrt{\frac{2\pi i}{\alpha f''(c)}}.$$ Para una demostración de este teorema consulte \cite{hermans2011waterappendices}.} realizando la integración es un área cuadrada de lado $L$.
+\label{ex:Wext_phase}
+\item[\color{blue} Solución:]
+Agrupando los argumentos de las exponenciales en la Ec. \eqref{eq:WextD}, se obtiene que energía por unidad de tiempo $W_{ext}(D)$ es
+%
+\begin{align*}
+W_{ext}(D) =  I_i\Re\bigg\{&
+	-\int_D e^{ikz[-(r/z-1)]}\frac{(\vu{e}_x\cdot\vb{X}^*)}{ikr}\cos\theta\dd{a}\notag\\
+&+
+	\int_D e^{ikz(r/z-1)} \frac{(\vb{X}\cdot\vu{e}_x)}{ikr}\dd{a}
+\bigg\},
+\end{align*}
+con $I_i = kE_0^2 / 2\mu\omega$ la irradiancia de la onda plana incidente y $D$ el área del detector.  Escojamos como $D$ una región cuadrada centrada en el eje $x=y=0$ colocada a una distancia $z$ tal que $kz\gg 1$. Entonces todas las integrales a resolver son de la forma
+%
+\begin{align*}
+ J_j = \int_{-L/2}^{L/2}\int_{-L/2}^{L/2}\dd{x}\dd{y}e^{ikzf(x,y)}g_j(x,y),
+\end{align*}
+%
+con 
+%
+\begin{align*}
+f(x,y) &= \pm\qty(\frac{r}{z}-1) = \pm\qty(\sqrt{\frac{x^2+y^2}{z^2}+1}-1),\\
+\pdv{f(x,y)}{x} &= \pm\frac{ 1}{z}\frac{ x}{\sqrt{x^2+y^2+z^2}},\\
+\pdv[2]{f(x,y)}{x} &= \pm\frac{ 1}{z}\qty(\frac{1}{\sqrt{x^2+y^2+z^2}} - \frac{x^2}{(x^2+y^2+z^2)^{3/2}}).
+\end{align*}
+%
+Notemos que con $x = 0$ se cumplen las hipótesis para emplear el método de fase estacionaria, por lo que
+%
+\begin{align*}
+ J_j \approx \int_{-L/2}^{L/2}\dd{y}e^{ikzf(0,y)}g_j(0,y)\sqrt{\frac{2\pi i}{(kz)\pdv*[2]{f(0,y)}{x}}}.
+\end{align*}
+%
+Ahora, veamos que
+\begin{align*}
+f(0,y) &=\pm\qty(\sqrt{\frac{y^2}{z^2}+1}-1),\\
+\pdv{f(0,y)}{y} &= \pm \frac{ 1}{z}\frac{ y}{\sqrt{y^2+z^2}},\\
+\pdv[2]{f(0,y)}{y} &= \pm\frac{ 1}{z}\qty(\frac{1}{\sqrt{y^2+z^2}} - \frac{y^2}{(y^2+z^2)^{3/2}}),
+\end{align*}
+por lo que con $y=0$ se vuelven a cumplir las hipótesis para el método de fase estacionaria identificando
+%
+\begin{align*}
+g_j(0,y) \longrightarrow g_j(0,y)\sqrt{\frac{2\pi i}{(kz)\pdv*[2]{f(0,y)}{x}}},
+\end{align*}
+%
+dando como resultado que
+%
+\begin{align*}
+ J_j \approx e^{ikzf(0,0)} \frac{2\pi i g_j(0,0)}{kz\pdv*[2]{f(0,0)}{x}} = \pm g_j(0,0) \frac{2i\pi z}{k} .
+\end{align*}
+%
+Como $z>0$, la evaluación de $g_j$ en $x=y=0$ es equivalente a evaluar en $\theta = 0$ y $r = z$, por lo que 
+%
+\begin{align*}
+W_{ext}(D) &\approx I_i\Re\bigg\{
+	-\frac{1}{ikz}\qty(-\frac{2\pi i z}{k}\vu{e}_x\cdot\vb{X}^*)\eval_{\theta = 0}
+	+ \frac{1}{ikz}\qty(\frac{2\pi i z}{k}\vb{X}\cdot\vu{e}_x)\eval_{\theta = 0}
+\bigg\}\\
+	&= -I_i \frac{2\pi}{k^2}\Re\bigg\{
+	\qty(\vu{e}_x\cdot\vb{X}^*)\eval_{\theta = 0} + \qty(\vb{X}\cdot\vu{e}_x)\eval_{\theta = 0}
+\bigg\}.
+\end{align*}
+%
+Dado que el término entre corchetes es igual a dos veces la parte real de $\vb{X}\cdot\vu{e}_x$, obtenemos 	que para $kz\gg 1$, la energía por unidad de tiempo asociada a la extinción sensada por un detector es
+%
+\begin{align*}
+W_{ext}(D) \approx - I_i \frac{4\pi}{k^2}\Re\qty[ \qty(\vb{X}\cdot\vu{e}_x)\eval_{\theta = 0}] = -I_iC_{ext}.
+\end{align*}
+%
+
+\item Emplee las relaciones de Krammers-Kronig para relacionar las partes real e imaginaria del coeficiente de amplitud de esparcimiento en la dirección frontal.
+\label{ex:KrammersKronigA}
+\item[\color{blue} Solución:]
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

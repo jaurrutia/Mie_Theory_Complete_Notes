@@ -1,0 +1,122 @@
+%!TeX root = ../main.tex
+
+%-------------------------------------------------------------------------------
+%                                   PACKAGES 		                                    |
+%-------------------------------------------------------------------------------
+
+%\usepackage{pslatex}						%Times New Roman font 
+\usepackage{multicol}						% for pages with multiple text columns, e.g. References
+	\setlength{\columnsep}{20pt} 				% space between columns; default 10pt quite narrow
+\usepackage{multirow}
+\usepackage{listings}                    		% Allows to add coding lines 
+\usepackage{emptypage}						% Eliminates headers and footnotes in empty pages
+\usepackage{makeidx}							% Add glosaries
+%\usepackage[style=list,toc,number=none]{glossary}
+\raggedbottom								% Makes LaTeX send tha white spaces to the background
+\usepackage[bottom]{footmisc}					% for the footnotes; perpage -> inicia la numeración en la página misma
+\usepackage{fancyhdr}						% for better header layout
+\usepackage{eucal}
+\usepackage{ifthen}
+\usepackage[nottoc]{tocbibind} 				% correct page numbers for bib in TOC, nottoc suppresses an entry for TOC itself
+%\usepackage{nextpage}
+\usepackage{titlesec}
+\usepackage{imakeidx}						% for indexes
+\makeindex[intoc]
+\usepackage{setspace}
+
+\usepackage{enumitem}
+\usepackage{etoolbox}
+ % restart the enumerate list every chapter
+ \preto\chapter{%
+   \restartlist{enumerate}%
+}
+
+	%---------------------- Figures ----------------------------
+		\usepackage[margin=10pt,font=scriptsize,labelfont=bf, ]{caption}  
+		\usepackage[labelformat=simple]{subcaption} % labelformat=simple   O brace
+%		\usepackage{subcaption}
+%			\captionsetup[subfigure]{labelformat=simple}
+		%\usepackage[bf,SL,BF]{subfigure}         
+	    \usepackage{float}
+		%	\floatsetup[subfigure]{style=plain,heightadjust=object,
+		%					capbesideposition={left,top},
+		%					capbesidesep=space}
+			%\DeclareCaptionSubType[alph]{figure}
+			%\captionsetup[subfigure]{labelformat=brace,justification=centerlast}
+		\usepackage[export]{adjustbox}
+		\usepackage{wrapfig}                    			% to include figure with text wrapping around it
+
+	%--------------------- Color/equations -related stuff
+		\usepackage{xcolor}
+			%UNAM color palette
+			\definecolor{UNAMblue}{RGB}{0,60,113}		% Blue pantone  541 (C)
+			\definecolor{UNAMgold}{RGB}{234,221,150}		% Gold pantone  460  (C) ??
+
+		\usepackage{empheq}
+		\usepackage[most]{tcolorbox}
+%			\tcbset{colback=lgreen,   colbacktitle = dgreen, frame hidden , % colframe= lgray,
+%			fonttitle=\bfseries , boxrule = 0pt, standard jigsaw,  opacityback=.85, opacitybacktitle =1}% sharp corners = downhill, boxrule = .75mm }
+
+	%----------------------- Language and references ------------------------------
+		\usepackage[spanish,mexico]{babel}
+		\usepackage[T1]{fontenc}			 		% 8-bits fonts
+		\usepackage[utf8]{inputenc}           			% Complete latin alfabet: Accents and so on
+		\spanishdecimal{.}
+%		\usepackage[ square, comma, sort&compress, numbers]{natbib}
+%											These are on the main.tex
+		\usepackage[style = draft, backend = bibtex, sorting = none, backref=true]{biblatex} %style = trad-abbrv
+		\addbibresource{0-Bibliografia/references.bib}
+		 % The settings for the hyperref package are found below in the PDF/PS set up section 
+		\addto\captionsspanish{\renewcommand{\figurename}{Fig.}}
+
+	%------------------------- Maths --------------------------------------
+		\usepackage{amssymb, amsmath, amsbsy, amsfonts}	% Math symbols and so on
+		\usepackage{mathrsfs}						
+		\usepackage{mathdots}                    			%  \iddots
+		\usepackage{mathtools}
+		\usepackage{physics}
+
+	%------------------------- Tikz --------------------------------------
+		\usepackage{tikz,pgfplots}
+		\usetikzlibrary{hobby} 
+			\usetikzlibrary{decorations.shapes}
+			\usetikzlibrary{arrows.meta,calc,decorations.markings,math,arrows.meta}
+			\usetikzlibrary{arrows,shapes,positioning}
+			\usetikzlibrary{%
+  							decorations.pathreplacing,%
+						    decorations.pathmorphing%
+							}	
+			\usepackage{tikz-3dplot}
+			%-------Dar dirección de las líneas (PONER FLECHITAS)
+				\tikzstyle arrowstyle=[scale=1]
+				\tikzstyle directed=[postaction={decorate,decoration={markings,
+									 mark=at position .65 with{\arrow[arrowstyle]{stealth}}}}]
+				\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+									mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]  		 
+									
+					
+
+%------------------------- hyperref package --------------------------------------
+   \usepackage[ pdftex, plainpages = false, pdfpagelabels, 
+                 pdfpagelayout = OneColumn, % display single page, advancing flips the page - Sasa Tomic
+                 bookmarks,
+                 bookmarksopen = true,
+                 bookmarksnumbered = true,
+                 breaklinks = true,
+                 linktocpage,
+%                 pagebackref,
+                 colorlinks = true,
+                 linkcolor = blue,
+                 urlcolor  = blue,
+                 citecolor = magenta,
+                 anchorcolor = green,
+				hyperfootnotes = true,
+                 hyperindex = true,
+                 hyperfigures
+                 ]{hyperref} 
+    \usepackage{graphicx}   %Used this insetad of  \usepackage[pdftex]{graphicx} 'cause it wasn't debugging. Don't know why
+    \DeclareGraphicsExtensions{.png, .jpg, .pdf}
+
+    \pdfcompresslevel=9
+
+

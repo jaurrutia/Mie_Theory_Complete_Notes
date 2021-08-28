@@ -1,0 +1,67 @@
+%!TeX root = ../main.tex
+\section{Teorema óptico}
+En todos los fenómenos de esparcimiento, ya sea de ondas acústicas, EMs o de partículas elementales, se presenta una dependencia en la extinción únicamente en el esparcimiento delantero, como se observa en la expresión de la sección transversal de extinción [Ec. \eqref{eq:CextGeneral}]. Esto ocurre a pesar de que la extinción considera tanto la absorción de la partícula y el esparcimiento en todas las direcciones. Este comportamiento es impuesto por el Teorema óptico. Para una mejor comprensión de este fenómeno, se desarrolla a detalle el proceso de medición de la extinción, que a su vez desarrolla de forma intuitiva el teorema óptico.
+
+Considérese una partícula arbitraria posicionada entre una fuente luminosa y un detector de área $D$ (vease fig. 3) suponiendo que la onda plana incidente se encuentra polarizada en la dirección $x$ y cuya dirección de propagación es $z$; supóngase además que el detector está centrado en el eje $x=y=0$ y colocado a una distancia $z$ de la partícula. La energía por unidad de tiempo $W(D)$ que incide dentro del área del detector está dada por
+%
+\begin{align}
+W(D) = \int_D\qty(\ev{\vb{S}^i}_t+\ev{\vb{S}^{sca}}_t+\ev{\vb{S}^{ext}}_t)\cdot\vu{e}_z\dd{a} = W_i(D) + W_{sca}(D) + W_{ext}(D)
+\end{align}
+%
+donde los subíndices $i,\, sca$ y $ext$ hacen referencia a los campos EMs incidente, esparcidos y los asociados a la extinción. El término $W_i(D)$ es proporcional al área del detector $A(D)$, por lo que
+%
+\begin{align}
+W_i (D) = I_iA(D).
+\label{eq:WiD}
+\end{align}
+%
+Por otro lado, para el término de esparcimiento $W_{sca}(D)$ se asume que la distancia de la partícula al detector es suficientemente grande ($kz\gg 1$), de tal forma que las expresiones de los campos EMs esparcidas  dadas por las Ecs. \eqref{eq:EscaX} y \eqref{eq:HscaX}]  son válidas. Por lo tanto, al calcular $W_{sca}(D)$ para el sistema de interés, se obtiene que 
+%
+\begin{align}
+W_{sca}(D)  = I_i \int_D\frac{\norm{\vb{X}}^2}{(kr)^2}\cos\theta\dd{a}.
+\label{eq:WscaD}
+\end{align}
+% 
+Si definimos $L$ como la longitud máxima que biyecta el área del sensor $D$, y suponemos que esta área es chica ($z \gg L/2$), entonces el integrando de la Ec.\eqref{eq:WscaD} puede considerarse como constante con el valor que toman en el centro geométrico de $D$, es decir en $x=y=0$ y $r = z$. Por lo tanto, la Ec. \eqref{eq:WscaD} se aproxima como
+%
+\begin{align}
+W_{sca}(D)\approx I_i \frac{\norm{\vb{X}}^2\eval_{\theta = 0}}{k^2}\frac{A(D)}{z^2} = 
+ 	I_i\frac{\norm{\vb{X}}^2\eval_{\theta = 0}}{k^2}\Omega(D),
+\label{eq:WscaFullD}
+\end{align}
+%
+con $\Omega(D)$ el ángulo sólido que subtiende al detector. Finalmente, para calcular $W_{ext}(D)$, la integral a resolver es \footnote{Ver solución al \ref{ex:Wext} para la expresión de $\ev{\vb{S}^{ext}}$. Con este resultado se obtiene $\dd W_{ext} = \ev{\vb{S}^{ext}}\cdot\vu{e}_z\dd{a}$, dando como resultado la Ec. \eqref{eq:WextD}.}
+%
+\begin{align}
+W_{ext}(D) =  I_i\Re\bigg\{&
+	-\int_D e^{-ik(r-z)}\frac{(\vu{e}_x\cdot\vb{X}^*)}{ikr}\cos\theta\dd{a}\notag\\
+&+
+	\int_D e^{ik(r-z)} \frac{(\vb{X}\cdot\vu{e}_x)}{ikr}\dd{a}
+\bigg\}.
+\label{eq:WextD}
+\end{align}
+%
+Para resolver integrales como las de la Ec. \eqref{eq:WextD}, cuyo integrando es una función distinta de cero en el intervalo de integración modulado por una función oscilatoria con un periodo corto ($kz\gg 1$), es  posible emplear el método de la fase estacionaria \cite{hermans2011waterappendices}, en la que se estable que el resultado de la integral se aproxima por el valor del integrando en una vecindad cerca de un punto estacionario de la fase. Para emplear este método, adicional a la aproximación de campo lejano $kz\gg 1$ y de área de detección chica $z /(L/2)\gg 1$, debemos garantizar que esta área permita la evaluación de un número grande de máximos y mínimos de la función oscilatoria, es decir que $kL/2\gg 2\pi$. Resolviendo la integral de esta forma (ver \ref{ex:Wext_phase}) obtenemos que $W_{ext}(D)$ se aproxima como 
+%
+\begin{align}
+W_{ext}(D) \approx - I_i \frac{4\pi}{k^2}\Re\qty[ \qty(\vb{X}\cdot\vu{e}_x)\eval_{\theta = 0}] = -I_iC_{ext}.
+\label{eq:WextFullD}
+\end{align}
+%
+Al sumar las Ecs. \eqref{eq:WiD}, \eqref{eq:WscaFullD} y\eqref{eq:WextFullD} se calcula la energía por unidad de tiempo capturada por el detector:
+%
+\begin{align}
+W(D) = I_i \qty(A(D) - C_{ext} + \frac{\norm{\vb{X}}^2\eval_{\theta = 0}}{k^2}\Omega(D) ) \approx I_i \qty(A(D) - C_{ext}  ),
+\label{eq:WD}
+\end{align}
+%
+donde se volvió a considerar la aproximación de área chica $z\gg L/2$, o bien que $1\gg\Omega(D)$, es decir que la luz esparcida en la dirección frontal no contribuye a la medición  del detector en comparación a los otros términos.
+
+El resultado de $W(D)$ de la Ec. \eqref{eq:WD} no solo da una expresión por la energía por unidad de tiempo capturada por el detector, sino también establece que la sección transversal de extinción es una variable que puede determinarse experimentalmente puesto que $U_0  = I_0A(D)$ es la medición realizada por el detector cuando la partícula no está presente. Es decir, la partícula reduce el área del detector mediante \textit{sombra}, que no es necesariamente igual a la sombra geométrica de la partícula, y de hecho puede ser mucho mayor o mucho menor \cite{bohren1998absorption}. Dado que la sección transversal de esparcimiento $C_{sca}$ es una cantidad positiva [Ec. \eqref{eq:CscaGeneral}], se cumple que
+%
+\begin{align}
+C_{abs}  = C_{ext} - C_{sca} \leq C_{ext}^{exp} \leq C_{ext},
+\end{align}
+%
+donde  $C_{ext}^{exp}$ es la cantidad medida experimentalmente, mientras que $C_{ext}$ es el valor teórico máximo dado por la Ec. \eqref{eq:CextGeneral}. La extinción máxima, o total, se cumple cuando el detector cuenta con un ángulo sólido lo suficientemente pequeño, y la mínima cuando decrece la distancia entre la partícula y el detector. Como conclusión, se puede decir que la extinción de luz, caracterizada experimentalmente por la sección transversal de extinción $C_{ext}$, puede estudiarse con dos enfoques: mediante la conservación de la energía [Ec. \eqref{eq:OptTeo}], o bien, como la manifestación del fenómeno de interferencia entre la onda plana incidente y el campo esparcido [Ec. \eqref{eq:Sext}]  por la partícula en la dirección de medición.
+

@@ -1,0 +1,140 @@
+\documentclass[12pts,a4paper]{book}
+
+
+
+%\hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
+
+% Just some sample text
+\usepackage{lipsum}
+
+\input{0-PackagesAndCommands/packages.tex}
+\input{0-PackagesAndCommands/commands.tex}
+\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{1em}%
+
+\title{Solución de Mie}
+\author{Jonathan e Isabel}
+
+
+
+% ---------------------------For graphics / images
+\usepackage{graphicx}
+\graphicspath{{graphics/}}
+
+\makeindex
+
+\begin{document}
+	
+	
+	\frontmatter
+	
+	\blankpage
+	
+	% r.3 full title page
+	\maketitle
+	
+	
+	
+	% r.5 contents
+	\tableofcontents
+	
+	\listoffigures
+	
+	\listoftables
+	
+	% r.7 dedication
+	\cleardoublepage
+	~\vfill
+	\begin{doublespace}
+		\noindent\fontsize{18}{22}\selectfont\itshape
+		\noindent
+		Dedicado a todos nosotros que estudiamos esto y lo escribimos porque nos odiamos un poquito :)
+	\end{doublespace}
+	\vfill
+	\vfill
+	
+	
+	% r.9 introduction
+	\cleardoublepage
+	\chapter*{Introduction}
+	
+	Aquí iría el texto que todos vamos a escribir al final, en donde hablamos del propósito del libro y esas cosas.
+	
+	
+	% Start the main matter (normal chapters)
+	\mainmatter
+	
+	
+	\chapter{Conceptos de electromagnetismo}
+	\label{ch:repasoEM} %-------------------Labels para los capítulos -> ch:LABEL
+	
+	\input{1-Capitulo-Repaso/repaso_electro.tex}
+	
+	%Esta parte corresponde a \textbf{Isabel}. El contenido propuesto es
+	
+	%\begin{itemize}
+	% \item Ecuaciones de Maxwell
+	% \item Considerar la Ec. de Helmholts
+	% \item Hablar sobre los campos EM armónicos
+	% \item Vector de Poynting
+	% \item Condiciones a la frontera de forma general
+	% \item Condiciones a la frontera considerando una esfera
+	%\end{itemize}
+	
+	\chapter{Teoría general de esparcimiento}
+	\label{ch:EsparcimientoGral} %-------------------Labels para los capítulos -> ch:LABEL
+	
+	\input{2-Capitulo-General/MatAmpliScat.tex}
+	\input{2-Capitulo-General/ScaExtAbs.tex}
+%	\input{2-Capitulo-General/TeoOptico.tex}
+	\input{2-Capitulo-General/TeoOptico-Opcion2.tex}
+
+	\input{2-Capitulo-General/Ejercicios.tex}
+	
+	
+	
+	
+	\chapter{Los armónicos esféricos vectoriales}
+	\label{ch:AEV} 
+
+	\input{3-Capitulo-AEV/AEV.tex}
+	\input{3-Capitulo-AEV/Ejercicios.tex}
+	
+	
+	
+	
+	
+	\chapter{Esparcimiento y absorción de una esfera}
+	\label{ch:AEV} %----
+	Esta parte corresponde a \textbf{Eduardo}. El contenido propuesto es
+	
+	\begin{itemize}
+		\item Citar a las Condiciones a la frontera de la esfera
+		\item Cálculo del campo dentro y fuera de la esfera (Coefficientes de Mie)
+		\item Matriz de esparcimiento
+		\item Análisis de $a_n$, $b_n$ y las $S_{1,2}$
+	\end{itemize}
+	
+	\chapter{Casos particulares}
+	\label{ch:AEV} %----
+	Esta parte aún no tiene autor asignado. El contenido propuesto es
+	
+	\begin{itemize}
+		\item Gota de agua
+		\item Modelo de Drude (material plasmónico)
+		\item Oro y plata (con experimento)
+		\item Tugsteno (con experimento)
+	\end{itemize}
+	
+	\appendix
+	\chapter{Teorema Óptico: Deducción de van de Hulst}	
+	\input{A1-RefIndSlab/A1-RefIndSlab}
+	
+	%\bibliography{sample-handout}
+	%\bibliographystyle{plainnat}
+	
+	\printbibliography
+	
+	\printindex
+	
+\end{document}

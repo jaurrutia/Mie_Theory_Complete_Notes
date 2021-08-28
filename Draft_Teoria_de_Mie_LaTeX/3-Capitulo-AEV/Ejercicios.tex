@@ -1,0 +1,49 @@
+%!TeX root = ../main.tex
+
+\section{Ejercicios sugeridos}
+
+\begin{enumerate}[label=\textbf{Ejercicio \thechapter.\arabic*},resume]
+\item Demostrar que el campo vectorial $\vb{M} = \nabla\times(\vb{r}\psi)$ es ortogonal a $\vb{r}$ suponiendo que $\psi$ es una función suave.
+\label{ex:m.r=0}
+\item[\color{blue} Solución:]
+	Empleando la convención de la suma de Einstein con $\epsilon_{ijk}$ el símbolo de  Levi-Civita y $\partial_j \equiv \pdv*{ }{x_j}$, se calcula la componente $i$ de $\vb{M}$ como
+	\begin{align*}
+	M_i = [\nabla\times(\vb{r}\psi)]_i &=  \epsilon_{ijk}\partial_j(r_k\psi)\\
+	& =\psi\epsilon_{ijk}\partial_j(r_k) -\epsilon_{ikj}r_k\partial_j\psi \\
+	& =\psi[\nabla\times\vb{r}]_i - [\vb{r}\times\nabla\psi]_i \\
+	&= - [\vb{r}\times\nabla\psi]_i.
+	\end{align*}
+	Por lo que se demuestra que $\vb{M}\cdot\vb{r} = 0$.	
+%
+\item Demostrar que el operador rotacional $\nabla\times$ y el laplaciano $\nabla^2$ conmutan al aplicarse a un campo vectorial $\vb{A}$ arbitrario, pero con segundas derivadas continuas.
+\label{ex:lap-rot}
+\item[\color{blue} Solución:]
+	Para un campo vectorial arbitrario $\vb{A}$ se cumple que 
+	\begin{align*}
+	\nabla^2\vb{A} = \nabla(\nabla\cdot\vb{A}) - \nabla\times(\nabla\times\vb{A}),
+	\end{align*}
+ por lo que el rotacional del laplaciano de $\vb{A}$ es 
+	\begin{align*}
+\nabla\times( \nabla^2\vb{A})=\nabla\times[\nabla(\nabla\cdot\vb{A})  ]-  \nabla\times[\nabla\times(\nabla\times \vb{A})] = -  \nabla\times[\nabla\times(\nabla\times \vb{A})]
+	\end{align*}
+ya que el  rotacional del gradiente de cualquier función es nulo. Además, al sustituir $\vb{A}\to \nabla\times\vb{A}$ en la expresión del laplaciano de $\vb{A}$ y  considerando que la divergencia del rotacional de cualquier función es nulo, se obtiene que 
+	\begin{align*}
+\nabla^2(\nabla\times\vb{A})=\nabla[\nabla\cdot(\nabla\times\vb{A})  ]-  \nabla\times[\nabla\times(\nabla\times \vb{A})] = -  \nabla\times[\nabla\times(\nabla\times \vb{A})].
+	\end{align*}
+Por tanto, $\nabla^2$ y $\nabla\times$ son operadores que conmutan.	
+%
+\item Demostrar que $ \nabla^2 (\vb{r}\psi)=2\nabla\psi+\vb{r}\nabla^2\psi$, suponiendo que $\psi$ es una función suave.
+\label{ex:lap-r-psi}
+\item[\color{blue} Solución:]
+	Empleando la convención de la suma de Einstein 
+	\begin{align*}
+	[\nabla^2 (\vb{r}\psi)]_i &= \partial^2_{jj}(r_i\psi)\\
+		&=\partial_j [\partial_j (r_i)\psi+r_i\partial_j\psi]\\
+		&=\partial_{jj}{r_i} + 2 \partial_j r_i\partial_j\psi+r_i\partial^2_{jj}\psi,
+	\end{align*}
+donde $\partial_j r_i = \delta_{ij}$ con $\delta_{ij}$ la delta de Kronecker. Dado que $\partial_{jj}{r_i}$ y que $\delta_{ij}\partial_j\psi =\partial_i\psi $, concluimos que
+	\begin{align*}
+	[\nabla^2 (\vb{r}\psi)]_i  = 2 \partial_i\psi+r_i\partial^2_{jj}\psi,
+	\end{align*}
+que es la  igualdad que se quería demostrar.	
+\end{enumerate}

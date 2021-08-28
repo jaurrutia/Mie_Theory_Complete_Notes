@@ -1,0 +1,358 @@
+%!TeX root = ../main.tex
+
+Para encontrar una solución al problema de esparcimiento y absorción de luz por una partícula esférica, consideremos una región del espacio libre de fuentes y campos electromagnéticos (EMs) armónicos en el tiempo, como se presentan en las Ecs. \eqref{eq:maxwell1H}-\eqref{eq:maxwell4H}. Asimismo, planteemos una base de funciones vectoriales que permitan escribir a los campos EMs como una combinación lineal de ellos. Propongamos, entonces, un campo vectorial $\vb{M}$ tal que \cite{bohren1998absorption}
+%
+	\begin{align}
+	\vb{M} &= \nabla \times \left(\vb{r} \psi\right),
+	\label{eq:MrotCPsi}
+	\end{align}
+%
+donde $\psi$ es una función escalar y $\vb{r}$ el vector de posición; dado que $\vb{M}$ es el rotacional de  $\vb{r}\psi$, se cumple que $\nabla\cdot \vb{M} = \vb{0}$, y que $\vb{M}$ y $\vb{r}$ son vectores perpendiculares (\ref{ex:m.r=0}). La  ecuación de Helmholtz para $\vb{M}$, dado que el operador laplaciano y el rotacional conmutan (\ref{ex:lap-rot}), es
+	\begin{align*}
+	\nabla^2 \vb{M} + k^2 \vb{M} = \nabla\times \left[ \nabla^2\left(\vb{r} \psi\right)  
+											+ k^2  \left(\vb{r} \psi\right) \right],
+	\end{align*}
+y dado que se cumple tanto  $\nabla^2 (\vb{r}\psi)=2\nabla\psi+\vb{r}\nabla^2\psi$ (\ref{ex:lap-r-psi})  como $\nabla\times(\nabla \psi)=0$, la ecuación de Helmholtz para $\vb{M}$ puede reescribirse como
+	\begin{align}
+	\nabla^2 \vb{M} + k^2\vb{M}  = \nabla\times\left[\vb{r}\left( \nabla^2\psi+k^2\psi \right) \right].
+	\label{eq:Helm-M}
+	\end{align}
+Adicional a $\vb{M}$, se define el vector $\vb{N}$ como \cite{bohren1998absorption} 
+	\begin{align}
+	\vb{N} = \frac{\nabla\times \vb{M}}{k}, \label{eq:NrotM/k}
+	\end{align}
+cuyo laplaciano es $\nabla^2 \vb{N} = \nabla^2( \nabla\times \vb{M} /k) =  \nabla\times (\nabla^2\vb{M} /k) $, y por tanto la ecuación de Helmholtz para $\vb{N}$ es
+%	
+	\begin{align}
+	\nabla^2 \vb{N} + k^2 \vb{N} =  \nabla\times \left( \frac{\nabla^2 \vb{M}}{k} \right) + k \nabla\times \vb{M} 
+		 = \frac{1}{k} \nabla\times \left( \nabla^2 \vb{M} + k^2  \vb{M} \right).
+	\label{eq:Helm-N}
+	\end{align}
+%
+
+De las Ecs. \eqref{eq:Helm-M} y \eqref{eq:Helm-N} concluimos que los campos $\vb{M}$ y $\vb{N}$ cumplen con la  ecuación de Helmholtz vectorial si, y sólo si, la función escalar $\psi$ cumple con la ecuación de Helmholtz escalar. Si este es el caso, entonces, el rotacional de $\vb{N}$ está dado por
+%
+	\begin{align}
+	\nabla\times \vb{N} &= \nabla\times \qty(\frac{\nabla\times \vb{M}}{k})  
+						= - \frac{\nabla^2 \vb{M}}{k}
+						= \frac{k^2 \vb{M}}{k}
+						= k \vb{M}.\label{eq:rotN}
+	\end{align}\noindent
+%
+Los campos vectoriales $\vb{M}$ y $\vb{N}$ son conocidos como los \emph{armónicos esféricos vectoriales}\index{Armónicos esféricos vectoriales}, $\psi$ como su función generadora y $\vb{r}$ como el vector de guía o vector piloto \cite{bohren1998absorption}. Los armónicos esféricos vectoriales $\vb{M}$ y $\vb{N}$  cumplen con tener divergencia nula y que el rotacional de uno es proporcional al otro [Ecs. \eqref{eq:NrotM/k} y \eqref{eq:rotN}], es decir, que cumplen con las ecuaciones de Maxwell sin fuentes [Ecs. \eqref{eq:maxwell3H}-\eqref{eq:curlH}] siempre que se cumpla que\index{Armónicos esféricos vectoriales!función generadora de los}
+%
+	\begin{tcolorbox}[title = $\mathbf{\psi}$: Función generadora de los armónicos esféricos vectoriales, ams align ]
+	\nabla^2 \psi + k^2 \psi  = 0.\label{eq:AV_psi}
+	\end{tcolorbox}
+%
+\section{Solución con geometría esférica}
+
+Para poder encontrar las soluciones del campo esparcido por una esfera basta entonces con encontrar las soluciones de la Ec. \eqref{eq:AV_psi} con la geometría deseada e imponer las condiciones a la frontera de los campos EMs. Suponiendo una partícula esférica es conveniente emplear coordenadas esféricas $(r, \theta, \varphi)$, en las que la función generadora de los armónicos vectoriales debe cumplir con la ecuación \index{Armónicos esféricos vectoriales!función generadora de los}
+%
+	\begin{align}
+	\frac{1}{r^2} \pdv{r}\qty(r^2\pdv{\psi}{r})+ 
+	\frac{1}{r^2\sin\theta}\pdv{\theta}\qty(\sin\theta\pdv{\psi}{\theta})
+	 + \frac{1}{r^2\sin^2\theta}\pdv[2]{\psi}{\varphi} + k^2 \psi =0. \label{eq:AEV_psi}
+	\end{align}
+%	
+Al resolver la Ec. \eqref{eq:AEV_psi} es posible construir un conjunto de funciones linealmente independientes que sean una base para los campos EMs incidente, esparcido y dentro de la esfera, lo que permite determinar, mediante las condiciones a la frontera de los campos EMs, la forma de la matriz de esparcimiento [Ec. \eqref{eq:MEsparcimientoGral}].
+	
+Para resolver la Ec. \eqref{eq:AEV_psi} se emplea el método de separación de variables \index{Separación de variables} donde se propone que $\psi$ sea el producto de tres funciones y cada una de éstas depende únicamente en una variable, es decir,
+%
+	\begin{equation}
+	\psi (r,\theta, \varphi) = R(r)\Theta(\theta) \Phi(\varphi). \label{eq:psiEsf}
+	\end{equation}
+%
+Sustituyendo la Ec. \eqref{eq:psiEsf} en la Ec. \eqref{eq:AEV_psi},  multiplicando por $r^2/R\Theta\Phi$ y despejando los términos que dependen únicamente de $r$, se obtiene como resultado que una función con dependencia radial es igual a una función con dependencia angular, por lo tanto se igualan a una constante $\ell (\ell +1)$, es decir
+%
+%	\begin{equation}
+%\mathrlap{\overbrace{\phantom{\frac{1}{R} \dv{r}\qty(r^2\dv{R}{r})+  k^2 r^2 = \ell (\ell +1)}}^{\text{radial}}}
+%									\frac{1}{R} \dv{r}\qty(r^2\dv{R}{r})+  k^2 r^2 = 
+%      \mathrlap{\underbrace{\phantom{\ell (\ell +1)=
+%									-\frac{1}{\Theta\sin\theta}\dv{\theta}\qty(\sin\theta\dv{\Theta}{\theta})
+%								  \frac{1}{\sin^2\theta}\frac{1}{\Phi}\pdv[2]{\psi}{\varphi} }}_{\text{angular}}}
+%						 \ell (\ell +1)=
+%						-\frac{1}{\Theta\sin\theta}\dv{\theta}\qty(\sin\theta\dv{\Theta}{\theta})
+%					 - \frac{1}{\sin^2\theta}\frac{1}{\Phi}\pdv[2]{\psi}{\varphi}.\label{eq:radAng}
+%	\end{equation}
+	\begin{equation}
+\mathrlap{\overbrace{\phantom{\frac{1}{R} \dv{r}\qty(r^2\dv{R}{r})+  k^2 r^2}}^{\text{radial}}}
+									\frac{1}{R} \dv{r}\qty(r^2\dv{R}{r})+  k^2 r^2 = 
+						 \ell (\ell +1)=
+\mathrlap{\underbrace{\phantom{-\frac{1}{\Theta\sin\theta}\dv{\theta}\qty(\sin\theta\dv{\Theta}{\theta})
+								  \frac{1}{\sin^2\theta}\frac{1}{\Phi}\pdv[2]{\psi}{\varphi} }}_{\text{angular}}}						 
+						-\frac{1}{\Theta\sin\theta}\dv{\theta}\qty(\sin\theta\dv{\Theta}{\theta})
+					 - \frac{1}{\sin^2\theta}\frac{1}{\Phi}\pdv[2]{\psi}{\varphi}.\label{eq:radAng}
+	\end{equation}
+
+%
+Si la parte angular de la Ec. \eqref{eq:radAng} se multiplica por $\sin^2\theta$, y se despejan los términos que dependen de $\theta$, se obtiene que una función que depende únicamente de $\theta$ es igual a una que depende únicamente de $\varphi$, por lo que ambas partes se igualan a la constante $m^2$. Tanto $\ell$ en la Ec. \eqref{eq:radAng}, como $m$ son constantes que se determinan ante condiciones impuestas a $\psi$. Tras este procedimiento se concluye que las funciones $R(r),\, \Theta(\theta), \mbox{ y } \Phi(\varphi)$ cumplen con las ecuaciones
+%
+	\begin{align}
+	\frac{1}{\Phi}\pdv[2]{\psi}{\varphi} &+ m^2 \Phi =0. \label{eq:Phi}\\
+	\frac{1}{\sin\theta}\dv{\theta}\qty(\sin\theta\dv{\Theta}{\theta}) &+ \qty[\ell(\ell+1)- \frac{m^2}{\sin^2\theta}]\Theta =0,\label{eq:Theta}\\
+	\dv{r}\qty(r^2\dv{R}{r}) &+ \qty[ k^2 r^2 - \ell (\ell +1)] R =0. \label{eq:Req}
+	\end{align}	
+%	
+Dado que $\psi$ debe ser una función con periodicidad $2\pi$ en $\varphi$, es decir que $\psi(\varphi) = \psi(\varphi+2\pi)$, las soluciones linealmente independientes de la Ec. \eqref{eq:Phi} son \index{Armónicos esféricos vectoriales!función generadora!solución azimutal de la}
+%
+	\begin{align}
+	\Phi_e(\varphi) &= \cos(m\varphi),\label{eq:Cos}\\
+	\Phi_o(\varphi) &= \sin(m\varphi),\label{eq:Sin}
+	\end{align}
+%
+con $m$ un número natural (incluido el cero) y donde los subíndices $e$ y $o$ hacen referencia a que son funciones pares (\emph{even}, $e$) e impares (\emph{odd}, $o$), respectivamente. Las funciones $\sin(m\varphi)$ y $\cos(m\varphi)$ obedecen las relaciones de ortogonalidad
+%
+	\begin{align}
+	\int_0^{2\pi} \sin(m\varphi) &\cos(m' \varphi) \dd\varphi = 0 \qquad \forall\, m,m',\label{seq:ortSinCos}\\
+	\int_0^{2\pi} \sin(m\varphi) \sin(m'\varphi)\dd\varphi &=  \int_0^{2\pi} \cos(m\varphi) \cos(m'\varphi)\dd\varphi  = \delta_{m,m'}\frac{\pi}{2},\label{seq:ortCos2}
+	\end{align}
+%	
+en donde $\delta_{m,m'}$ es la delta de Kronecker.\index{Ortogonalidad!seno y coseno, relaciones de}\index{Kronecker!Delta de}
+
+Al realizar el cambio de variable $\mu = \cos\theta$ en la Ec. \eqref{eq:Theta}, ésta se reescribe como%
+%
+	\begin{align*}
+	\qty(1-\mu^2) \dv[2]{\Theta}{\mu} - 2 \mu \dv{\Theta}{\mu} + \qty[\ell(\ell+1)-\frac{m^2}{(1-\mu^2)}]\Theta= 0,
+	\end{align*}\index{Armónicos esféricos vectoriales!función generadora!solución polar de la}\index{Ecuación!asociada de Legendre}\index{Legendre!ecuación asociada de}%
+%
+cuyas soluciones son	las \emph{funciones asociadas de Legendre} $P_\ell^m(\cos\theta)$ de grado $\ell$ y orden $m$  \cite{arfken2001methods}, imponiendo que $\ell = m, m+1,m+2,\ldots$ para  que la Ec. \eqref{eq:Theta} sea finita en $\theta = 0$ y $\theta = \pi$ ---o bien $\mu=\pm1$---. Las funciones asociadas de Legendre cumplen con la relación de ortogonalidad 
+%
+	\begin{align}
+	\int_{-1}^1P_\ell^m(\mu) P_{\ell'}^md\mu = \delta_{\ell,\ell'}\frac{2}{2\ell+1}\frac{(\ell+m)!}{(\ell-m)!}.
+	\label{eq:ortLegendre}
+	\end{align}\index{Legendre!polinomios de}\index{Legendre!funciones asociadas de}\index{Ortogonalidad!funciones asociadas de Legrende, relaciones de}\index{Legendre!funciones asociadas de!relaciones de ortogonalidad de las}%
+%
+Asimismo, las funciones asociadas de Legendre se reducen a los polinomios de Legendre cuando $m=0$, además de que las funciones asociadas y los polinomios de Legendre se relacionan mediante la identidad  \cite{arfken2001methods}
+	\begin{align}
+	P_\ell^m (\mu) = (1-\mu^2)^{m/2}\dv[m]{P_\ell(\mu)}{\mu},
+	\label{eq:Legendre}
+	\end{align}
+de donde se deduce  que $P_\ell^m(\pm 1)=0$ para toda $m$ distinta de cero.
+
+Para resolver la Ec. \eqref{eq:Req} se emplea el cambio de variable $\rho = k r$ y de define la función $Z =R\sqrt{\rho}$, por lo que la ecuación radial se reescribe como \index{Armónicos esféricos vectoriales!función generadora!solución radial de la}\index{Ecuación!esférica de Bessel}\index{Bessel!ecuación esférica de}
+	\begin{align}
+	\rho \dv{\rho}\qty(\rho\dv{Z}{\rho})+\qty[\rho^2-\qty(\ell+\frac12)^2] Z = 0,
+	\label{eq:rho}
+	\end{align}
+cuyas soluciones son las \emph{funciones esféricas de Bessel} $j_\ell$ y $y_\ell$ o cualquier combinación lineal de ellas, por lo que de forma general las soluciones de la Ec. \eqref{eq:rho} son \cite{arfken2001methods} \index{Bessel!funciones esféricas de}
+%
+	\begin{subequations}\begin{align}
+	j_\ell (\rho) &= \sqrt{\frac{\pi}{2\rho}} J_{\ell+1/2}(\rho), \label{eqs:jn}\\
+	y_\ell (\rho) &= \sqrt{\frac{\pi}{2\rho}} Y_{\ell+1/2}(\rho), \label{eqs:yn}\\
+	h_\ell^{(1)} (\rho) &= j_\ell(\rho) + i y_\ell(\rho), \label{eqs:h1}\\
+	h_\ell^{(2)} (\rho) &=  j_\ell(\rho) - i y_\ell(\rho), \label{eqs:h2}
+	\end{align}			\label{eq:SphBessel}	\end{subequations}
+%
+en donde $J_\ell$ y $Y_\ell$ son las \emph{funciones de Bessel del primer y segundo tipo}, respectivamente, y $h_\ell$ son las \emph{funciones esféricas de Bessel del tercer tipo}, también denominadas como \emph{funciones esféricas de Hankel}. Todas las funciones esféricas de Bessel $z_\ell$ ---donde $z_\ell$ es cualquier función de las Ecs. \eqref{eq:SphBessel}--- puede ser calculada mediante relaciones de recurrencia\footnote{Todas las funciones esféricas de Bessel cumplen: $	z_{\ell-1}(\rho) + z_{\ell+1}(\rho) =(2\ell+1)z_\ell(\rho)/\rho$ y $(2\ell + 1) \dv*{z_\ell(\rho)}{\rho} = \ell z_{\ell-1}(\rho) - (\ell+1)z_{\ell+1}(\rho)$, con  $j_0(\rho) = \sin\rho / \rho$ y $j_1(\rho) = \sin\rho / \rho^2- \cos\rho/\rho$, $y_0(\rho) = -\cos\rho/\rho$ y $y_1(\rho) = -\cos\rho/\rho^2-\sin\rho/\rho$.\index{Bessel!funciones esféricas de!relaciones de recurrencia de las}} \cite{arfken2001methods}\index{Hankel!funciones esféricas de}\index{Hankel|see{Bessel}}.
+
+Dado que las soluciones para la ecuación azimutal son las Ecs. \eqref{eq:Sin}y \eqref{eq:Cos}, para la polar, Ec. \eqref{eq:Legendre} y para la radial, Ecs. \eqref{eq:SphBessel}, las funciones generadoras de los armónicos esféricos vectoriales son\index{Armónicos esféricos vectoriales!función generadora!solución general}
+%
+	\begin{align}
+	\psi_{em\ell} = \cos(m\varphi) P_\ell^m( \cos \theta) z_\ell(k r),\label{eq:psie}\\
+	\psi_{om\ell} = \sin(m\varphi) P_\ell^m( \cos \theta) z_\ell(k r).\label{eq:psio}
+	\end{align}
+%
+Al emplear las Ecs. \eqref{eq:psie} y \eqref{eq:psio} en la Ec. \eqref{eq:MrotCPsi} se obtiene como resultado $\vb{M}_{em\ell}$ y $\vb{M}_{om\ell}$, dados por las expresiones 
+
+	\begin{subequations}
+	\begin{tcolorbox}[title = Armónicos esféricos vectoriales $\vb{M}_{em\ell}$ y $\vb{M}_{om\ell}$, ams align ]
+	\vb{M}_{em\ell} = &-m\sin(m\varphi)z_\ell(kr) \frac{P_\ell^m(\cos\theta)}{\sin\theta}\,\vu{e}_\theta
+					-\cos(m\theta)z_\ell(kr) \dv{P_\ell^m(\cos\theta)}{\theta}(\cos\theta)\,\vu{e}_\varphi,\label{seq:Meml} \\
+	\vb{M}_{om\ell} = & m\cos(m\varphi)z_\ell(kr) \frac{P_\ell^m(\cos\theta)}{\sin\theta}\,\vu{e}_\theta
+					-\sin(m\theta)z_\ell(kr) \dv{P_\ell^m(\cos\theta)}{\theta}(\cos\theta)\,\vu{e}_\varphi.	\label{seq:Moml}				
+	\end{tcolorbox}  \noindent
+%
+Para el cálculo $\vb{N}_{em\ell}$ y $\vb{N}_{om\ell}$ se sustituyen las Ecs. \eqref{seq:Meml} y \eqref{seq:Moml} en la Ec. \eqref{eq:NrotM/k}. Para simplificar las expresiones de las componentes radiales de  $\vb{N}_{em\ell}$ y $\vb{N}_{om\ell}$, se agrupan los términos que dependen de $\varphi$ y $kr$ y, dado que las funciones asociadas de Legendre cumplen con la relación 
+\begin{align*}
+-\ell(\ell+1) P_\ell^m (\cos\theta)= \frac{1}{\sin\theta}\dv{\theta}\qty(\sin\theta\dv{P_\ell^m(\cos\theta)}{\theta}) - \frac{m^2}{\sin^2\theta}P_\ell^m(\cos\theta),
+\end{align*}
+que es una consecuencia de la Ec. \eqref{eq:Theta}, las expresiones de $\vb{N}_{em\ell}$ y $\vb{N}_{om\ell}$ son \index{Armónicos esféricos vectoriales!$\vb{M}$ y $\vb{N}$} 
+%
+	\begin{tcolorbox}[title = Armónicos esféricos vectoriales $\vb{N}_{em\ell}$ y $\vb{N}_{om\ell}$, ams align, breakable ]
+	\vb{N}_{em\ell} =&\cos(m\varphi) \frac{z_\ell(kr)}{kr} \ell(\ell+1)P_\ell^m(\cos\theta)\,\vu{e}_r\notag\\
+	&+ \cos(m\varphi)  \frac{1}{kr} \dv{(kr)}\qty\Big[kr\, z_\ell(kr)] \dv{P_\ell^m(\cos\theta)}{\theta}(\cos\theta)\,\vu{e}_\theta
+	 \label{seq:Neml} \\
+		&- m \sin(m\varphi) \frac{1}{kr} \dv{(kr)}\qty\Big[kr\, z_\ell(kr)] \frac{P_\ell^m(\cos\theta)}{\sin\theta}
+		 \,\vu{e}_\varphi, \notag\\			
+	\vb{N}_{om\ell} =&\sin(m\varphi)\frac{z_\ell(kr)}{kr} \ell(\ell+1)P_\ell^m(\cos\theta)\,\vu{e}_r \notag\\
+	&+ \sin(m\varphi)  \frac{1}{kr} \dv{(kr)}\qty\Big[kr\, z_\ell(kr)] \dv{P_\ell^m(\cos\theta)}{\theta}(\cos\theta) \,\vu{e}_\theta
+	 \label{seq:Noml} \\
+		&+ m \cos(m\varphi) \frac{1}{kr} \dv{(kr)}\qty\Big[kr\, z_\ell(kr)] \frac{P_\ell^m(\cos\theta)}{\sin\theta}
+		\, \vu{e}_\varphi. \notag							
+	\end{tcolorbox}\label{eq:AEV}
+	\end{subequations}
+\section{Relaciones de ortogonalidad}
+
+Los armónicos esféricos vectoriales son solución a la ecuación de Helmholtz, por lo que cualquier solución de los campos EMs puede escribirse como una serie infinta en términos de las Ecs. \eqref{eq:AEV}. Para resolver el problema de los campos EMs esparcidos por una partícula esférica, esto es, determinar las componentes de la matriz de esparcimiento $\mathbb{S}$ de la Ec. \eqref{eq:MEsparcimientoGral}, se expande una onda plana $\vb{E}^i$ en la base de los armónicos esféricos vectoriales. Para esto, calculemos las relaciones de ortogonalidad de los armónicos esféricos vectoriales. Para facilitar la notación, definamos el producto  $\langle \vb{A},\vb{B} \rangle_{\theta,\varphi}$ entre dos vectores $\vb{A}$ y $\vb{B}$ como 
+%
+	 \begin{align*}
+\langle \vb{A},\vb{B} \rangle_{\theta,\varphi} \equiv \int_0^{2\pi}\int_0^\pi \vb{A}\cdot\vb{B} \sin\theta \dd\theta \dd\varphi	 .
+	 \end{align*}
+%
+
+ Las funciones $\sin(m\varphi)$ y $\cos(m\varphi)$ obedecen las relaciones de ortogonalidad de la Ec. \eqref{seq:ortSinCos}, por lo que el producto entre $\vb{M}_{em\ell}$ y $\vb{M}_{om'\ell'}$, y $\vb{N}_{em\ell}$ y $\vb{N}_{om'\ell'}$ es
+	\begin{tcolorbox}[ ams align ]
+		\langle\vb{M}_{em\ell}, \vb{M}_{om'\ell'} \rangle_{\theta,\varphi} =
+		\langle\vb{N}_{em\ell}, \vb{N}_{om'\ell'} \rangle_{\theta,\varphi} = 0
+		&\qquad \forall\,  m,m',\ell, \ell',\\
+		\intertext{así como también}
+		\langle\vb{M}_{om\ell}, \vb{N}_{em'\ell'} \rangle_{\theta,\varphi} = 
+		\langle\vb{M}_{om\ell}, \vb{N}_{om'\ell'} \rangle_{\theta,\varphi} = 	
+		\langle\vb{M}_{em\ell}, \vb{N}_{em'\ell'} \rangle_{\theta,\varphi} = 	0
+		&\qquad \forall\,  m,m',\ell, \ell'.				
+	\end{tcolorbox}\noindent
+pues $\vb{M}$ tiene componente nula en $\vu{e}_r$ y en los demás términos se encuentra la Ec. \eqref{seq:ortCos2}. Las Ecs. \eqref{seq:ortSinCos} y \eqref{seq:ortCos2} implican que todos los armónicos esféricos vectoriales orden $m$ distinto  son ortogonales entre sí.
+
+ El producto interior entre $\vb{M}_{em\ell}$ y $\vb{N}_{om\ell'}$, empleando el resultado de la Ec. \eqref{seq:ortCos2} con $m=m'$, está dado por
+	\begin{align}
+		\langle\vb{M}_{em\ell},  \vb{N}_{om\ell'} \rangle_{\theta,\varphi} &= - \frac{\pi}{2} \frac{z_\ell (\rho)}{\rho}\dv{z_{\ell'}(\rho)}{\rho}	m
+							 \int_0^\pi\qty[P_\ell^m(\cos \theta )\dv{P_{\ell'}^m(\cos \theta )}{\theta}+ 
+							  \dv{P_{\ell}^m(\cos \theta )}{\theta}P_{\ell'}^m(\cos \theta )] \dd\theta \notag\\
+					 &=- \frac{\pi}{2} \frac{z_\ell (\rho)}{\rho}\dv{z_{\ell'}(\rho)}{\rho}	m 
+					 	\int_0^\pi \dv{\theta}\qty[P_\ell^m(\cos\theta)P_{\ell'}^m(\cos\theta)]\dd\theta \notag\\
+					 &=- \frac{\pi}{2} \frac{z_\ell (\rho)}{\rho}\dv{z_{\ell'}(\rho)}{\rho}	m \eval{P_\ell^m(\cos\theta)P_{\ell'}^m(\cos\theta)}_0^\pi.
+					 	\label{eq:MeNo}
+	\end{align}
+Mediante un procedimiento semejante se obtiene que $\langle\vb{M}_{em\ell},  \vb{N}_{om\ell'} \rangle_{\theta,\varphi}=\langle\vb{M}_{om\ell},  \vb{N}_{em\ell'} \rangle_{\theta,\varphi}$. Haciendo uso de la relación entre las funciones asociadas de Legendre con los polinomios de Legendre [Ec. \eqref{eq:Legendre}] se obtiene que $P_\ell^m(\cos\theta)=0$ para $\theta=0,\pi$ y $m\neq 0$. Sin embargo, si en la Ec. \eqref{eq:MeNo} $m$ es igual a cero, el producto interior también es nulo, por lo que se cumple que 
+%
+	\begin{tcolorbox}[ ams align ]
+		\langle\vb{M}_{em\ell},  \vb{N}_{om\ell'} \rangle_{\theta,\varphi}=
+		\langle\vb{M}_{om\ell},  \vb{N}_{em\ell'} \rangle_{\theta,\varphi}= 0	
+		\qquad \forall\, \ell, \ell'\, m.
+	\end{tcolorbox}
+%	
+Para calcular $\langle\vb{M}_{em\ell},\vb{M}_{em\ell'}\rangle_{\theta,\varphi}$, se emplean las relaciones de ortogonalidad del coseno [Ec. \eqref{seq:ortCos2}],  así como las de las funciones asociadas de Legendre [Ec. \eqref{eq:ortLegendre}], dando como resultado que
+% 
+	\begin{align*}
+		\langle\vb{M}_{em\ell},  \vb{M}_{em\ell'} \rangle_{\theta,\varphi} =& 
+				\frac{\pi}{2} z_\ell (\rho) z_{\ell'}(\rho)\\
+				&\times	 \int_0^\pi\qty[\frac{m^2}{\sin^2\theta}P_\ell^m(\cos\theta)P_{\ell'}^m(\cos\theta)
+				 +\dv{P_\ell^m(\cos\theta)}{\theta}\dv{P_{\ell'}^m(\cos\theta)}{\theta}]\sin\theta\dd\theta,		 
+	\end{align*}
+%	
+donde adicionalmente se cumple que $\langle\vb{M}_{em\ell},  \vb{M}_{em\ell'} \rangle_{\theta,\varphi}=\langle\vb{M}_{om\ell},  \vb{M}_{om\ell'} \rangle_{\theta,\varphi}$. Mediante un procedimiento análogo, se determinan las expresiones del producto interior de $\langle\vb{N}_{em\ell},  \vb{N}_{em\ell'} \rangle_{\theta,\varphi}=\langle\vb{N}_{om\ell},  \vb{N}_{om\ell'} \rangle_{\theta,\varphi}$, dando como resultado que
+%
+\begin{align*}
+\langle\vb{N}_{em\ell},  \vb{N}_{em\ell'} \rangle_{\theta,\varphi} =&
+				\frac{\pi}{2} \qty[\frac{z_\ell(\rho)}{\rho}\ell(\ell+1)]^2\frac{2}{2\ell+1}\frac{(\ell+m)!}{(\ell-m)!}\delta_\ell^{\ell'}+
+				\frac{\pi}{2} \frac{1}{\rho^2}\dv{\rho}\qty[\rho z_\ell (\rho)]\dv{\rho}\qty[\rho z_{\ell'}(\rho)]\\
+				&\times \int_0^\pi\qty[\frac{m^2}{\sin^2\theta}P_\ell^m(\cos\theta)P_{\ell'}^m(\cos\theta)
+					+\dv{P_\ell^m(\cos\theta)}{\theta}\dv{P_{\ell'}^m(\cos\theta)}{\theta}]\sin\theta\dd\theta.	
+\end{align*}
+%
+Al sustituir $P_\ell^m(\cos\theta)$ en la Ec. \eqref{eq:Theta} y multiplicándola por $P_{\ell'}^m(\cos\theta)$, operando de la misma forma intercambiando los papeles de $P_\ell^m(\cos\theta)$  y $P_{\ell'}^m(\cos\theta)$ y sumando ambos resultados se llega a la expresión 
+	\begin{align}
+	2\frac{m^2}{\sin^2\theta}P_\ell^m P_{\ell'}^m \sin\theta =&
+					 P_\ell\dv{\theta}\qty[\sin\theta \dv{P_{\ell'}^m}{\theta}] P_{\ell'}\dv{\theta}\qty[\sin\theta \dv{P_\ell^m}{\theta}]
+					 +	\ell(\ell+1)P_\ell^m P_{\ell'}^m	 \sin\theta  \notag\\
+					 &+ \ell'(\ell'+1)P_\ell^m P_{\ell'}^m\sin\theta, \label{eq:PnPn'}
+	\end{align}
+en donde se obvia el argumento $\cos\theta$. Dado que 
+	\begin{equation*}
+	\dv{\theta}\qty[P_{\ell'}^m\sin\theta  \dv{P_\ell^m}{\theta}] 
+	= P_{\ell'}^m\dv{\theta}\qty[\sin\theta \dv{P_\ell^m}{\theta}] + \sin\theta\dv{P_{\ell'}^m}{\theta}\dv{P_\ell^m}{\theta},
+	\end{equation*}
+sumando $2\sin\theta\dd P_{\ell'}^m\dd\theta \dd P_\ell^m \dd\theta$ de ambos lados de la Ec. \eqref{eq:PnPn'} y agrupando términos, se obtiene que el integrando presente en los productos interiores de  $\vb{M}_{em\ell}$ y $\vb{M}_{em\ell'}$, y $\vb{N}_{em\ell}$ y $\vb{N}_{em\ell'}$ es
+	\begin{align*}
+	\qty[\frac{m^2}{\sin^2\theta}P_\ell^mP_{\ell'}^m	+\dv{P_\ell^m}{\theta}\dv{P_{\ell'}^m}{\theta}]\sin\theta = &
+					 \frac12 \dv{\theta}\qty[\sin\theta \dv{P_{\ell'}^m}{\theta}P_\ell^m + \sin\theta\dv{P_{\ell}^m}{\theta}P_{\ell'}^m ]
+					 +	\frac12 \ell(\ell+1)P_\ell^m P_{\ell'}^m	 \sin\theta  \\
+					 &+ \frac12 \ell'(\ell'+1)P_\ell^m P_{\ell'}^m\sin\theta,
+	\end{align*}
+en donde el primer término de la suma se desvanece al evaluarse en $\theta=0,\pi$ y los últimos cumplen con la relación de ortogonalidad de la Ec. \eqref{eq:ortLegendre}. Por lo tanto
+	\begin{tcolorbox}[ ams align ]
+		\langle\vb{M}_{em\ell},  \vb{M}_{em\ell'} \rangle_{\theta,\varphi}=&	\langle\vb{M}_{om\ell},  \vb{M}_{om\ell'} \rangle_{\theta,\varphi} 
+										=\delta_\ell^{\ell'}\pi z_\ell (\rho)^2\frac{\ell(\ell+1)}{2\ell+1}\frac{(\ell+m)!}{(\ell-m)!}
+		&\qquad \forall\, \ell, \ell',\, m, \label{eq:MM} \\
+		\langle\vb{N}_{em\ell},  \vb{N}_{em\ell'} \rangle_{\theta,\varphi}=&	\langle\vb{N}_{om\ell},  \vb{N}_{om\ell'} \rangle_{\theta,\varphi} \notag\\
+										=&\delta_\ell^{\ell'}\pi\frac{\ell(\ell+1)}{2\ell+1}\frac{(\ell+m)!}{(\ell-m)!}\left\{ \qty[\frac{z_\ell(\rho)}{\rho}]^2 \ell(\ell+1)+
+										   \qty[\frac{1}{\rho}\dv{[\rho z_\ell (\rho)]}{\rho}]^2  \right\}
+		&\qquad \forall\, \ell, \ell',\, m.	\label{eq:NN}
+	\end{tcolorbox}
+
+
+\section{Expansión de una onda plana}
+	Sea una onda plana con longitud de onda $\lambda$, polarizada en la dirección $x$, y caracterizada por el campo eléctrico $\va{E}^i$ propagándose en la dirección $z$ en un medio con índice de refracción $n_m$. En la base de los vectores ortonormales polares la onda plana se escribe como
+	\begin{align}
+	\va{E}^i =& E_0 e^{ikz}\vu{e}_x \notag\\
+			 =& E_0 e^{ikr\cos\theta} \qty(\sin\theta\cos\varphi \vu{e}_r + 
+	\cos\theta\cos\varphi\vu{e}_ \theta-\sin\varphi\vu{e}_\varphi),\label{eq:OndaPlanaPolares}
+	\end{align}
+donde $E_0$ es la magnitud del campo eléctrico y $k=2\pi n_m/\lambda$. La expansión de la Ec. \eqref{eq:OndaPlanaPolares} en términos de los armónicos esféricos vectoriales [Ecs. \eqref{eq:AEV}] es
+	\begin{equation}
+	\va{E}^i = \sum_{m=0}^\infty\sum_{\ell=m}^\infty
+			\qty[B_{em\ell}\va{M}_{em\ell} + B_{om\ell}\va{M}_{om\ell} +
+				A_{em\ell}\va{N}_{em\ell} + A_{om\ell}\va{N}_{om\ell}].\label{eq:OndaPlanaAEV}
+	\end{equation}
+
+Con las expresiones de los armónicos esféricos vectoriales  [Ec. \eqref{eq:AEV}] y con sus relaciones de ortogonalidad se pueden calcular los coeficientes de la expansión de una onda plana en esta base [Ec. \eqref{eq:OndaPlanaAEV}]. Dado que en la componente radial hay dependencia con $\cos\varphi$, se sigue que $m=1$ al comparar con las expresiones de $\vb{N}_{em\ell}$ [Ec. \eqref{seq:Neml}] y $\vb{N}_{om\ell}$ [Ec. \eqref{seq:Noml}] ---únicos elementos con componente radial---, y además que $A_{om\ell}=0$ pues $\vb{N}_{om\ell}$ es proporcional a $\sin\varphi$ en esta componente. Asimismo, por la dependencia con $\sin\varphi$ en la componente  $\vu{e}_\varphi$, $B_{em\ell}=0$ pues $\vb{M}_{em\ell}$ es proporcional a $\cos\varphi$ en dicha entrada. \\
+
+La onda plana no tiene ninguna divergencia, por lo que se escoge $z_\ell = j_\ell$. Esto se denota en los armónicos esféricos vectoriales con el superíndice (1). Se escribe entonces a la onda plana como
+	\begin{equation}
+	\vb{E}^i = \sum_{\ell=1}^\infty \qty[B_{o1\ell}\vb{M}_{o1\ell}^{(1)} + A_{e1\ell}\vb{N}_{e1\ell}^{(1)}],
+	\end{equation}
+con
+%
+	\begin{align}
+	B_{o1\ell} = \frac{\langle \vb{E}^i, \vb{M}_{o1\ell}^{(1)}  \rangle_{\theta,\varphi}}
+						{\langle \vb{M}_{o1\ell}^{(1)} ,\vb{M}_{o1\ell}^{(1)} \rangle}_{\theta,\varphi},\notag\\
+	A_{e1\ell} = \frac{\langle \vb{E}^i, \vb{N}_{e1\ell}^{(1)} \rangle_{\theta,\varphi}}
+						{\langle \vb{N}_{e1\ell}^{(1)},\vb{N}_{e1\ell}^{(1)} \rangle}_{\theta,\varphi}						.
+	\end{align}
+%
+Empleando la Ec. \eqref{eq:MM} con $m=1$, se calcula el denominador del coeficiente $B_{o1\ell}$, como
+	\begin{equation}
+			\langle \vb{M}_{o1\ell}^{(1)} ,\vb{M}_{o1\ell}^{(1)} \rangle_{\theta,\varphi} = \pi \frac{[j_\ell(\rho) \ell(\ell+1)]^2}{2\ell+1},
+			\label{eq:MMm=1}
+	\end{equation}
+y con la Ec. \eqref{seq:Moml} y la Ec. \eqref{eq:OndaPlanaPolares} se calcula
+	\begin{align}
+		\langle \vb{E}^i, \vb{M}_{o1\ell}^{(1)}  \rangle_{\theta,\varphi} 
+			=& \frac{E_0 \pi}{2} j_\ell(\rho) \int_0^\pi \qty(\cos\theta P_\ell^1(\cos\theta)+\sin\theta \dv{P_\ell^1(\cos\theta)}{\theta})e^{i\rho\cos\theta}\dd\theta,\notag\\
+			=& \frac{E_0 \pi}{2} j_\ell(\rho) \int_0^\pi \dv{\theta}\qty[\sin\theta P_\ell^1(\cos\theta)]e^{i\rho\cos\theta}\dd\theta. \label{eq:EiM_1}
+	\end{align}
+Considerando la relación entre las funciones asociadas de Legendre y los polinomios de Legendre [Ec. \eqref{eq:Legendre}] con $m=1$, se cumple que $P_\ell^1(\mu)=-\dd P_\ell(\mu)/\dd\theta$. Además, los polinomios de Legendre cumplen con la Ec. \eqref{eq:Theta} con $m=0$, es decir,
+	\begin{equation*}
+	\dv{\theta}\qty[\sin\theta \dv{P_\ell(\cos\theta)}{\theta}] = - \ell(\ell+1)P_\ell(\cos\theta) \sin\theta,
+	\end{equation*}
+por lo que la Ec. \eqref{eq:EiM_1} es
+	\begin{align}
+	\langle \vb{E}^i, \vb{M}_{o1\ell}^{(1)}  \rangle_{\theta,\varphi}
+			 = & \frac{E_0 \pi}{2} j_\ell(\rho) \int_0^\pi -\dv{\theta}\qty[\sin\theta \dv{P_\ell(\cos\theta)}{\theta}]e^{i\rho\cos\theta}\dd\theta\notag\\
+			  = & \frac{E_0 \pi}{2} j_\ell(\rho) \ell(\ell+1)\int_0^\pi P_\ell(\cos\theta)\sin\theta e^{i\rho\cos\theta}\dd\theta.\label{eq:EiM_2}
+	\end{align}
+La generalización de las integrales de Poisson de Gegenbauer  relaciona a los polinomios de Legendre con la función esférica de Bessel de primer tipo mediante la relación
+	\begin{equation*}
+	j_\ell(\rho) = \frac{1}{2i^\ell}\int_0^\pi P_\ell(\cos\theta)\sin\theta e^{i\rho\cos\theta}\dd\theta,
+	\end{equation*}
+por lo que la Ec. \eqref{eq:EiM_2} se reescribe como
+	\begin{equation}
+	\langle \vb{E}^i, \vb{M}_{o1\ell}^{(1)}  \rangle_{\theta,\varphi}
+			=  E_0 \pi [j_\ell(\rho)]^2 \ell(\ell+1) i^\ell.\label{eq:EiM}
+	\end{equation}
+Calculando el cociente de la Ec.  \eqref{eq:EiM} con \eqref{eq:MMm=1}, se calcula el coeficiente $B_{o1\ell}$, dado por la expresión
+	\begin{equation}
+	B_{o1\ell} = i^\ell  E_0 \frac{ (2\ell+1)}{\ell(\ell+1)}.
+	\end{equation}
+
+El denominador del coeficiente $A_{e,1,\ell}$, empleando la Ec. \eqref{eq:NN}, es
+	\begin{equation}
+	\langle \vb{N}_{e1\ell}^{(1)},\vb{N}_{e1\ell}^{(1)} \rangle_{\theta,\varphi} 
+				= \pi \frac{[\ell(\ell+1)]^2}{2\ell+1} 
+				\left\{ \qty[\frac{z_\ell(\rho)}{\rho}]^2 \ell(\ell+1)+  \qty[\frac{1}{\rho}\dv{[\rho z_\ell (\rho)]}{\rho}]^2  \right\}
+	\end{equation}
+{\color{red}\textbf{Falta calcular el numerador del coeficiente}}
+Al emplear las Ecs. \eqref{eq:MM} y \eqref{eq:NN} con $m=1$, y las condiciones de ortogonalidad de los armónicos esféricos vectoriales, se calcula la expresión de la onda plana en una base esférica, dada por
+	\begin{subequations}
+	\begin{equation}
+	\vb{E}^i = E_0 \sum_{\ell =1}^\infty i^\ell \frac{2\ell+1}{\ell(\ell+1)}\qty(\vb{M}_{o1\ell}^{(1)}-i\vb{N}_{e1\ell}^{(1)}).
+	\label{eqs:EiAEV}
+	\end{equation}
+El campo magnético incidente se calcula empleando la Ley de Farady-Lenz [Ec. \eqref{seq:FLArm}], cuyo resultado es
+	\begin{equation}
+	\vb{H}^i =\frac{-k_m}{\omega\mu_m} \sum_{\ell =1}^\infty  E_\ell\qty(\vb{M}_{e1\ell}^{(1)}+i\vb{N}_{o1\ell}^{(1)}),
+	\label{eqs:HiAEV}
+	\end{equation}\label{eq:EHiAEV}
+	\end{subequations}
+con $E_\ell = E_0 i^\ell (2\ell+1)/[\ell(\ell+1)]$.

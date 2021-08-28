@@ -1,0 +1,234 @@
+%!TeX root = ../main.tex
+
+\section{ Matriz de amplitud de esparcimiento}
+
+	\begin{figure}[h!]\centering
+	\tdplotsetmaincoords{60}{110}
+	\pgfmathsetmacro{\rvec}{1. 3}
+	\pgfmathsetmacro{\thetavec}{30}
+	\pgfmathsetmacro{\varphivec}{60}
+\begin{tikzpicture}[scale=3.5,tdplot_main_coords]
+%draw the NP
+%	\draw[tdplot_screen_coords,ball color=yellow, opacity = 1] (0,0,0) circle (.05);
+%	\draw[tdplot_screen_coords, color=yellow, opacity = 1] (0,0,0) circle (.05);
+\pgfmathsetseed{3}
+\draw[tdplot_screen_coords, ball color=yellow, opacity = 1,scale =.1]
+	 plot [smooth cycle, samples=8,domain={1:8}]
+     (\x*360/8+5*rnd:0.5cm+1cm*rnd) node at (0,0) {};
+\pgfmathsetseed{3}    
+\draw[tdplot_screen_coords, color=yellow, opacity = 1,scale =.1]
+	 plot [smooth cycle, samples=8,domain={1:8}]
+     (\x*360/8+5*rnd:0.5cm+1cm*rnd) node at (0,0) {};
+%set up some coordinates 
+	\coordinate (O) at (0,0,0);
+
+%determine a coordinate (P) using (r,\theta,\varphi) coordinates.   This command
+%also determines (Pxy), (Pxz), and (Pyz): the xy-, xz-, and yz-projections
+%of the point (P). 
+%syntax: \tdplotsetcoord{Coordinate name without parentheses}{r}{\theta}{\varphi}
+	\tdplotsetcoord{P}{\rvec}{\thetavec}{\varphivec}
+
+%draw figure contents
+%--------------------
+%draw the main coordinate system axes
+	\draw[thick,- latex] (0,0,0) -- (1. 5,0,0) node[anchor=north east]{$x$};
+	\draw[thick,- latex] (0,0,0) -- (0,1. 5,0) node[anchor=north west]{$y$};
+	\draw[thick,- latex] (0,0,0) -- (0,0,1. 5) node[anchor=south]{$z$};
+
+%draw the main cartesian vector system 
+	\draw[thick,- latex, blue] (0,0,0) -- (1,0,0) node[anchor= south east]{$\vu{e}_x$};
+	\draw[thick,- latex, blue] (0,0,0) -- (0,1,0) node[anchor=north west]{$\vu{e}_y$};
+	\draw[thick,- latex, blue] (0,0,0) -- (0,0,1) node[anchor= east]{$\vu{e}_z$};
+
+%draw a vector from origin to point (P) 
+	\draw[thick,color=green, - latex] (O) -- (P);
+	\node at (1,. 5,1. 1) {\color{green} $\vb{r}$};
+
+%draw projection on xy plane, and a connecting line
+	\draw[dashed, color=green] (O) -- (Pxy);
+	\draw[dashed, color=green] (P) -- (Pxy);
+	\fill[green, opacity = .3] (O) --(Pxy)-- (P)--(O);
+	\draw[- latex, tdplot_screen_coords,green](.42,.2)--(.8,.2);
+	\node[tdplot_screen_coords] at (1.35,.2) {\color{green}\small Plano de esparcimiento};
+
+
+%draw the angle \varphi, and label it
+	%syntax: \tdplotdrawarc[coordinate frame, draw options]{center point}{r}{angle}{label options}{label}
+	\tdplotdrawarc[- latex]{(O)}{0. 5}{0}{\varphivec}{anchor=south}{$\varphi$}
+
+
+%set the rotated coordinate system so the x'-y' plane lies within the
+	%"theta plane" of the main coordinate system
+	%syntax: \tdplotsetthetaplanecoords{\varphi}
+	\tdplotsetthetaplanecoords{\varphivec}
+
+%draw theta arc and label, using rotated coordinate system
+	\tdplotdrawarc[tdplot_rotated_coords, - latex]{(0,0,0)}{0. 45}{0}{\thetavec}{anchor=north}{$\theta$}
+
+%draw some dashed arcs, demonstrating direct arc drawing
+	\draw[dashed,tdplot_rotated_coords] (\rvec,0,0) arc (0:90:\rvec);
+	\draw[dashed] (\rvec,0,0) arc (0:90:\rvec);
+
+%set the rotated coordinate definition within display using a translation
+%coordinate and Euler angles in the "z(\alpha)y(\beta)z(\gamma)" euler rotation convention
+%syntax: \tdplotsetrotatedcoords{\alpha}{\beta}{\gamma}
+	\tdplotsetrotatedcoords{\varphivec}{\thetavec}{0}
+
+%translate the rotated coordinate system
+%syntax: \tdplotsetrotatedcoordsorigin{point}
+	\tdplotsetrotatedcoordsorigin{(P)}
+
+%use the tdplot_rotated_coords style to work in the rotated, translated coordinate frame
+	\draw[thick,tdplot_rotated_coords,- latex, purple] (0,0,0) -- (. 3,0,0) node[anchor=north west]{{\color{orange}$\vu{e}_\theta,$}$\vu{e}_{\parallel}^s$};
+	\draw[thick,tdplot_rotated_coords,- latex,orange] (0,0,0) -- (0,. 3,0) node[anchor=west]{$\vu{e}_\varphi$};
+	\draw[thick,tdplot_rotated_coords,- latex,purple] (0,0,0) -- (0,-. 3,0) node[anchor= north west]{$\vu{e}_{\perp}^s$};
+	\draw[thick,tdplot_rotated_coords,- latex, orange] (0,0,0) -- (0,0,. 3) node[anchor=south]{$\vu{e}_r$ };
+
+
+
+%set the rotated coordinate definition within display using a translation
+%coordinate and Euler angles in the "z(\alpha)y(\beta)z(\gamma)" euler rotation convention
+%syntax: \tdplotsetrotatedcoords{\alpha}{\beta}{\gamma}
+	\tdplotsetrotatedcoords{\varphivec}{0}{0}
+
+%translate the rotated coordinate system
+%syntax: \tdplotsetrotatedcoordsorigin{point}
+	\tdplotsetrotatedcoordsorigin{(Pxy)}
+
+	\draw[thick,tdplot_rotated_coords,- latex, purple] (0,0,0) -- (. 3,0,0) node[anchor= west]{$\vu{e}_{\parallel}^i$};
+	\draw[thick,tdplot_rotated_coords,- latex, blue] (0,0,0) -- (0,0,. 3) node[anchor= west]{$\vu{e}_z$};	
+	\draw[thick,tdplot_rotated_coords,- latex, purple] (0,0,0) -- (0,-. 3,0) node[anchor= north west]{$\vu{e}_{\perp}^i$};
+
+
+
+% Plane Wave
+	\foreach \i in {-7,...,-2}{
+		\draw[thick,tdplot_screen_coords,red, - latex] (\i/10,0,0)--(\i/10,1,0);}
+	\node[tdplot_screen_coords] at (-4.5/10,1.1,0){\color{red}$\vb{k}_i$};
+	\node[tdplot_screen_coords] at (-4.5/10,-.1,0){\small \color{red}Haz incidente};
+\end{tikzpicture}
+%
+\caption{Diagrama del plano de esparcimiento (en verde) definido por el vector $\vb{r}$, posición donde se evalúan los campos EMs, y el vector $\vu{e}_z$, cuando una onda plana monocromática propagándose en dirección $z$ (en rojo) ilumina a una partícula arbitraria.  La base cartesiana para vectores se muestra en azul, mientras que la base esférica se muestra en negro.  Las direcciones paralelas $\parallel$ y perpendiculares $\perp$ al plano de incidencia  para el campo eléctrico incidente, denotado por el subíndice $i$ y el esparcido, denotado por el subíndice $s$, se muestran en morado; el haz incidente se muestra en rojo.}\label{fig:PlanoEsparcimiento}
+	\end{figure}	
+
+Para  el estudio del esparcimiento por una partícula arbitraria inmersa en un medio con índice de refracción $n_m$, denominado  matriz, se considera que la partícula es iluminada por una onda plana monocromática con una longitud de onda $\lambda$, cuya dirección de propagación define la dirección $z$, es decir,
+	\begin{align}
+	\vb{E}^i = (E_x^i \vu{e}_x + E_y^i \vu{e}_y)e^{i(k z - \omega t)},
+	\label{eq:Exyi}
+	\end{align}
+donde $k = 2\pi n_m /\lambda$ es el número de onda. En la Fig.  \ref{fig:PlanoEsparcimiento} se muestra  una partícula localizada en el origen,  iluminada por una onda plana monocromática [Ec. \eqref{eq:Exyi}] que se propaga en la dirección $z$; sobre la partícula se posiciona el origen del sistema coordenado cartesiano ($x,y,z$). Adicionalmente, en la Fig. \ref{fig:PlanoEsparcimiento} se muestran en las bases de vectores ortonormales retangulares \{$\vu{e}_x,\vu{e}_y,\vu{e}_z$\} en azul, y los polares \{$\vu{e}_r,\vu{e}_\theta,\vu{e}_\varphi$\} en naranja. De forma análoga al plano de incidencia\footnote{En el problema de un haz de luz incidente a una superficie plana, el plano de incidencia se define por el vector normal a
+la superficie y la dirección de propagación del haz.}, se construye el plano de esparcimiento (en verde en la Fig. \ref{fig:PlanoEsparcimiento}), con el vector de la dirección de esparcimiento $\vu{e}_r$ y la dirección del haz incidente $\vu{e}_z$, que define las componentes ortogonales $\perp$ y paralelas $\parallel$ de los campos EMs, así como su polarización. \index{Plano!de esparcimiento} \index{Polarización!respecto al plano de esparcimiento} Los vectores unitarios perpendicular y paralelo al plano de esparcimiento de la onda plana incidente, $\vu{e}_{\perp}^i$  y $\vu{e}_{\parallel}^i$, respectivamente se muestran en morado en la Fig. \ref{fig:PlanoEsparcimiento} y están dados por%
+\begin{subequations} \index{Polarización!respecto al plano de esparcimiento!paralela ($\parallel$)}\index{Polarización!respecto al plano de esparcimiento!perpendicular ($\perp$)}
+%
+	\begin{align}
+	\vu{e}_{\perp}^i &=- \vu{e}_\varphi  = \sin\varphi\,\vu{e}_x - \cos\varphi\,\vu{e}_y, \\
+	\vu{e}_{\parallel}^i &= \cos\varphi\,\vu{e}_x + \sin\varphi\,\vu{e}_y,\\
+	\vu{e}_z &= \cos\varphi\vu{e}_x+\sin\varphi\vu{e}_y.
+		\end{align}
+	\label{eqs:vecInc}\end{subequations}
+%
+Asimismo, los vectores unitarios de los campos electromagnéticos (EMs) esparcidos por la partícula en la dirección perpendicular y paralela al campo de esparcimiento, $\vu{e}^s_\perp$ y $\vu{e}^s_\parallel$, son
+%	
+	\begin{subequations}\begin{align}
+	\vu{e}_{\perp}^s &= - \vu{e}_\varphi = \vu{e}_{\perp}^i,\\
+	\vu{e}_{\parallel}^s &= \vu{e}_\theta,\\
+	\vu{e}_r &= \vu{e}_\perp^s\times\vu{e}_\parallel^s.
+	\end{align}	\label{eqs:vecScat}\end{subequations}
+%
+Al despejar $\vu{e}_x$ y $\vu{e}_y$  de las Ecs. \eqref{eqs:vecInc} y reescribirlos en la base de los vectores unitarios en la dirección perpendicular y normal al plano de esparcimiento, como $\vu{e}_x = \sin\varphi\,\vu{e}_{\perp}^i + \cos\varphi\,\vu{e}_{\parallel}^i$ y $\vu{e}_y = - \cos\varphi \,\vu{e}_{\perp}^i + \sin\varphi\,\vu{e}_{\parallel}^i$, se obtiene que el campo eléctrico incidente $\vb{E}^i$ [Ec. \eqref{eq:Exyi}] se puede escribir como
+%
+\begin{align}
+\vb{E}^i &= [(\cos\varphi E_{x}^i + \sin\varphi E_{y}^i)\vu{e}_{\perp}^i +
+			 (\sin\varphi E_{x}^i - \cos\varphi E_{y}^i)\vu{e}_{\parallel}^i]
+			 e^{ikz}
+			 \label{eq:EIncidenteFull} \\
+			 &= E_{\perp}^i  \vu{e}_{\perp}^i + E_{\parallel}^i\vu{e}_{\parallel}^i,
+		\label{eq:EIncidente}
+\end{align}
+%
+en donde se omite el término de la fase temporal $e^{-i\omega t}$ y la fase espacial $e^{ikz}$ se incluye en los coficientes $E_\perp^i$ y $E_\parallel^i$. 
+
+En el problema de esparcimiento por una partícula, la cantidad que se mide experimentalmente es la
+intensidad de la luz, que es una cantidad proporcional al vector de Poynting [Ec. \eqref{eq:poynting}] en la región de campo lejano, es decir que las expresiones de los campos EMs se calculan considerando $kr\gg 1$. Para calcular a los campos EMs producidos por una fuente oscilante en la región de campo lejano, consideremos el potencial vectorial $\vb{A}(\vb{r},t)$ con la norma de Lorentz \footnote{Ver sección 9.1 de \cite{jackson1999electrodynamics}.} dado por la expresión
+%
+\begin{align}
+\vb{A}(\vb{r},t) = \frac{\mu_0}{4\pi}\int_{V'}\vb{J}(\vb{r}')\frac{e^{ik\norm{\vb{r}-\vb{r}'}}}{\norm{\vb{r}-\vb{r}'}} \dd^3r'e^{-i\omega t},
+ \label{eq:AFuenteOscilante}
+\end{align}
+%
+y a su vez, los campos $\vb{H}$ y $\vb{E}$, que asumimos armónicos en el tiempo, están dados por
+%
+\begin{align}
+\vb{H} &= \frac{1}{\mu_0}\nabla\times\vb{A},
+\label{eq:H=curlA}\\
+\vb{E} &= \frac{i}{k}\sqrt{\frac{\mu_0}{\varepsilon_0}}\nabla\times\vb{H}.
+\label{eq:E=curlcurlA}
+\end{align}
+%
+Dado que nos interesa la región del espacio tal que $kr\gg 1$, entonces $\norm{\vb{r}-\vb{r}'}\approx r-\vu{e}_r\cdot\vb{r}'\approx r$. Sustituyendo este resultado en la Ec. \eqref{eq:AFuenteOscilante}, obtenemos que
+%
+\begin{align}
+\vb{A}(\vb{r},t) &\approx \frac{\mu_0}{4\pi}\frac{e^{ikr}}{r}\int_{V'}\vb{J}(\vb{r}')\dd^3r'\\
+		&=  \frac{\mu_0}{4\pi}\frac{e^{ikr}}{r}\qty[
+			\int_{V'}-\vb{r}'\bigg(\nabla'\cdot\vb{J}(\vb{r}')\bigg)\dd^3r'	+\int_{ V'}\nabla'\cdot\bigg(\vb{J}(\vb{r}')\vb{r}'\bigg)\dd^2r'],\\
+		&= \frac{\mu_0}{4\pi}\frac{e^{ikr}}{r}\qty[
+			\int_{V'}-\vb{r}'\bigg(\nabla'\cdot\vb{J}(\vb{r}')\bigg)\dd^3r'	+\int_{\partial V'}\bigg(\vb{J}(\vb{r}')\vb{r}'\bigg)\cdot\vu{n}\dd^2r'],
+\label{eq:AintEspFrontera}
+\end{align}
+%
+donde realizamos una integración por partes y empleamos el teorema de la divergencia. Si consideramos nuestro volumen de integración como todo el espacio, y dado que nuestra fuentes de un tamaño finito, la integral de superficie en la Ec.\eqref{eq:AintEspFrontera} es cero. Finalmente,  sustituyendo con la ecuación de continuidad ($\nabla\cdot\vb{J} = i\omega\rho$, con $\rho$ la densidad de carga) podemos escribir el potencial vectorial como 
+%
+\begin{align}
+\vb{A}(\vb{r},t)  \approx -\frac{i\mu_0\omega}{4\pi}\frac{e^{ikr}}{r}\vb{p},\qquad
+\text{con}\qquad \vb{p} = \int_{V'}\vb{r}'\rho(\vb{r}')\dd^3r',
+\label{eq:Aoscilante}
+\end{align}
+%
+en donde $\vb{p}$ es el momento dipolar.
+
+Al emplear la Ec. \eqref{eq:Aoscilante} para calcular el campo magnético con la Ec. \eqref{eq:H=curlA} (\ref{ex:Hoscilante}) obtenemos que
+%
+\begin{align}
+\vb{H} = \frac{ck^2}{4\pi}\frac{e^{ikr}}{r}\qty(1-\frac{1}{ikr})\vu{e}_r\times\vb{p}.
+\label{eq:Hoscilante}
+\end{align}
+%
+El campo eléctrico se calcula empleando la Ec. \eqref{eq:E=curlcurlA} con el resultado de la Ec. \eqref{eq:Hoscilante}; tras una manipulación algebráica (\ref{ex:Eoscilante}) podemos reescribir al campo eléctrico en una contribución de campo lejano (que decae como $r^{-1}$) y de campo cercano (que decae como $r^{-n}$ con $n\geq 2$) como \cite{jackson1999electrodynamics} como
+%
+\begin{align}
+\vb{E} = \frac{e^{ikr}}{4\pi\varepsilon_0}\qty[
+\mathrlap{\underbrace{\phantom{\frac{k^2}{r}\qty(\vu{e}_r\times\vb{p})\times\vu{e}_r }}_{\text{Campo lejano}}}
+\frac{k^2}{r}\qty(\vu{e}_r\times\vb{p})\times\vu{e}_r
++
+\mathrlap{\underbrace{\phantom{[3\vu{e}_r\qty(\vu{e}_r\cdot\vb{p})-\vb{p}]\qty(\frac{1}{r^3}-\frac{ik}{r^2})}}_{\text{Campo cercano}}}
+[3\vu{e}_r\qty(\vu{e}_r\cdot\vb{p})-\vb{p}]\qty(\frac{1}{r^3}-\frac{ik}{r^2})
+].
+\label{eq:Eoscilante}
+\end{align}
+%
+
+Al considerar para el campo eléctrico esparcido  $\vb{E}^s$ únicamente los términos que corresponden al campo lejano de la Ec. \eqref{eq:Eoscilante}, el campo esparcido cumple con que $kr\ll 1$, además de ser transversal a la dirección de propagación. Por lo tanto, el campo esparcido puede escribirse como \cite{bohren1998absorption}\index{Electromagnéticos!campos!lejano} 
+%
+	\begin{align}
+	\vb{E}^{sca} \propto \frac{e^{ikr}}{-ikr}\vb{E}_0^{sca}
+			=  \frac{e^{ikr}}{-ikr}
+			\qty( E_{\perp}^s  \vu{e}_{\perp}^s + E_{\parallel}^s \vu{e}_{\parallel}^s), \label{eq:ELejano}
+	\end{align}
+%	
+en donde  $\vb{E_0}^{sca}$ es la amplitud del campo esparcido,  $ E_{\perp}^s$ y  $ E_{\parallel}^s$ sus componentes en la base de los vectores paralelo y perpendicular al plano de esparcimiento [Ec. \eqref{eqs:vecScat}]. Asimismo, es posible relacionar al campo eléctrico esparcido $\vb{E}^{sca}$ por una partícula localizada en el centro de coordenadas  [Ec. \eqref{eq:ELejano}] con el  campo eléctrico incidente $\vb{E}^i$ [Ec. \eqref{eq:EIncidente}],  mediante el operador de esparcimiento de campo lejano  $\mathbb{F}(\vu{k}^i,\vu{k}^s)$ \index{Electromagnéticos!campos!operador de campo lejano} \cite{tsang2000scattering}
+%
+	\begin{align}
+	\vb{E}^{sca} = \frac{e^{i\vb{k}^{s}\cdot\vb{r}}}{r}\mathbb{F}(\vu{k}^i,\vu{k}^{s})\vb{E}^i,
+	\label{eq:FarFieldDyadic}
+	\end{align}
+%	
+donde $\mathbb{F}$ depende de la dirección de la onda plana incidente $\vu{k}^i$ y de la dirección del campo eléctrico esparcido $\vu{k}^{s}$. El operador $\mathbb{F}$ denota que, en general, el campo esparcido puede tener una polarización distinta a la de la onda plana incidente y también puede tener una fase distinta. Al considerar la forma asintótica del campo eléctrico esparcido [Ec. \eqref{eq:ELejano}] y su relación con el campo eléctrico incidente [Ec. \eqref{eq:FarFieldDyadic}], se pueden relacionar las componentes perpendiculares del campo esparcido y el campo incidente de una onda plana en la base de los vectores perpendiculares y paralelos al plano de incidencia mediante la matriz de amplitud esparcimiento $\mathbb{S}$ \index{Esparcimiento!matriz de} \cite{bohren1998absorption}
+%
+	\begin{tcolorbox}[title = Matriz de amplitud de esparcimiento $\mathbb{S}$, ams align ]
+\mqty(E_{\parallel}^s\\E_{\perp}^s) = 
+		\frac{e^{ik(r-z)}}{-ikr} \mqty(S_2&S_3\\S_4&S_1)
+	\mqty(E_{\parallel}^i\\E_{\perp}^i),\label{eq:MEsparcimientoGral}		
+	\end{tcolorbox} 
+%
+\noindent
+en donde los elementos de matriz $S_j = S_j(\theta,\varphi)$ con $j=1,2,3$ y $4$, son funciones complejas que dependen de la geometría de la partícula iluminada por la onda plana.
