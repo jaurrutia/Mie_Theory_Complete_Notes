@@ -7,7 +7,7 @@ Como parte de un seminarios dedicado a la solución de Mie, basado en el libro d
 ---
 ## Presunto temario
 
-1. Conceptos de electromagnetismo (Isabel)
+1. Conceptos de electromagnetismo (Isabel y Lalo)
 2. Teoría general de esparcimiento (Jonathan)
   - Reredactar teorema óptico (Jonathan)
 3. Armónicos esféricos vectoriales (Jonathan y Eduardo)
@@ -45,7 +45,7 @@ De forma general hay que corregir el lenguaje y homogeneizarlo; lo mismo con la 
 
 2. Partícula esférica
     - [x] Armónicos vectoriales (generales)
-    - [ ] Escribir el vector piloto no como constante, sino como el radio-vector $\vec{r}$ (lo tengo en las notas de mi tesis, ntp)
+    - [x] Escribir el vector piloto no como constante, sino como el radio-vector $\vec{r}$ (lo tengo en las notas de mi tesis, ntp)
     - [x] Solución completa de la función generadora de los armónicos esféricos vectoriales
     - [x] Todas las relaciones de ortogonalidad (con desarrollo) de los armónicos esféricos vectoriales
     - [x] Cálculo del coeficiente B_{o1\ell} de la onda plana
