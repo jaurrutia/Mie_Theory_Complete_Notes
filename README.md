@@ -7,7 +7,7 @@ A student-edited text in spanish on Mie Theory with computational examples
 **Project status: Draft**
 
 ## Abot this project
-The Mie Theory is the solution proposed by Gustav Mie in 1908 [[1](1)] to the problem of the light acattering and absorption by an arbitrary spherical particle. Physics students at the [Science Faculty](http://www.fciencias.unam.mx/), [National Autonomous University of Mexico](http://english.unam.mx/) participated on a Mie Theory Seminar organized by the [Nanoplasmonics Group](http://sistemas.fciencias.unam.mx/~coronado/index.php) and based mainly on [[2](2)]. As a byproduct of this seminar, some students started their own notes  and shared them with the rest of the participants. **We want to materialized this work on a student-edited book in spanish due to the lack of material in this language.**
+The Mie Theory is the solution to the problem of light scattering and absorption by an arbitrary spherical particle developed by Gustav Mie in 1908 [[1](1)]. Physics students at the [Science Faculty](http://www.fciencias.unam.mx/), [National Autonomous University of Mexico](http://english.unam.mx/) participated in a Mie Theory Seminar organized by the [Nanoplasmonics Group](http://sistemas.fciencias.unam.mx/~coronado/index.php), which was  mainly based on the book written by [Bohren & Hoffman](2). As a byproduct of this seminar, some students started their own notes, as well as some computational programs, and shared them with the rest of the participants. **We want to revisit this notes and codes to write a student-edited book in spanish** due to the lack of material of this topic in this language.
 
 #### Writting tools
 Draft directory: [Draft_Teoria_de_Mie_LaTeX](/Draft_Teoria_de_Mie_LaTeX)
@@ -19,13 +19,16 @@ Draft directory: [Draft_Teoria_de_Mie_LaTeX](/Draft_Teoria_de_Mie_LaTeX)
 #### Coding tools: Wolfram Language & Jupyter Lab
 Codes directory: [Mathematica_Mie_JupyerNotebooks](/Mathematica_Mie_JupyerNotebooks)
 
-A common language used by the collaborators of this project is the Wolfram Language. To make the content of the developed codes accessible to anyone, even without a Wolfram Language License, we recently started using the Wolfram Language in the Jupyter Lab notebooks. Note that you need Jupyter Lab installed beforehand.
+A common language used by the collaborators of this project is the Wolfram Language. To make the content of the developed codes accessible to anyone, even without a Wolfram Language License, we recently started using the Wolfram Language in the Jupyter Lab notebooks.
 
 If you are interested in this implementation please visit
 - [Wolfram Language for Jupyter](https://github.com/WolframResearch/WolframLanguageForJupyter), a Wolfram Research project
 - [Mathematica for poor Undergrads](https://www.davecwright.org/post/mathematica_jupyter/), an installation guide
 - [How to install and configurate Wolfram Engine, SetReplace and Jupyter in 4 steps](https://www.youtube.com/watch?v=C9B88AI5DMY&t), video in spanish
 
+Note that you need Jupyter Lab installed beforehand.
+
+![Dipolar resonanse](/Mathematica_Mie_JupyerNotebooks/0.- Cálculos/1.- Gifs/Ne11/Ne11_crop.gif)
 
 ---
 ## For the collaborators (In spanish)
@@ -83,4 +86,4 @@ Labores faltantes sin asignación para la escritura del borrador
 ---
 ## References
 - [1] [G. Mie, "Beiträge zur Optik trüber Medien, speziell kolloidaler Metallösungen," _Ann. Phys._ 330, 377–445 (1908).](https://onlinelibrary.wiley.com/doi/epdf/10.1002/andp.19083300302)
-- [2] [C.F. Bohren y D. R. Huffman. _Absorption and scattering of light by small particles._ John Wiley & Sons, 1908.](https://books.google.com.mx/books/about/Absorption_and_Scattering_of_Light_by_Sm.html?id=ib3EMXXIRXUC&redir_esc=y)
+- [2] [C.F. Bohren and D. R. Huffman. _Absorption and scattering of light by small particles._ John Wiley & Sons, 1908.](https://books.google.com.mx/books/about/Absorption_and_Scattering_of_Light_by_Sm.html?id=ib3EMXXIRXUC&redir_esc=y)
