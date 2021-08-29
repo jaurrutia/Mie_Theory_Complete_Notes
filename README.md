@@ -28,7 +28,7 @@ If you are interested in this implementation please visit
 
 Note that you need Jupyter Lab installed beforehand.
 
-![Dipolar resonanse](/Mathematica_Mie_JupyterNotebooks/0.- Cálculos/1.- Gifs/Ne11/Ne11_crop.gif)
+![Dipolar resonanse](/Mathematica_Mie_JupyterNotebooks/0-Calculos/1-Gifs/Ne11/Ne11_crop.gif )
 
 ---
 ## For the collaborators (In spanish)
