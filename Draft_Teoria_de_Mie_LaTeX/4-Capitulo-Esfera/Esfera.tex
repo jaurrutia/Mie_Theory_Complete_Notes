@@ -1,0 +1,206 @@
+%!TeX root = ../main.tex
+
+La teoría de Mie \cite{bohren1998absorption} es la solución exacta propuesta por Gustav Mie en 1908 a las ecuaciones de Maxwell en el problema de esparcimiento debido a una onda electromágnetica monocromática y plana por una nanopartícula esférica de radio $a$. Se plantean dos regiones divididas por la superficie de la nanopartícula: dentro de ella se trata de un material sólido, homogéneo e isótropo del que está hecha y fuera de ella un medio que la rodea (matriz). Así pues, las condiciones de frontera que deben cumplir los campos eléctrico $\vb{E}$ y magnético $\vb{H}$ son
+
+%
+	\begin{align}
+	(\vb{E}_{\text{in}}-\vb{E}_{\text{out}})|_{r=a}\times\vb{\hat{n}}&=0,\label{eq:Cond-frontE}\\
+	(\vb{H}_{\text{in}}-\vb{H}_{\text{out}})|_{r=a}\times\vb{\hat{n}}&=0,
+	\label{eq:Cond-frontH}
+	\end{align}
+%
+
+donde los subíndices ``in'' y ``out'' refieren a los campos en las regiones interior y exterior (respecto a la superfice de la nanopartícula) respectivamente. Las Ecs. \eqref{eq:Cond-frontE} y \eqref{eq:Cond-frontH} significan continuidad en la componente paralela a la superficie que, por la simetría esférica del problema, es considerar $\vb{\hat{n}}=\vb{\hat{e}_r}$. A su vez, el campo externo $\vb{E}_{\text{ext}}$ se compone por la superposicion de dos campos electromagnéticos: el incidente a la nanopartícula $\vb{E}_{\text{inc}}$ y el esparcido por ésta $\vb{E}_{\text{scat}}$. Así
+%
+	\begin{align}
+	(\vb{E}_{\text{inc}}+\vb{E}_{\text{scat}}-\vb{E}_{\text{in}})\times\vb{\hat{e}_r}&=0,\label{eq:Cond-EsfE}\\
+	(\vb{H}_{\text{inc}}+\vb{H}_{\text{scat}}-\vb{E}_{\text{in}})\times\vb{\hat{e}_r}&=0.
+	\label{eq:Cond-EsfH}
+	\end{align}
+%
+
+Tal como se calculó en el capítulo anterior, los campos eléctrico y magnético de la onda incidente cumplen con la ecuación de Helmholtz cuyas soluciones, resolviendo en la base esférica de los armónicos esféricos vectoriales, se presentan en las Ecs. \eqref{eq:EHiAEV}. El objetivo es calcular una solución para el campo esparcido e interno de la nanopartícula de la forma en que se presenta el incidente. Para ello, se propone una relación que permita la proporcionalidad entre estos teniendo cuidado en la solución radial, ya que para la región dentro de la nanopartícula la solución se caracteriza por la función esférica de bessel $j_l$ por no diverger en el origen (y así físicamente aceptable). Siendo el campo dentro de la nanopartícula
+
+\begin{align}
+\vb{E} &= \sum_{\ell =1}^\infty E_{\ell}\qty(c_{\ell}\vb{M}_{o1\ell}^{(1)}-id_{\ell}\vb{N}_{e1\ell}^{(1)}),\\
+\vb{H}^i &= -\frac{k}{\omega\mu}\sum_{\ell =1}^\infty E_{\ell}\qty(d_{\ell}\vb{M}_{e1\ell}^{(1)}+ic_{\ell}\vb{N}_{o1\ell}^{(1)}),
+\end{align}
+
+donde, tal como en las expresiones \eqref{eq:EHiAEV} del campo incidente , el superíndice (1) denota que se empleta $j_l$ para la solución radial. Mientras que para el campo esparcido la solución debe considerar que tanto $j_l$ como $y_l$ representan soluciones físicamente aceptables (no divergen en esta región del espacio). Para esto se emplean las funciones esféricas de Hankel $h_l^{(1)}$ y $h_l^{(2)}$, que que en su límite asintótico ($\ell<<kr$), son
+
+\begin{align*}
+h_l^{(1)}(k_mr)&\approx-i^{\ell}\frac{e^{ik_mr}}{ik_mr},\\
+h_l^{(2)}(k_mr)&\approx-i^{\ell}\frac{e^{-ik_mr}}{ik_mr},
+\end{align*}
+
+por lo que $h_{\ell}^{(1)}$ corresponde a una onda esférica saliente y $h_{\ell}^{(2)}$ una entrante. Dado que el campo esparcido es una onda saliente de la nanopartícula, se emplea $h_{\ell}^{(1)}$ como solución a la parte radial. Entonces, el campo esparcido es
+
+
+\begin{align}
+\vb{E}_{\text{scat}} &= \sum_{\ell =1}^\infty E_{\ell}\qty(ia_{\ell}\vb{N}_{e1\ell}^{(3)}-b_{\ell}\vb{M}_{o1\ell}^{(3)}),\\
+\vb{H}_{\text{scat}} &= -\frac{k_m}{\omega\mu_m}\sum_{\ell =1}^\infty E_{\ell}\qty(ib_{\ell}\vb{N}_{o1\ell}^{(3)}+a_{\ell}\vb{M}_{e1\ell}^{(3)}),
+\end{align}
+
+donde en \eqref{Eq6.8} se debe hacer el cambio en los armónicos esféricos vectoriales $k\rightarrow k_i$. Imponiendo las condiciones de frontera \eqref{Eq6.2} y las definiciones de los AEV dadas por las ecs. \eqref{Eq5.6} junto con la independencia lineal de las funciones de las que se compone, se obtiene el sistema de ecuaciones
+
+\begin{subequations}
+\begin{align}
+j_l(ka)+t_{l,m}^M h_l^{(+)}(ka)&=s_l^M j_l(k_i a)	\\
+\frac{1}{ka}\frac{d}{da}[aj_l(ka)]+t_{l,m}^E\frac{1}{ka}\frac{d}{da}[ah_l^{(+)}(ka)]&=s_l^E\frac{1}{ka}\frac{d}{da}[aj_l(k_i a)]	\\
+\frac{n}{\mu}j_l(ka)+\frac{n}{\mu}t_{l,m}^E h_{l,m}^{(+)}(ka)&=\frac{n_i}{\mu_i}s_{l,m}^Ej_l(k_i a)	\\
+\frac{n}{\mu}\frac{1}{ka}\frac{d}{da}[aj_l(ka)]+\frac{n}{\mu}t_{l,m}^M\frac{1}{ka}\frac{d}{da}[ah_l^{(+)}(ka)]&=\frac{n_i}{\mu_i}s_{l,m}^M\frac{1}{k_i a}\frac{d}{da}[aj_l(k_ia)]
+\end{align}
+\label{Eq6.9}
+\end{subequations}
+
+Definiendo el parámetro de tamaño $x=ka$ y el índice de refracción relativo $N=n_i/n$, se tiene que
+
+\begin{equation}
+\begin{aligned}
+\frac{d}{da}&=\frac{dx}{da}\frac{d}{dx}=k\frac{d}{dx}\\
+k_ia&=Nka=Nx
+\end{aligned}
+\end{equation}
+
+de modo que se cumplen las siguientes relaciones
+
+\begin{subequations}
+\begin{align}
+\frac{d}{dx}[\nu j_l(Nx)]&=Nx j'_l(Nx)+j_l(Nx)	\\
+N\frac{d}{d(Nx)}[x j_l(Nx)]&=Nx j'_l(Nx)+Nj_l(Nx)\frac{1}{N}	\\
+\frac{d}{d(Nx)}[Nx j_l(Nx)]&=Nx j'_l(Nx)+j_l(Nx)
+\end{align}
+\end{subequations}
+
+más aún, en las ecs. \eqref{Eq6.9} no hay dependencia en el subíndice $m$, por lo que está de más contemplarlo en los coeficientes $t$ y $s$. Así el sistema de ecuaciones pasa a ser
+
+\begin{subequations}
+\begin{align}
+j_l(x)+t_l^M h_l^{(+)}(x)						&=	s_l^M j_l(Nx)	\label{Eq6.12a}\\
+N[xj_l(x)]'+N	t_l^E	[xh_l^{(+)}(x)]'	&=	s_l^E[Nx j_l(Nx)]'	\label{Eq6.12b}	\\
+\mu_i j_l(x)+\mu_i t_l^E h_l^{(+)}(x)	&= 	\mu N s_l^E j_l(Nx)	\label{Eq6.12c}	\\
+\mu_i [x j_l(x)]'+\mu_i t_l^M [x h_l^{(+)}(x)]	&=\mu s_l^M [Nx j_l(Nx)]'	\label{Eq6.12d}
+\end{align}
+\label{Eq6.12}
+\end{subequations}
+
+Resolviendo el sistema \eqref{Eq6.12} para $t_l^E$, $t_l^M$, $s_l^E$ y $s_l^M$. Comenzando con despejar $s_l^M$ de \eqref{Eq6.12a} y \eqref{Eq6.12d}
+
+\begin{subequations}{
+\begin{align}
+s_l^M	&=\frac{j_l(x)+t_l^M h_l^{(+)}(x)}{j_l(Nx)}	\\
+s_l^M	&=\frac{\mu_i [x j_l(x)]'+\mu_i t_l^M [x h_l^{(+)}(x)]'}{\mu [Nx j_l(Nx)]'}
+\end{align}
+entonces
+
+\begin{align}
+\mu [Nx j_l(Nx)]'[j_l(x)+t_l^M h_l^{(+)}(x)]&=j_l(Nx)\left\{\mu_i[x j_l(x)]'+\mu_i t_l^M [x h_l^{(+)}(x)]'\right\}	\\
+\mu j_l(x)[Nx j_l(Nx)]'+t_l^M \mu h_l^{(+)}(x)[Nx j_l(Nx)]'&=\mu_i j_l(Nx)[x j_l(x)]'+t_l^M\mu_i j_l(Nx)[x h_l^{(+)}(x)]'	\\
+t_l^M\left\{\mu h_l^{(+)}(x)[Nx j_l(Nx)]'-\mu_i j_l(Nx)[x h_l^{(+)}(x)]'\right\}&=\mu_i j_l(Nx)[x j_l(x)]'-\mu j_l(x)[Nx j_l(Nx)]'
+\end{align}
+
+por tanto
+
+\begin{equation}
+t_l^M=\frac{\mu_i j_l(Nx)[x j_l(x)]'-\mu j_l(x)[Nx j_l(Nx)]'}{\mu h_l^{(+)}(x)[Nx j_l(Nx)]'-\mu_i j_l(Nx)[x h_l^{(+)}(x)]'}
+\end{equation}
+}\label{Eq6.13}
+\end{subequations}
+
+Despejando $s_l^E$ de \eqref{Eq6.12b} y \eqref{Eq6.12c}
+
+\begin{subequations}{
+\begin{align}
+s_l^E	&=\frac{N[x j_l(x)]'+N t_l^E [x h_l^{(+)}(x)]'}{[Nx j_l(Nx)]'}	\\
+s_l^E	&=\frac{\mu_i j_l(x)+\mu_i t_l^E h_l^{(+)}(x)}{\mu Nj_l(Nx)}
+\end{align}
+
+entonces
+
+\begin{align}
+\mu N j_l(Nx)\left\{N[x j_l(x)]'+N t_l^E [x h_l^{(+)}(x)]'\right\}&=[Nx j_l(Nx)]'[\mu_i j_l(x)+\mu_i t_l^E h_l^{(+)}(x)]	\\
+\mu N^2j_l(Nx)[x j_l(x)]'+t_l^E\mu N^2 j_l(Nx)[x h_l^{(+)}(x)]'&=\mu_ij_l(x)[Nx j_l(Nx)]'+t_l^E\mu_ih_l^{(+)}(x)[Nx j_l(Nx)]'	\\
+t_l^E\left\{\mu N^2 j_l(Nx)[x h_l^{(+)}(x)]'-\mu_ih_l^{(+)}(x)[Nx j_l(Nx)]'\right\}&=\mu_ij_l(x)[Nx j_l(Nx)]'-\mu N^2j_l(Nx)[x j_l(x)]'
+\end{align}
+
+y por ello
+
+\begin{equation}
+t_l^E=\frac{\mu_ij_l(x)[Nx j_l(Nx)]'-\mu N^2j_l(Nx)[x j_l(x)]'}{\mu N^2 j_l(Nx)[x h_l^{(+)}(x)]'-\mu_ih_l^{(+)}(x)[Nx j_l(Nx)]'}
+\end{equation}}
+\label{Eq6.14}
+\end{subequations}
+
+Despejando $t_l^M$ de \eqref{Eq6.12a} y \eqref{Eq6.12d}
+
+\begin{subequations}{
+\begin{align}
+t_l^M	&=\frac{s_l^Mj_l(Nx)-j_l(x)}{h_l^{(+)}(x)}	\\
+t_l^M	&=\frac{\mu s_l^M[Nx j_l(Nx)]'-\mu_i [x j_l(x)]'}{\mu_i [x h_l^{(+)}(x)]'}
+\end{align}
+
+igualando éstas expresiones
+
+\begin{align}
+\mu_i [x h_l^{(+)}(x)]'[s_l^Mj_l(Nx)-j_l(x)]	&=h_l^{(+)}(x)\left\{\mu s_l^M[Nx j_l(Nx)]'-\mu_i [x j_l(x)]'\right\}	\\
+s_l^M\mu_i j_l(Nx)[x h_l^{(+)}(x)]'-\mu_i j_l(x)[x h_l^{(+)}(x)]' &=s_l^M \mu h_l^{(+)}(x)[Nx j_l(Nx)]'-\mu_i h_l^{(+)}(x) [x j_l(x)]'	\\
+s_l^M\left\{\mu_i j_l(Nx)[x h_l^{(+)}(x)]'-\mu h_l^{(+)}(x)[Nx j_l(Nx)]'\right\}	&=\mu_i j_l(x)[x h_l^{(+)}(x)]'-\mu_i h_l^{(+)}(x) [x j_l(x)]'
+\end{align}
+
+siendo así
+
+\begin{equation}
+s_l^M=\frac{\mu_i j_l(x)[x h_l^{(+)}(x)]'-\mu_i h_l^{(+)}(x) [x j_l(x)]'}{\mu_i j_l(Nx)[x h_l^{(+)}(x)]'-\mu h_l^{(+)}(x)[Nx j_l(Nx)]'}
+\end{equation}}
+\label{Eq6.15}
+\end{subequations}
+
+Finalmente, despejando $t_l^E$ de \eqref{Eq6.12b} y \eqref{Eq6.12c}
+
+\begin{subequations}{
+
+\begin{align}
+t_l^E		&=\frac{s_l^E[Nx j_l(Nx)]'-N[x j_l(x)]'}{N[x h_l^{(+)}(x)]'}	\\
+t_l^E		&=\frac{\mu N s_l^E j_l(Nx)-\mu_i j_l(x)}{\mu_i h_l^{(+)}(x)}
+\end{align}
+
+con lo que
+
+\begin{align}
+\mu_i h_l^{(+)}(x)\left\{s_l^E[Nx j_l(Nx)]'-N[x j_l(x)]'\right\}	&=N[x h_l^{(+)}(x)]'[\mu N s_l^E j_l(Nx)-\mu_i j_l(x)]	\\
+s_l^E \mu_i h_l^{(+)}(x)[Nx j_l(Nx)]'-\mu_i Nh_l^{(+)}(x)[x j_l(x)]'	&=s_l^E \mu N^2 j_l(Nx)[x h_l^{(+)}(x)]'-\mu_i N j_l(x)[x h_l^{(+)}(x)]'	\\
+s_l^E\left\{\mu_i h_l^{(+)}(x)[Nx j_l(Nx)]'-\mu N^2 j_l(Nx)[x h_l^{(+)}(x)]'\right\}	&=\mu_i Nh_l^{(+)}(x)[x j_l(x)]'	-\mu_i N j_l(x)[x h_l^{(+)}(x)]'	
+\end{align}
+
+y por lo tanto
+
+\begin{equation}
+s_l^E=\frac{\mu_i Nh_l^{(+)}(x)[x j_l(x)]'	-\mu_i N j_l(x)[x h_l^{(+)}(x)]'}{\mu_i h_l^{(+)}(x)[Nx j_l(Nx)]'-\mu N^2 j_l(Nx)[x h_l^{(+)}(x)]'}
+\end{equation}}
+\label{Eq6.16}
+\end{subequations}
+
+Simplificando las los resultados de \eqref{Eq6.13}, \eqref{Eq6.14}, \eqref{Eq6.15} y \eqref{Eq6.16} por medio de las funciones de Ricatti-Bessel
+
+\begin{subequations}
+\begin{align}
+\psi_l(\rho)	&=\rho j_l(\rho)	\\
+\xi_l(\rho)	&=\rho h_l^{(+)}(\rho)
+\end{align}
+\end{subequations}
+
+obtenemos pues los coeficientes $t_l^M$, $t_l^E$, $s_l^M$ y $s_l^E$
+
+\begin{equation}\tcboxmath[colback=cyan!5!white,colframe=cyan!75!black]{
+\begin{aligned}
+t_l^E		&=-\frac{\mu_i \psi_l(x)\psi'_l(Nx)-\mu N \psi_l(Nx)\psi'_l(x)}{\mu_i \xi_l(x)\psi'_l(Nx)-\mu N \psi_l(Nx)\xi'_l(x)}	\\
+t_l^M	&=-\frac{\mu N \psi_l(x)\psi'_l(Nx)-\mu_i \psi_l(Nx)\psi'_l(x)}{\mu N \xi_l(x)\psi'_l(Nx)-\mu_i \psi_l(Nx)\xi'_l(x)}
+\end{aligned}}
+\end{equation}
+
+\begin{equation}\tcboxmath[colback=cyan!5!white,colframe=cyan!75!black]{
+\begin{aligned}
+s_l^E	&=\frac{\mu_i N\xi_l(x)\psi'_l(x)-\mu_i N\psi_l(x)\xi'_l(x)}{\mu_i \xi_l(x)\psi'_l(Nx)-\mu N\psi_l(Nx)\xi'_l(x)}	\\
+s_l^M	&=\frac{\mu_i N\xi_l(x)\psi'_l(x)-\mu_i N\psi_l(x)\xi'_l(x)}{\mu N\xi_l(x)\psi'_l(Nx)-\mu_i\psi_l(Nx)\xi'_l(x)}
+\end{aligned}}
+\end{equation}
