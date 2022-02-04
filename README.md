@@ -25,6 +25,7 @@ If you are interested in this implementation please visit
 - [Wolfram Language for Jupyter](https://github.com/WolframResearch/WolframLanguageForJupyter), a Wolfram Research project
 - [Mathematica for poor Undergrads](https://www.davecwright.org/post/mathematica_jupyter/), an installation guide
 - [How to install and configurate Wolfram Engine, SetReplace and Jupyter in 4 steps](https://www.youtube.com/watch?v=C9B88AI5DMY&t), video in spanish
+- [Install the Wolfram Engine](https://support.wolfram.com/46072), Installation of the Wolfram Engine in Linux
 
 Note that you need Jupyter Lab installed beforehand.
 
